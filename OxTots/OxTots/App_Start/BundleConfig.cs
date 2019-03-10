@@ -18,6 +18,7 @@ namespace OxTots
                         "~/Scripts/slick.min.js",
                         "~/Scripts/parallaxie.js",
                         "~/Scripts/smoothscroll.min.js",
+                        "https://maps.googleapis.com/maps/api/js?key=AIzaSyAfQAitaAFcbjL3bS5IQk4ESCLVV3H5fms",
                         "~/Scripts/main.js",
                         "~/Scripts/Site.js"
                 ));
@@ -35,7 +36,7 @@ namespace OxTots
                       "~/Content/slick.css",
                       "~/Content/slick-theme.css",
                       "~/Content/style.css",
-                      "~/Content/site.css"));
+                      "~/Content/Site.css"));
         }
     }
 }
