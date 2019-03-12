@@ -1,0 +1,577 @@
+﻿@{
+    ViewBag.Title = "title";
+}
+
+<!-- Listing Area Start Here -->
+<section class="full-width-container inner-page-top-margin bg--accent">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="col-xl-7">
+                <div class="listing-box-wrap-layout1">
+                    <div class="filter-box-layout1">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="input-group stylish-input-group">
+                                    <input type="text" placeholder="cafe, shoppingmall, beauty &amp; spa ..."
+                                           class="form-control" name="website" id="form-website" data-error="Search text required"
+                                           required>
+                                    <span class="input-group-addon">
+                                        <button type="submit">
+                                            <i class="flaticon-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="input-group stylish-input-group">
+                                    <input type="email" placeholder="Type here city or locaion" class="form-control"
+                                           name="email" id="form-email" data-error="Category name is required"
+                                           required>
+                                    <span class="input-group-addon">
+                                        <button type="submit">
+                                            <i class="flaticon-placeholder"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <input type="text" class="form-control rt-date" placeholder="Date" name="date"
+                                           id="form-date" data-error="Subject field is required" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <i class="far fa-clock"></i>
+                                    <input type="text" class="form-control rt-time" placeholder="Time" name="time"
+                                           id="form-time" data-error="Subject field is required" required />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group">
+                                    <select class="select2" name="filter-by">
+                                        <option value="0">Short By</option>
+                                        <option value="1">Newest</option>
+                                        <option value="2">Top Sell</option>
+                                        <option value="3">Top Rated</option>
+                                        <option value="4">Price High</option>
+                                        <option value="5">Low Price</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-sorting-wrap">
+                        <div class="row">
+                            <div class="col-sm-6 col-12 d-flex align-items-center">
+                                <div class="item-sorting-title">
+                                    Showing 0 - 8 of 62
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-12 d-flex align-items-center justify-content-sm-end">
+                                <div class="layout-switcher">
+                                    <ul>
+                                        <li class="active">
+                                            <a class="product-view-trigger" href="#" data-type="listing-box-grid">
+                                                <i class="fa fa-th-large"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-type="listing-box-list" class="product-view-trigger">
+                                                <i class="fa fa-list"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="listing-view" class="listing-box-grid">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="product-box">
+                                    <div class="item-img bg--gradient-50">
+                                        <div class="item-status status-open active">Open</div>
+                                        <div class="item-status status-save">Save 15%</div>
+                                        <img src="/Images/listing/listing-1-1.jpg" alt="Listing" class="img-fluid grid-view-img">
+                                        <img src="/Images/listing/listing-1-2.jpg" alt="Listing" class="img-fluid list-view-img">
+                                        <ul class="item-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><span>8.4<span> / 10</span></span> </li>
+                                        </ul>
+                                        <div class="item-logo"><img src="/Images/listing/logo1.png" alt="Logo"></div>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title"><a href="#">Westfield Restaurant</a></h3>
+                                        <p class="item-paragraph">
+                                            Mountain Refuge Resort is the most ...
+                                        </p>
+                                        <ul class="contact-info">
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>59 Street, Mk tower,
+                                                Brooklyn
+                                            </li>
+                                            <li><i class="flaticon-phone-call"></i>+ 132 899 6330</li>
+                                            <li><i class="fas fa-globe"></i>www.restauant.com</li>
+                                        </ul>
+                                        <ul class="meta-item">
+                                            <li class="item-btn"><a href="#" class="btn-fill">Details</a></li>
+                                            <li class="ctg-name"><a href="#"><i class="flaticon-chef"></i>Restaurant</a></li>
+                                            <li class="entry-meta">
+                                                <ul>
+                                                    <li class="tooltip-item ctg-icon" data-tips="Restaurant">
+                                                        <a href="#"><i class="flaticon-chef"></i></a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="My Favourite">
+                                                        <a href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="Gallery">
+                                                        <a href="#">
+                                                            <i class="far fa-image"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="product-box">
+                                    <div class="item-img bg--gradient-50">
+                                        <div class="item-status status-open active">Open</div>
+                                        <div class="item-status status-save">Save 15%</div>
+                                        <img src="/Images/listing/listing-2-1.jpg" alt="Listing" class="img-fluid grid-view-img">
+                                        <img src="/Images/listing/listing-2-2.jpg" alt="Listing" class="img-fluid list-view-img">
+                                        <ul class="item-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><span>8.4<span> / 10</span></span> </li>
+                                        </ul>
+                                        <div class="item-logo"><img src="/Images/listing/logo2.png" alt="Logo"></div>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title"><a href="#">Westfield Restaurant</a></h3>
+                                        <p class="item-paragraph">
+                                            Mountain Refuge Resort is the most ...
+                                        </p>
+                                        <ul class="contact-info">
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>59 Street, Mk tower,
+                                                Brooklyn
+                                            </li>
+                                            <li><i class="flaticon-phone-call"></i>+ 132 899 6330</li>
+                                            <li><i class="fas fa-globe"></i>www.restauant.com</li>
+                                        </ul>
+                                        <ul class="meta-item">
+                                            <li class="item-btn"><a href="#" class="btn-fill">Details</a></li>
+                                            <li class="ctg-name">
+                                                <a href="#">
+                                                    <i class="flaticon-coffee-cup"></i>Bar
+                                                    &amp; Cafe
+                                                </a>
+                                            </li>
+                                            <li class="entry-meta">
+                                                <ul>
+                                                    <li class="tooltip-item ctg-icon" data-tips="Bar &amp; Cafe">
+                                                        <a href="#"><i class="flaticon-coffee-cup"></i></a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="My Favourite">
+                                                        <a href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="Gallery">
+                                                        <a href="#">
+                                                            <i class="far fa-image"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="product-box">
+                                    <div class="item-img bg--gradient-50">
+                                        <div class="item-status status-open active">Open</div>
+                                        <div class="item-status status-save active">Save 15%</div>
+                                        <img src="/Images/listing/listing-3-1.jpg" alt="Listing" class="img-fluid grid-view-img">
+                                        <img src="/Images/listing/listing-3-2.jpg" alt="Listing" class="img-fluid list-view-img">
+                                        <ul class="item-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><span>8.4<span> / 10</span></span> </li>
+                                        </ul>
+                                        <div class="item-logo"><img src="/Images/listing/logo3.png" alt="Logo"></div>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title"><a href="#">Westfield Restaurant</a></h3>
+                                        <p class="item-paragraph">
+                                            Mountain Refuge Resort is the most ...
+                                        </p>
+                                        <ul class="contact-info">
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>59 Street, Mk tower,
+                                                Brooklyn
+                                            </li>
+                                            <li><i class="flaticon-phone-call"></i>+ 132 899 6330</li>
+                                            <li><i class="fas fa-globe"></i>www.restauant.com</li>
+                                        </ul>
+                                        <ul class="meta-item">
+                                            <li class="item-btn"><a href="#" class="btn-fill">Details</a></li>
+                                            <li class="ctg-name"><a href="#"><i class="flaticon-spa"></i>Spa</a></li>
+                                            <li class="entry-meta">
+                                                <ul>
+                                                    <li class="tooltip-item ctg-icon" data-tips="Beauty &amp; Spa">
+                                                        <a href="#"><i class="flaticon-spa"></i></a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="My Favourite">
+                                                        <a href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="Gallery">
+                                                        <a href="#">
+                                                            <i class="far fa-image"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="product-box">
+                                    <div class="item-img bg--gradient-50">
+                                        <div class="item-status status-open active">Open</div>
+                                        <div class="item-status status-save">Save 15%</div>
+                                        <img src="/Images/listing/listing-4-1.jpg" alt="Listing" class="img-fluid grid-view-img">
+                                        <img src="/Images/listing/listing-4-2.jpg" alt="Listing" class="img-fluid list-view-img">
+                                        <ul class="item-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><span>8.4<span> / 10</span></span> </li>
+                                        </ul>
+                                        <div class="item-logo"><img src="/Images/listing/logo4.png" alt="Logo"></div>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title"><a href="#">Westfield Restaurant</a></h3>
+                                        <p class="item-paragraph">
+                                            Mountain Refuge Resort is the most ...
+                                        </p>
+                                        <ul class="contact-info">
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>59 Street, Mk tower,
+                                                Brooklyn
+                                            </li>
+                                            <li><i class="flaticon-phone-call"></i>+ 132 899 6330</li>
+                                            <li><i class="fas fa-globe"></i>www.restauant.com</li>
+                                        </ul>
+                                        <ul class="meta-item">
+                                            <li class="item-btn"><a href="#" class="btn-fill">Details</a></li>
+                                            <li class="ctg-name"><a href="#"><i class="flaticon-supermarket"></i>Shopping</a></li>
+                                            <li class="entry-meta">
+                                                <ul>
+                                                    <li class="tooltip-item ctg-icon" data-tips="Shopping">
+                                                        <a href="#"><i class="flaticon-supermarket"></i></a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="My Favourite">
+                                                        <a href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="Gallery">
+                                                        <a href="#">
+                                                            <i class="far fa-image"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="product-box">
+                                    <div class="item-img bg--gradient-50">
+                                        <div class="item-status status-open active">Open</div>
+                                        <div class="item-status status-save active">Save 15%</div>
+                                        <img src="/Images/listing/listing-5-1.jpg" alt="Listing" class="img-fluid grid-view-img">
+                                        <img src="/Images/listing/listing-5-2.jpg" alt="Listing" class="img-fluid list-view-img">
+                                        <ul class="item-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><span>8.4<span> / 10</span></span> </li>
+                                        </ul>
+                                        <div class="item-logo"><img src="/Images/listing/logo5.png" alt="Logo"></div>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title"><a href="#">Westfield Restaurant</a></h3>
+                                        <p class="item-paragraph">
+                                            Mountain Refuge Resort is the most ...
+                                        </p>
+                                        <ul class="contact-info">
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>59 Street, Mk tower,
+                                                Brooklyn
+                                            </li>
+                                            <li><i class="flaticon-phone-call"></i>+ 132 899 6330</li>
+                                            <li><i class="fas fa-globe"></i>www.restauant.com</li>
+                                        </ul>
+                                        <ul class="meta-item">
+                                            <li class="item-btn"><a href="#" class="btn-fill">Details</a></li>
+                                            <li class="ctg-name"><a href="#"><i class="flaticon-musical-note"></i>Nightlife</a></li>
+                                            <li class="entry-meta">
+                                                <ul>
+                                                    <li class="tooltip-item ctg-icon" data-tips="Nightlife">
+                                                        <a href="#"><i class="flaticon-musical-note"></i></a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="My Favourite">
+                                                        <a href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="Gallery">
+                                                        <a href="#">
+                                                            <i class="far fa-image"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="product-box">
+                                    <div class="item-img bg--gradient-50">
+                                        <div class="item-status status-open active">Open</div>
+                                        <div class="item-status status-save">Save 15%</div>
+                                        <img src="/Images/listing/listing-6-1.jpg" alt="Listing" class="img-fluid grid-view-img">
+                                        <img src="/Images/listing/listing-6-2.jpg" alt="Listing" class="img-fluid list-view-img">
+                                        <ul class="item-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><span>8.4<span> / 10</span></span> </li>
+                                        </ul>
+                                        <div class="item-logo"><img src="/Images/listing/logo6.png" alt="Logo"></div>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title"><a href="#">Westfield Restaurant</a></h3>
+                                        <p class="item-paragraph">
+                                            Mountain Refuge Resort is the most ...
+                                        </p>
+                                        <ul class="contact-info">
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>59 Street, Mk tower,
+                                                Brooklyn
+                                            </li>
+                                            <li><i class="flaticon-phone-call"></i>+ 132 899 6330</li>
+                                            <li><i class="fas fa-globe"></i>www.restauant.com</li>
+                                        </ul>
+                                        <ul class="meta-item">
+                                            <li class="item-btn"><a href="#" class="btn-fill">Details</a></li>
+                                            <li class="ctg-name"><a href="#"><i class="flaticon-bed"></i>Hotel</a></li>
+                                            <li class="entry-meta">
+                                                <ul>
+                                                    <li class="tooltip-item ctg-icon" data-tips="Hotel">
+                                                        <a href="#">
+                                                            <i class="flaticon-bed"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="My Favourite">
+                                                        <a href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="Gallery">
+                                                        <a href="#">
+                                                            <i class="far fa-image"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="product-box">
+                                    <div class="item-img bg--gradient-50">
+                                        <div class="item-status status-open active">Open</div>
+                                        <div class="item-status status-save">Save 15%</div>
+                                        <img src="/Images/listing/listing-2-1.jpg" alt="Listing" class="img-fluid grid-view-img">
+                                        <img src="/Images/listing/listing-2-2.jpg" alt="Listing" class="img-fluid list-view-img">
+                                        <ul class="item-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><span>8.4<span> / 10</span></span> </li>
+                                        </ul>
+                                        <div class="item-logo"><img src="/Images/listing/logo2.png" alt="Logo"></div>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title"><a href="#">Westfield Restaurant</a></h3>
+                                        <p class="item-paragraph">
+                                            Mountain Refuge Resort is the most ...
+                                        </p>
+                                        <ul class="contact-info">
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>59 Street, Mk tower,
+                                                Brooklyn
+                                            </li>
+                                            <li><i class="flaticon-phone-call"></i>+ 132 899 6330</li>
+                                            <li><i class="fas fa-globe"></i>www.restauant.com</li>
+                                        </ul>
+                                        <ul class="meta-item">
+                                            <li class="item-btn"><a href="#" class="btn-fill">Details</a></li>
+                                            <li class="ctg-name">
+                                                <a href="#">
+                                                    <i class="flaticon-coffee-cup"></i>Bar
+                                                    &amp; Cafe
+                                                </a>
+                                            </li>
+                                            <li class="entry-meta">
+                                                <ul>
+                                                    <li class="tooltip-item ctg-icon" data-tips="Bar &amp; Cafe">
+                                                        <a href="#"><i class="flaticon-coffee-cup"></i></a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="My Favourite">
+                                                        <a href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="Gallery">
+                                                        <a href="#">
+                                                            <i class="far fa-image"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
+                                <div class="product-box">
+                                    <div class="item-img bg--gradient-50">
+                                        <div class="item-status status-open active">Open</div>
+                                        <div class="item-status status-save active">Save 15%</div>
+                                        <img src="/Images/listing/listing-3-1.jpg" alt="Listing" class="img-fluid grid-view-img">
+                                        <img src="/Images/listing/listing-3-2.jpg" alt="Listing" class="img-fluid list-view-img">
+                                        <ul class="item-rating">
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><span>8.4<span> / 10</span></span> </li>
+                                        </ul>
+                                        <div class="item-logo"><img src="/Images/listing/logo3.png" alt="Logo"></div>
+                                    </div>
+                                    <div class="item-content">
+                                        <h3 class="item-title"><a href="#">Westfield Restaurant</a></h3>
+                                        <p class="item-paragraph">
+                                            Mountain Refuge Resort is the most ...
+                                        </p>
+                                        <ul class="contact-info">
+                                            <li>
+                                                <i class="fas fa-map-marker-alt"></i>59 Street, Mk tower,
+                                                Brooklyn
+                                            </li>
+                                            <li><i class="flaticon-phone-call"></i>+ 132 899 6330</li>
+                                            <li><i class="fas fa-globe"></i>www.restauant.com</li>
+                                        </ul>
+                                        <ul class="meta-item">
+                                            <li class="item-btn"><a href="#" class="btn-fill">Details</a></li>
+                                            <li class="ctg-name"><a href="#"><i class="flaticon-spa"></i>Spa</a></li>
+                                            <li class="entry-meta">
+                                                <ul>
+                                                    <li class="tooltip-item ctg-icon" data-tips="Beauty &amp; Spa">
+                                                        <a href="#"><i class="flaticon-spa"></i></a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="My Favourite">
+                                                        <a href="#">
+                                                            <i class="fas fa-heart"></i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="tooltip-item" data-tips="Gallery">
+                                                        <a href="#">
+                                                            <i class="far fa-image"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="pagination-layout1">
+                            <li>
+                                <a href="#"><i class="flaticon-back"></i></a>
+                            </li>
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li>
+                                <a href="#">2</a>
+                            </li>
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+                            <li>
+                                <a href="#">4</a>
+                            </li>
+                            <li>
+                                <a href="#">5</a>
+                            </li>
+                            <li>
+                                <a href="#">6</a>
+                            </li>
+                            <li>
+                                <a href="#">7</a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="flaticon-right-arrow"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-5">
+                <div class="google-map-wrap-layout1">
+                    <iframe src="https://maps.google.com/maps?q=-37.81618%2C%20144.95692&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Listing Area End Here -->
