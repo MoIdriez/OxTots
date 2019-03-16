@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OxTots.Data;
+using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private SiteContext db = new SiteContext();
         public ActionResult Index()

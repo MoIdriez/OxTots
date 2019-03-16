@@ -1,9 +1,14 @@
-﻿<!DOCTYPE html>
+﻿@using OxTots.ViewModel
+@{
+    var viewModel = (LayoutViewModel) ViewBag.LayoutViewModel;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@viewModel.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -41,44 +46,20 @@
                         <div class="col-lg-7 col-12 possition-static">
                             <nav class="site-nav">
                                 <ul class="site-menu">
-                                    <li><a href="#">Search</a></li>
+                                    <li><a href="#">@viewModel.Search</a></li>
                                     <li>
-                                        <a href="#">Listing</a>
-                                        <!-- Automated
-        <ul class="dropdown-menu-col-1">
-            <li>
-                <a href="listing-grid-view1.html">Listing Grid View 1</a>
-            </li>
-            <li>
-                <a href="listing-grid-view2.html">Listing Grid View 2</a>
-            </li>
-            <li>
-                <a href="listing-grid-view3.html">Listing Grid View 3</a>
-            </li>
-            <li>
-                <a href="listing-grid-view4.html">Listing Grid View 4</a>
-            </li>
-            <li>
-                <a href="listing-grid-view5.html">Listing Grid View 5</a>
-            </li>
-            <li>
-                <a href="listing-list-view1.html">Listing List View 1</a>
-            </li>
-            <li>
-                <a href="listing-list-view2.html">Listing List View 2</a>
-            </li>
-            <li>
-                <a href="single-listing1.html">Listing Details 1</a>
-            </li>
-            <li>
-                <a href="single-listing2.html">Listing Details 2</a>
-            </li>
-        </ul>-->
+                                        <a href="#">@viewModel.Listing</a>
+                                        <ul class="dropdown-menu-col-1">
+                                            @foreach (var c in viewModel.Categories)
+                                            {
+                                                <li><a href="#">@c.GetDetails().Title</a></li>
+                                            }
+                                        </ul>
                                     </li>
-                                    <li><a href="#">Map</a></li>
-                                    <li><a href="#">Submission</a></li>
-                                    <li><a href="#">Contact</a></li>
-                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">@viewModel.Map</a></li>
+                                    <li><a href="#">@viewModel.Submission</a></li>
+                                    <li><a href="#">@viewModel.Contact</a></li>
+                                    <li><a href="#">@viewModel.AboutUs</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -98,14 +79,14 @@
                         <div class="single-item offset-lg-3 col-lg-3 col-md-6 col-12">
                             <div class="footer-box">
                                 <div class="footer-header">
-                                    <h3>Privacy</h3>
+                                    <h3>@viewModel.Link1</h3>
                                 </div>
                             </div>
                         </div>
                         <div class="single-item col-lg-3 col-md-6 col-12">
                             <div class="footer-box">
                                 <div class="footer-header">
-                                    <h3>Cookies</h3>
+                                    <h3>@viewModel.Link2</h3>
                                 </div>
                             </div>
                         </div>
