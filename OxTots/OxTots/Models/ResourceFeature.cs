@@ -5,7 +5,7 @@ using System.Web;
 
 namespace OxTots.Models
 {
-    public class CategoryViewModel
+    public class ResourceFeature
     {
     }
 }

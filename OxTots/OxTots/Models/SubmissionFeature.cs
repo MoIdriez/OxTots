@@ -5,7 +5,7 @@ using System.Web;
 
 namespace OxTots.Models
 {
-    public class ResourceViewModel
+    public class SubmissionFeature
     {
     }
 }
