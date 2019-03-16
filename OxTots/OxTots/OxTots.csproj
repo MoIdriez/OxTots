@@ -136,7 +136,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CategoryDetail.cs" />
     <Compile Include="Models\Contact.cs" />
+    <Compile Include="Models\Feature.cs" />
+    <Compile Include="Models\FeatureDetail.cs" />
+    <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Page.cs" />
+    <Compile Include="Models\Resource.cs" />
+    <Compile Include="Models\ResourceDetail.cs" />
+    <Compile Include="Models\ResourceFeature.cs" />
+    <Compile Include="Models\Submission.cs" />
+    <Compile Include="Models\SubmissionFeature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,12 +5,12 @@ using System.Web;
 
 namespace OxTots.Models
 {
-    public class ResourceFeature
+    public class FeatureDetail
     {
         public int ID { get; set; }
-        public virtual Resource Resource { get; set; }
+        public virtual Language Language { get; set; }
         public virtual Feature Feature { get; set; }
 
-        public bool Enabled { get; set; }
+        public string Title { get; set; }
     }
 }
