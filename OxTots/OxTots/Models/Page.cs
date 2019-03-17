@@ -20,8 +20,10 @@
         public string LayoutFooterLink2Description { get; set; }
 
         public string HomeSearch { get; set; }
+        public string HomeSearchError { get; set; }
         public string HomeTitle { get; set; }
         public string HomeDescription { get; set; }
+        public string HomeCategoriesText { get; set; }
 
         public string SearchTitle { get; set; }
         public string SearchDescription { get; set; }
@@ -57,6 +59,6 @@
 
 
         public virtual Language Language { get; set; }
-
+        
     }
 }

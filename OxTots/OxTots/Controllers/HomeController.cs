@@ -4,16 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OxTots.Data;
+using OxTots.Models;
+using OxTots.Utility;
 using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
     public class HomeController : BaseController
     {
-        private SiteContext db = new SiteContext();
         public ActionResult Index()
         {
-            return View(db.Contacts.ToList());
+            var page = db.Pages.GetPage();
+            var categories = db.Categories;
+            var markers = categories.GetMarkers();
+            var model = new HomeViewModel
+            {
+                SearchPlaceHolder = page.HomeSearch,
+                SearchError = page.HomeSearchError,
+                CategoriesText = page.HomeCategoriesText,
+                Title = page.HomeTitle,
+                Description = page.HomeDescription,
+                Categories = categories.ToList(),
+                Markers = markers
+            };
+            return View(model);
         }
 
         public ActionResult About()

@@ -1,6 +1,7 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@{ ViewBag.Title = "Home Page"; }
+@using System.Web.Script.Serialization
+@using OxTots.Utility
+@model OxTots.ViewModel.HomeViewModel
 
 <!-- Main Banner Area Start Here -->
 <section class="main-banner-wrap-layout1 bg-common overlay-dark-30 bg--gradient-top-30" data-bg-image="/Images/figure/site-main-figure1.jpg">
@@ -9,8 +10,8 @@
             <div class="row category-search-form">
                 <div class="form-items col-12">
                     <div class="input-group stylish-input-group">
-                        <input type="text" placeholder="What are you looking for?" class="form-control"
-                               name="website" id="form-website" data-error="Search text required" required>
+                        <input type="text" placeholder="@Model.SearchPlaceHolder" class="form-control"
+                               name="website" id="form-website" data-error="@Model.SearchError" required>
                         <span class="input-group-addon">
                             <button type="submit">
                                 <i class="flaticon-search"></i>
@@ -21,32 +22,16 @@
                 </div>
             </div>
             <ul class="item-ctg">
+                @foreach (var c in Model.Categories)
+                {
                 <li>
-                    <a class="item-icon" href="listing-grid-view1.html"><i class="flaticon-chef"></i></a>
-                    <a href="listing-grid-view1.html" class="ctg-title">Restaurant</a>
+                    @{ var cd = c.GetDetail(); }
+                    <a class="item-icon" href="@Url.Action("Index", "Category", new {c.ID}, null)"><i class="@c.Icon"></i></a>-->
+                    <a href="listing-grid-view1.html" class="ctg-title">@cd.Title</a>
                 </li>
-                <li>
-                    <a class="item-icon" href="listing-grid-view1.html"><i class="flaticon-dish"></i></a>
-                    <a href="listing-grid-view1.html" class="ctg-title">Food</a>
-                </li>
-                <li>
-                    <a class="item-icon" href="listing-grid-view1.html"><i class="flaticon-supermarket"></i></a>
-                    <a href="listing-grid-view1.html" class="ctg-title">Shoppping</a>
-                </li>
-                <li>
-                    <a class="item-icon" href="listing-grid-view1.html"><i class="flaticon-musical-note"></i></a>
-                    <a href="listing-grid-view1.html" class="ctg-title">Nightclub</a>
-                </li>
-                <li>
-                    <a class="item-icon" href="listing-grid-view1.html"><i class="flaticon-coffee-cup"></i></a>
-                    <a href="listing-grid-view1.html" class="ctg-title">Coffee Bar</a>
-                </li>
-                <li>
-                    <a class="item-icon" href="listing-grid-view1.html"><i class="flaticon-hotel"></i></a>
-                    <a href="listing-grid-view1.html" class="ctg-title">Hotel</a>
-                </li>
+                }
                 <li class="d-none d-lg-block">
-                    <p>Or Browse The Categories</p>
+                    <p>@Model.CategoriesText</p>
                     <div class="item-img">
                         <img src="/Images/figure/arrow.png" alt="Arrow">
                     </div>
@@ -60,12 +45,14 @@
 <section class="feature-wrap-layout1 padding-top-9p6 padding-bottom-7 bg--light">
     <div class="container">
         <div class="section-heading heading-dark heading-center">
-            <h2 class="item-title">Some Awesome Title</h2>
-            <div class="item-sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.</div>
+            <h2 class="item-title">@Model.Title</h2>
+            <div class="item-sub-title">@Model.Description</div>
             
         </div>
     </div>
     <div class="container-fluid">
+        @{ var js = new JavaScriptSerializer();}
+        <div id="googleMapData" type="hidden" value="@js.Serialize(Model.Markers)"></div>
         <div id="googleMap" class="HomeGoogleMap col-12"></div>
     </div>
 </section>

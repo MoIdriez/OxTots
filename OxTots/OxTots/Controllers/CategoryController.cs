@@ -9,7 +9,7 @@ namespace OxTots.Controllers
     public class CategoryController : Controller
     {
         // GET: Category
-        public ActionResult Index()
+        public ActionResult Index(int id)
         {
             return View();
         }

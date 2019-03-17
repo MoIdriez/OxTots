@@ -1,4 +1,5 @@
-﻿@using OxTots.ViewModel
+﻿@using OxTots.Utility
+@using OxTots.ViewModel
 @{
     var viewModel = (LayoutViewModel) ViewBag.LayoutViewModel;
 }
@@ -52,7 +53,10 @@
                                         <ul class="dropdown-menu-col-1">
                                             @foreach (var c in viewModel.Categories)
                                             {
-                                                <li><a href="#">@c.GetDetails().Title</a></li>
+                                                <li>
+                                                    @{ var cd = c.GetDetail(); }
+                                                    @Html.ActionLink(cd.Title, "Index", "Category", new { c.ID }, null)
+                                                </li>
                                             }
                                         </ul>
                                     </li>

@@ -150,7 +150,10 @@
     <Compile Include="Models\Submission.cs" />
     <Compile Include="Models\SubmissionFeature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\ConvenienceFunctions.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LayoutViewModel.cs" />
+    <Compile Include="ViewModel\MarkerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate.min.css" />

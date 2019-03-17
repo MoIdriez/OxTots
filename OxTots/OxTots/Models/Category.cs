@@ -8,16 +8,17 @@ namespace OxTots.Models
 {
     public class Category
     {
+        public Category()
+        {
+            CategoryDetails = new HashSet<CategoryDetail>();
+            Resources = new HashSet<Resource>();
+        }
         public int ID { get; set; }
         public string Name { get; set; }
+        public byte[] Image { get; set; }
+        public string Icon { get; set; }
 
-        public ICollection<CategoryDetail> CategoryDetails { get; set; }
-
-        public CategoryDetail GetDetails()
-        {
-            var cc = CultureInfo.CurrentCulture;
-            var cd = CategoryDetails.FirstOrDefault(c => c.Language.CountryCode == cc.Name);
-            return cd ?? CategoryDetails.First(c => c.Language.CountryCode == "en");
-        }
+        public virtual ICollection<CategoryDetail> CategoryDetails { get; set; }
+        public virtual ICollection<Resource> Resources { get; set; }
     }
 }
