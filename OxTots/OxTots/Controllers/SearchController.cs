@@ -13,26 +13,34 @@ namespace OxTots.Controllers
         // GET: Search
         public ActionResult Index()
         {
-            var page = db.Pages.GetPage();
-            var categories = db.Categories;
-            var markers = categories.GetMarkers();
-            var model = new SearchViewModel
-            {
-                Title = page.SearchTitle,
-                Description = page.SearchDescription,
-                SearchPlaceHolder = page.SearchPlaceHolder,
-                SearchError = page.SearchError,
-                NoResultsFound = page.SearchNoResultsFound,
-                Markers = markers,
-                Results = new List<SearchResultViewModel>()
-            };
             base.SetHeaderDark();
+            var model = Search("");
             return View(model);
         }
 
         public ActionResult Query(string q)
         {
-            return View("Index");
+            base.SetHeaderDark();
+            var model = Search(q);
+            return View("Index", model);
+        }
+
+        public SearchViewModel Search(string q)
+        {
+            var page = db.Pages.GetPage();
+            var categories = db.Categories;
+            var markers = categories.GetMarkers(q);
+            var results = categories.GetSearch(q);
+            return new SearchViewModel
+            {
+                Title = page.SearchTitle,
+                Description = page.SearchDescription,
+                SearchPlaceHolder = page.SearchPlaceHolder,
+                SearchError = page.SearchError,
+                ResultsFound = page.ResultsFound,
+                Markers = markers,
+                Results = results
+            };
         }
     }
 }

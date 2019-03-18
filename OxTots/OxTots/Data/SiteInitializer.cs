@@ -46,7 +46,7 @@ namespace OxTots.Data
                 SearchNotFound = "SearchNotFound",
                 SearchPlaceHolder = "SearchPlaceHolder",
                 SearchError = "SearchError",
-                SearchNoResultsFound = "SearchNoResultsFound",
+                ResultsFound = "Results found",
 
                 SubmissionTitle = "SubmissionTitle",
                 SubmissionDescription = "SubmissionDescription",
@@ -179,7 +179,9 @@ namespace OxTots.Data
                     Phone = "Phone",
                     Email = "Email",
                     Website = "Website",
-                    Category = categories.First()
+                    Category = categories.First(),
+                    Image = "/Images/listing/listing-1-1.jpg",
+                    Icon = "/Images/map-marker.png"
                 },
                 new Resource
                 {
@@ -190,7 +192,9 @@ namespace OxTots.Data
                     Phone = "Phone",
                     Email = "Email",
                     Website = "Website",
-                    Category = categories.First()
+                    Category = categories.First(),
+                    Image = "/Images/listing/listing-1-1.jpg",
+                    Icon = "/Images/map-marker.png"
                 },
                 new Resource {
                     Name = "Resource 3",
@@ -200,7 +204,9 @@ namespace OxTots.Data
                     Phone = "Phone",
                     Email = "Email",
                     Website = "Website",
-                    Category = categories.First()
+                    Category = categories.First(),
+                    Image = "/Images/listing/listing-1-1.jpg",
+                    Icon = "/Images/map-marker.png"
                 },
                 new Resource
                 {
@@ -211,7 +217,9 @@ namespace OxTots.Data
                     Phone = "Phone",
                     Email = "Email",
                     Website = "Website",
-                    Category = categories.First()
+                    Category = categories.First(),
+                    Image = "/Images/listing/listing-1-1.jpg",
+                    Icon = "/Images/map-marker.png"
                 }
             };
             context.Resources.AddRange(resources);

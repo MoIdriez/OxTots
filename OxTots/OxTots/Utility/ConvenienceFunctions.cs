@@ -31,9 +31,9 @@ namespace OxTots.Utility
             return page ?? pages.First(p => p.Language.CountryCode == DefaultLanguage);
         }
 
-        public static List<MarkerViewModel> GetMarkers(this DbSet<Category> categories)
+        public static List<MarkerViewModel> GetMarkers(this DbSet<Category> categories, string q = "")
         {
-            var resources = categories.SelectMany(c => c.Resources).ToList();
+            var resources = SearchResources(categories, q);
             return resources.Select(r =>
             {
                 var rd = r.GetDetail();
@@ -44,9 +44,37 @@ namespace OxTots.Utility
                     Description = rd.Description,
                     Long = r.GPSLong,
                     Lat = r.GPSLat,
-                    Icon = "/Images/map-marker.png"
+                    Icon = r.Icon
                 };
             }).ToList();
+        }
+
+        public static List<SearchResultViewModel> GetSearch(this DbSet<Category> categories, string q = "")
+        {
+            var resources = SearchResources(categories, q);
+            return resources.Select(r =>
+            {
+                var rd = r.GetDetail();
+                return new SearchResultViewModel
+                {
+                    ID = r.ID,
+                    Title = rd.Title,
+                    Description = rd.Description,
+                    Image = r.Image,
+                    Icon = r.Category.Icon
+                };
+            }).ToList();
+        }
+
+        private static IEnumerable<Resource> SearchResources(DbSet<Category> categories, string q)
+        {
+            q = q.Trim();
+            var resources = categories.SelectMany(c => c.Resources).ToList().Where(r =>
+            {
+                var resourceDetail = r.GetDetail();
+                return resourceDetail.Title.Contains(q) || resourceDetail.Description.Contains(q);
+            });
+            return resources;
         }
     }
 }

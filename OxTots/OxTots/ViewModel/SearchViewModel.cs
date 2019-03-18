@@ -13,6 +13,6 @@ namespace OxTots.ViewModel
         public string Description { get; set; }
         public string SearchPlaceHolder { get; set; }
         public string SearchError { get; set; }
-        public string NoResultsFound { get; set; }
+        public string ResultsFound { get; set; }
     }
 }

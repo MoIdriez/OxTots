@@ -11,3 +11,4 @@
     height: 100%;
     min-height: 450px;
 }
+.listing-box-list .product-box .item-content .meta-item li.ctg-name { display: block; }

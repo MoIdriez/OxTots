@@ -17,15 +17,19 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
-                                <div class="input-group stylish-input-group">
-                                    <input type="text" placeholder="@Model.SearchPlaceHolder" class="form-control" name="q" id="form-website" data-error="@Model.SearchError" required>
-                                    <span class="input-group-addon">
-                                        <button type="submit">
-                                            <i class="flaticon-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
+                            <div class="col-12">
+                                @using (Html.BeginForm("Query", "Search", new { ReturnUrl = ViewBag.ReturnUrl },
+                                    FormMethod.Get, new { @class = "col-12" }))
+                                {
+                                    <div class="input-group stylish-input-group">
+                                        <input type="text" placeholder="@Model.SearchPlaceHolder" class="form-control" name="q" id="form-website" data-error="@Model.SearchError" required>
+                                        <span class="input-group-addon">
+                                            <button type="submit">
+                                                <i class="flaticon-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -33,7 +37,7 @@
                         <div class="row">
                             <div class="col-sm-6 col-12 d-flex align-items-center">
                                 <div class="item-sorting-title">
-                                    Found @Model.Results.Count results
+                                    @Model.ResultsFound: @Model.Results.Count
                                 </div>
                             </div>
                             <div class="col-sm-6 col-12 d-flex align-items-center justify-content-sm-end">
@@ -57,28 +61,23 @@
                     <div id="listing-view" class="listing-box-grid">
                         <div class="row">
                             @foreach (var result in Model.Results)
-                    {
-                        <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12" style="opacity: 1;">
-                            <div class="product-box">
-                                <div class="item-img bg--gradient-50">
-                                    <img src="@result.Image" alt="Listing" class="img-fluid grid-view-img">
+                            {
+                                <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12" style="opacity: 1;">
+                                    <div class="product-box">
+                                        <div class="item-img bg--gradient-50">
+                                            <img src="@result.Image" alt="Listing" class="img-fluid grid-view-img">
+                                            <img src="@result.Image" alt="Listing" class="img-fluid list-view-img">
+                                        </div>
+                                        <div class="item-content">
+                                            <h3 class="item-title"><a href="#">@result.Title</a></h3>
+                                            <p class="item-paragraph">@result.Description</p>
+                                            <ul class="meta-item">
+                                                <li class="ctg-name"><a href="#">Go to this resource<i class="flaticon-next"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="item-content">
-                                    <h3 class="item-title"><a href="#">@result.Title</a></h3>
-                                    <p class="item-paragraph">@result.Description</p>
-                                    <ul class="meta-item">
-                                        <li class="ctg-name"><a href="#">Go to this resource<i class="flaticon-next"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-            }
-                            @if (!Model.Results.Any())
-                    {
-                        <div class="section-heading heading-dark heading-center">
-                            <h2 class="item-title">@Model.NoResultsFound</h2>
-                        </div>
-            }
+                            }
                         </div>
                     </div>
                 </div>

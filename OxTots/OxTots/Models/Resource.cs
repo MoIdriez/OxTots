@@ -22,7 +22,8 @@ namespace OxTots.Models
         public string Email { get; set; }
         public string Website { get; set; }
 
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
+        public string Icon { get; set; }
 
         public virtual Category Category { get; set; }
         public virtual ICollection<ResourceDetail> ResourceDetails { get; set; }
