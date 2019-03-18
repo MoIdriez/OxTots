@@ -28,6 +28,7 @@
         public string SearchTitle { get; set; }
         public string SearchDescription { get; set; }
         public string SearchNotFound { get; set; }
+        public string SearchPlaceHolder { get; set; }
 
         public string SubmissionTitle { get; set; }
         public string SubmissionDescription { get; set; }

@@ -1,7 +1,94 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@using System.Web.Script.Serialization
+@{ ViewBag.Title = "Search Page"; }
+@model OxTots.ViewModel.SearchViewModel
+<!-- Listing Area Start Here -->
+<section class="full-width-container inner-page-top-margin bg--accent">
+    <div class="container-fluid">
+        <div class="row no-gutters">
 
-<h2>Index</h2>
+            <div class="order-last order-lg-first col-xl-7">
+                <div class="listing-box-wrap-layout1">
+                    <div class="filter-box-layout1">
+                        <div class="container">
+                            <div class="section-heading heading-dark heading-center">
+                                <h2 class="item-title">@Model.Title</h2>
+                                <div class="item-sub-title">@Model.Description</div>
 
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-group stylish-input-group">
+                                    <input type="text" placeholder="@Model.SearchPlaceHolder" class="form-control" name="q" id="form-website" data-error="@Model.SearchError" required>
+                                    <span class="input-group-addon">
+                                        <button type="submit">
+                                            <i class="flaticon-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-sorting-wrap">
+                        <div class="row">
+                            <div class="col-sm-6 col-12 d-flex align-items-center">
+                                <div class="item-sorting-title">
+                                    Found @Model.Results.Count results
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-12 d-flex align-items-center justify-content-sm-end">
+                                <div class="layout-switcher">
+                                    <ul>
+                                        <li class="active">
+                                            <a class="product-view-trigger" href="#" data-type="listing-box-grid">
+                                                <i class="fa fa-th-large"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" data-type="listing-box-list" class="product-view-trigger">
+                                                <i class="fa fa-list"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="listing-view" class="listing-box-grid">
+                        <div class="row">
+                            @foreach (var result in Model.Results)
+                    {
+                        <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12" style="opacity: 1;">
+                            <div class="product-box">
+                                <div class="item-img bg--gradient-50">
+                                    <img src="@result.Image" alt="Listing" class="img-fluid grid-view-img">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-title"><a href="#">@result.Title</a></h3>
+                                    <p class="item-paragraph">@result.Description</p>
+                                    <ul class="meta-item">
+                                        <li class="ctg-name"><a href="#">Go to this resource<i class="flaticon-next"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+            }
+                            @if (!Model.Results.Any())
+                    {
+                        <div class="section-heading heading-dark heading-center">
+                            <h2 class="item-title">@Model.NoResultsFound</h2>
+                        </div>
+            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-first order-lg-last col-xl-5">
+                @{ var js = new JavaScriptSerializer();}
+                <div id="googleMapData" type="hidden" value="@js.Serialize(Model.Markers)"></div>
+                <div id="googleMap" class="SearchGoogleMap col-12"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Listing Area End Here -->

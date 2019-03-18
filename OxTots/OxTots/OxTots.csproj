@@ -154,6 +154,8 @@
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LayoutViewModel.cs" />
     <Compile Include="ViewModel\MarkerViewModel.cs" />
+    <Compile Include="ViewModel\SearchResultViewModel.cs" />
+    <Compile Include="ViewModel\SearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\animate.min.css" />

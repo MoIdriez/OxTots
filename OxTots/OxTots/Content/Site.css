@@ -5,3 +5,9 @@
 .HomeGoogleMap {
     height: 500px;
 }
+
+.SearchGoogleMap {
+    border: none;
+    height: 100%;
+    min-height: 450px;
+}

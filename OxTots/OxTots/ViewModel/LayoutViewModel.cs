@@ -20,5 +20,6 @@ namespace OxTots.ViewModel
         public string AboutUs { get; set; }
         public string Link1 { get; set; }
         public string Link2 { get; set; }
+        public bool HeaderDark { get; set; }
     }
 }

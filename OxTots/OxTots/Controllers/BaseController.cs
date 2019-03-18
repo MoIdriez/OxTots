@@ -15,6 +15,16 @@ namespace OxTots.Controllers
         protected SiteContext db = new SiteContext();
         public BaseController()
         {
+            GetLayoutViewModel();
+        }
+
+        public void SetHeaderDark()
+        {
+            GetLayoutViewModel(true);
+        }
+
+        private void GetLayoutViewModel(bool dark = false)
+        {
             var model = new LayoutViewModel
             {
                 Title = "OxTots",
@@ -26,6 +36,7 @@ namespace OxTots.Controllers
                 AboutUs = "About Us",
                 Link1 = "Privacy",
                 Link2 = "Cookie Policy",
+                HeaderDark = dark,
                 Categories = db.Categories.ToList()
             };
             //var test = db.CategoryDetails.ToList();

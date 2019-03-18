@@ -29,7 +29,7 @@
     <div id="wrapper" class="wrapper">
         <!-- Header Area Start Here -->
         <header id="site-header" class="header-one">
-            <div class="header-main header-sticky">
+            <div class="header-main header-sticky @(viewModel.HeaderDark? "bg--dark" : "")">
                 <div class="container-fluid">
                     <div class="mob-menu-open toggle-menu">
                         <span class="bar"></span>
@@ -47,7 +47,7 @@
                         <div class="col-lg-7 col-12 possition-static">
                             <nav class="site-nav">
                                 <ul class="site-menu">
-                                    <li><a href="#">@viewModel.Search</a></li>
+                                    <li><a href="@Url.Action("Index", "Search")">@viewModel.Search</a></li>
                                     <li>
                                         <a href="#">@viewModel.Listing</a>
                                         <ul class="dropdown-menu-col-1">

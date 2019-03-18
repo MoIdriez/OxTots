@@ -8,27 +8,33 @@
     <div class="container">
         <div class="main-banner-box-layout1">
             <div class="row category-search-form">
-                <div class="form-items col-12">
-                    <div class="input-group stylish-input-group">
-                        <input type="text" placeholder="@Model.SearchPlaceHolder" class="form-control"
-                               name="website" id="form-website" data-error="@Model.SearchError" required>
-                        <span class="input-group-addon">
-                            <button type="submit">
-                                <i class="flaticon-search"></i>
-                            </button>
-                        </span>
-                        <div class="help-block with-errors"></div>
+                @using (Html.BeginForm("Query", "Search", new { ReturnUrl = ViewBag.ReturnUrl }, 
+                    FormMethod.Get, new { @class="col-12" }))
+                {
+                    <div class="form-items col-12">
+                        <div class="input-group stylish-input-group">
+
+                            <input type="text" placeholder="@Model.SearchPlaceHolder" class="form-control"
+                                   name="q" id="form-website" data-error="@Model.SearchError" required>
+                            <span class="input-group-addon">
+                                <button type="submit">
+                                    <i class="flaticon-search"></i>
+                                </button>
+                            </span>
+                            <div class="help-block with-errors"></div>
+
+                        </div>
                     </div>
-                </div>
+                }
             </div>
             <ul class="item-ctg">
                 @foreach (var c in Model.Categories)
                 {
-                <li>
-                    @{ var cd = c.GetDetail(); }
-                    <a class="item-icon" href="@Url.Action("Index", "Category", new {c.ID}, null)"><i class="@c.Icon"></i></a>-->
-                    <a href="listing-grid-view1.html" class="ctg-title">@cd.Title</a>
-                </li>
+                    <li>
+                        @{ var cd = c.GetDetail(); }
+                        <a class="item-icon" href="@Url.Action("Index", "Category", new { c.ID }, null)"><i class="@c.Icon"></i></a>-->
+                        <a href="listing-grid-view1.html" class="ctg-title">@cd.Title</a>
+                    </li>
                 }
                 <li class="d-none d-lg-block">
                     <p>@Model.CategoriesText</p>
@@ -47,7 +53,7 @@
         <div class="section-heading heading-dark heading-center">
             <h2 class="item-title">@Model.Title</h2>
             <div class="item-sub-title">@Model.Description</div>
-            
+
         </div>
     </div>
     <div class="container-fluid">

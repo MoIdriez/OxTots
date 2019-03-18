@@ -44,6 +44,9 @@ namespace OxTots.Data
                 SearchTitle = "SearchTitle",
                 SearchDescription = "SearchDescription",
                 SearchNotFound = "SearchNotFound",
+                SearchPlaceHolder = "SearchPlaceHolder",
+                SearchError = "SearchError",
+                SearchNoResultsFound = "SearchNoResultsFound",
 
                 SubmissionTitle = "SubmissionTitle",
                 SubmissionDescription = "SubmissionDescription",
@@ -217,37 +220,37 @@ namespace OxTots.Data
             {
                 new ResourceDetail
                 {
-                    Title = "Title",
-                    Description = "Description",
-                    ShortDescription = "ShortDescription",
-                    OpeningHours = "OpeningHours",
+                    Title = "Resource 1 Title",
+                    Description = "Resource 1 Description",
+                    ShortDescription = "Resource 1 ShortDescription",
+                    OpeningHours = "Resource 1 OpeningHours",
                     Language = languages.First(l => l.CountryCode == "en-GB"),
                     Resource = resources.First(r => r.Name == "Resource 1")
                 },
                 new ResourceDetail
                 {
-                    Title = "Title",
-                    Description = "Description",
-                    ShortDescription = "ShortDescription",
-                    OpeningHours = "OpeningHours",
+                    Title = "Resource 2 Title",
+                    Description = "Resource 2 Description",
+                    ShortDescription = "Resource 2 ShortDescription",
+                    OpeningHours = "Resource 2 OpeningHours",
                     Language = languages.First(l => l.CountryCode == "en-GB"),
                     Resource = resources.First(r => r.Name == "Resource 2")
                 },
                 new ResourceDetail
                 {
-                    Title = "Title",
-                    Description = "Description",
-                    ShortDescription = "ShortDescription",
-                    OpeningHours = "OpeningHours",
+                    Title = "Resource 3 Title",
+                    Description = "Resource 3 Description",
+                    ShortDescription = "Resource 3 ShortDescription",
+                    OpeningHours = "Resource 3 OpeningHours",
                     Language = languages.First(l => l.CountryCode == "en-GB"),
                     Resource = resources.First(r => r.Name == "Resource 3")
                 },
                 new ResourceDetail
                 {
-                    Title = "Title",
-                    Description = "Description",
-                    ShortDescription = "ShortDescription",
-                    OpeningHours = "OpeningHours",
+                    Title = "Resource 4 Title",
+                    Description = "Resource 4 Description",
+                    ShortDescription = "Resource 4 ShortDescription",
+                    OpeningHours = "Resource 4 OpeningHours",
                     Language = languages.First(l => l.CountryCode == "en-GB"),
                     Resource = resources.First(r => r.Name == "Resource 4")
                 }
