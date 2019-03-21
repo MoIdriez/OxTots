@@ -58,6 +58,10 @@
         public string MapTitle { get; set; }
         public string MapDescription { get; set; }
 
+        public string AboutUsTitle { get; set; }
+        public string AboutUsDescription { get; set; }
+        public string AboutUsDescription2 { get; set; }
+
         public string Error404Title { get; set; }
         public string Error404Description { get; set; }
         public string Error500Title { get; set; }

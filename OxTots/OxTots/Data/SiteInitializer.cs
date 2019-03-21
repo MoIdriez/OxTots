@@ -74,6 +74,10 @@ namespace OxTots.Data
                 MapTitle = "MapTitle",
                 MapDescription = "MapDescription",
 
+                AboutUsTitle = "AboutUsTitle",
+                AboutUsDescription = "AboutUsDescription",
+                AboutUsDescription2 = "AboutUsDescription2",
+
                 Error404Title = "Error404Title",
                 Error404Description = "Error404Description",
                 Error500Title = "Error500Title",
