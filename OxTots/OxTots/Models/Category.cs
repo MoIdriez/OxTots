@@ -12,6 +12,7 @@ namespace OxTots.Models
         {
             CategoryDetails = new HashSet<CategoryDetail>();
             Resources = new HashSet<Resource>();
+            Features = new HashSet<Feature>();
         }
         public int ID { get; set; }
         public string Name { get; set; }
@@ -20,5 +21,6 @@ namespace OxTots.Models
 
         public virtual ICollection<CategoryDetail> CategoryDetails { get; set; }
         public virtual ICollection<Resource> Resources { get; set; }
+        public virtual ICollection<Feature> Features { get; set; }
     }
 }

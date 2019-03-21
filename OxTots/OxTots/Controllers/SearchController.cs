@@ -29,15 +29,15 @@ namespace OxTots.Controllers
         {
             var page = db.Pages.GetPage();
             var categories = db.Categories;
-            var markers = categories.GetMarkers(q);
-            var results = categories.GetSearch(q);
+            var markers = categories.GetMarkerViewModels(q);
+            var results = categories.GetResourceFilterViewModel(q);
             return new SearchViewModel
             {
                 Title = page.SearchTitle,
                 Description = page.SearchDescription,
                 SearchPlaceHolder = page.SearchPlaceHolder,
                 SearchError = page.SearchError,
-                ResultsFound = page.ResultsFound,
+                ResultsFound = page.SearchResultsFound,
                 Markers = markers,
                 Results = results
             };

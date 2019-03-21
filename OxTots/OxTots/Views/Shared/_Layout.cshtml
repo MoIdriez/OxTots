@@ -40,8 +40,8 @@
                     <div class="row">
                         <div class="col-lg-2 col-12">
                             <div class="site-logo">
-                                <a href="index.html" class="main-logo"><img src="/Images/logo.png" alt="Site Logo"></a>
-                                <a href="index.html" class="sticky-logo"><img src="/Images/sticky-logo.png" alt="Site Logo"></a>
+                                <a href="@Url.Action("Index", "Home")" class="main-logo"><img src="/Images/logo.png" alt="Site Logo"></a>
+                                <a href="@Url.Action("Index", "Home")" class="sticky-logo"><img src="/Images/sticky-logo.png" alt="Site Logo"></a>
                             </div>
                         </div>
                         <div class="col-lg-7 col-12 possition-static">
@@ -60,7 +60,7 @@
                                             }
                                         </ul>
                                     </li>
-                                    <li><a href="#">@viewModel.Map</a></li>
+                                    <li><a href="@Url.Action("Index", "Map")">@viewModel.Map</a></li>
                                     <li><a href="#">@viewModel.Submission</a></li>
                                     <li><a href="#">@viewModel.Contact</a></li>
                                     <li><a href="#">@viewModel.AboutUs</a></li>

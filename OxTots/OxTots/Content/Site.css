@@ -12,3 +12,5 @@
     min-height: 450px;
 }
 .listing-box-list .product-box .item-content .meta-item li.ctg-name { display: block; }
+.filter-box-layout1 label { font-size: 16px;}
+.contact-box .item-heading:after { width: 344px; }

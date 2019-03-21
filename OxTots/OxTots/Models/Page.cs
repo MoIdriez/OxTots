@@ -30,7 +30,10 @@
         public string SearchNotFound { get; set; }
         public string SearchPlaceHolder { get; set; }
         public string SearchError { get; set; }
-        public string ResultsFound { get; set; }
+        public string SearchResultsFound { get; set; }
+
+        public string CategoryResultsFound { get; set; }
+        public string CategoryFilterDescription { get; set; }
 
         public string SubmissionTitle { get; set; }
         public string SubmissionDescription { get; set; }

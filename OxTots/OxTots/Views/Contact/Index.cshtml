@@ -1,0 +1,71 @@
+﻿@model OxTots.ViewModel.ContactViewModel
+@{ ViewBag.Title = "Contact Page"; }
+
+<!-- Main Banner Area Start Here -->
+<section class="main-banner-wrap-layout1 bg-common overlay-dark-30 bg--gradient-top-30" data-bg-image="/Images/figure/site-main-figure1.jpg">
+    
+</section>
+
+<!-- Feature Area Start Here -->
+<section class="feature-wrap-layout1 padding-top-9p6 padding-bottom-7 bg--accent">
+    <div class="container">
+        <div class="section-heading heading-dark heading-center">
+            <h2 class="item-title">@Model.Title</h2>
+            <div class="item-sub-title">@Model.Description</div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="contact-box">
+            <h2 class="item-heading">@Model.Title</h2>
+            <p>@Model.Description</p>
+            @using (Html.BeginForm("Submit", "Contact", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new
+            {
+                @class = "contact-form-box", id = "contact-form"
+            })) {
+                <div class="row">
+                    <div class="col-12 form-group">
+                        @Html.EditorFor(m => m.Name)
+                        @Html.LabelFor(m => m.Name)
+                    </div>
+                    <div class="col-12 form-group">
+                        @Html.EditorFor(m => m.Email)
+                        @Html.LabelFor(m => m.Message)
+                    </div>
+                    <div class="col-12 form-group">
+                        @Html.TextAreaFor(m => m.Name, 10, 55, null)
+                        @Html.LabelFor(m => m.Name)
+                    </div>
+                    <div class="col-12 form-group mb-0 mt-3">
+                        <button type="submit" class="item-btn disabled">Submit Message</button>
+                    </div>
+                </div>
+            }
+            <form class="contact-form-box" id="contact-form" novalidate="true">
+                <div class="row">
+                    <div class="col-12 form-group has-error has-danger">
+                        <input type="text" placeholder="Your Name *" class="form-control" name="name" data-error="Name field is required" required="">
+                        <div class="help-block with-errors"><ul class="list-unstyled"><li>Name field is required</li></ul></div>
+                    </div>
+                    <div class="col-12 form-group">
+                        <input type="email" placeholder="Your E-mail *" class="form-control" name="email" data-error="E-mail field is required" required="">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="col-12 form-group">
+                        <input type="text" placeholder="Subject *" class="form-control" name="subject" data-error="Subject field is required" required="">
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="col-12 form-group">
+                        <textarea placeholder="Message*" class="textarea form-control" name="message" id="form-message" rows="7" cols="20" data-error="Message field is required" required=""></textarea>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="col-12 form-group mb-0 mt-3">
+                        <button type="submit" class="item-btn disabled">Submit Message</button>
+                    </div>
+                </div>
+                <div class="form-response"></div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Feature Area End Here -->

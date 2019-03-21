@@ -17,11 +17,18 @@ namespace OxTots.Utility
             return cd ?? category.CategoryDetails.First(c => c.Language.CountryCode == DefaultLanguage);
         }
 
-        public static ResourceDetail GetDetail(this Resource category)
+        public static ResourceDetail GetDetail(this Resource resource)
         {
             var cc = CultureInfo.CurrentCulture;
-            var cd = category.ResourceDetails.FirstOrDefault(c => c.Language.CountryCode == cc.Name);
-            return cd ?? category.ResourceDetails.First(c => c.Language.CountryCode == DefaultLanguage);
+            var cd = resource.ResourceDetails.FirstOrDefault(c => c.Language.CountryCode == cc.Name);
+            return cd ?? resource.ResourceDetails.First(c => c.Language.CountryCode == DefaultLanguage);
+        }
+
+        public static FeatureDetail GetDetail(this Feature feature)
+        {
+            var cc = CultureInfo.CurrentCulture;
+            var cd = feature.FeatureDetails.FirstOrDefault(c => c.Language.CountryCode == cc.Name);
+            return cd ?? feature.FeatureDetails.First(c => c.Language.CountryCode == DefaultLanguage);
         }
 
         public static Page GetPage(this DbSet<Page> pages)
@@ -31,7 +38,7 @@ namespace OxTots.Utility
             return page ?? pages.First(p => p.Language.CountryCode == DefaultLanguage);
         }
 
-        public static List<MarkerViewModel> GetMarkers(this DbSet<Category> categories, string q = "")
+        public static List<MarkerViewModel> GetMarkerViewModels(this DbSet<Category> categories, string q = "")
         {
             var resources = SearchResources(categories, q);
             return resources.Select(r =>
@@ -49,13 +56,80 @@ namespace OxTots.Utility
             }).ToList();
         }
 
-        public static List<SearchResultViewModel> GetSearch(this DbSet<Category> categories, string q = "")
+        public static List<MarkerViewModel> GetMarkerViewModels(this List<Resource> resources)
+        {
+            return resources.Select(r =>
+            {
+                var rd = r.GetDetail();
+                return new MarkerViewModel
+                {
+                    ID = r.ID,
+                    Title = rd.Title,
+                    Description = rd.Description,
+                    Long = r.GPSLong,
+                    Lat = r.GPSLat,
+                    Icon = r.Icon
+                };
+            }).ToList();
+        }
+
+        public static List<MarkerViewModel> GetMarkerViewModels(this Category category)
+        {
+            var resources = category.Resources;
+            return resources.Select(r =>
+            {
+                var rd = r.GetDetail();
+                return new MarkerViewModel
+                {
+                    ID = r.ID,
+                    Title = rd.Title,
+                    Description = rd.Description,
+                    Long = r.GPSLong,
+                    Lat = r.GPSLat,
+                    Icon = r.Icon
+                };
+            }).ToList();
+        }
+
+        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this DbSet<Category> categories, string q = "")
         {
             var resources = SearchResources(categories, q);
             return resources.Select(r =>
             {
                 var rd = r.GetDetail();
-                return new SearchResultViewModel
+                return new ResourceFilterViewModel
+                {
+                    ID = r.ID,
+                    Title = rd.Title,
+                    Description = rd.Description,
+                    Image = r.Image,
+                    Icon = r.Category.Icon
+                };
+            }).ToList();
+        }
+
+        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this List<Resource> resources)
+        {
+            return resources.Select(r =>
+            {
+                var rd = r.GetDetail();
+                return new ResourceFilterViewModel
+                {
+                    ID = r.ID,
+                    Title = rd.Title,
+                    Description = rd.Description,
+                    Image = r.Image,
+                    Icon = r.Category.Icon
+                };
+            }).ToList();
+        }
+
+        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this Category category)
+        {
+            return category.Resources.Select(r =>
+            {
+                var rd = r.GetDetail();
+                return new ResourceFilterViewModel
                 {
                     ID = r.ID,
                     Title = rd.Title,
@@ -72,9 +146,14 @@ namespace OxTots.Utility
             var resources = categories.SelectMany(c => c.Resources).ToList().Where(r =>
             {
                 var resourceDetail = r.GetDetail();
-                return resourceDetail.Title.Contains(q) || resourceDetail.Description.Contains(q);
+                return resourceDetail.Title.ToUpper().Contains(q.ToUpper()) || resourceDetail.Description.ToUpper().Contains(q.ToUpper());
             });
             return resources;
+        }
+
+        public static List<FeatureViewModel> ToViewModel(this ICollection<Feature> features)
+        {
+            return features.Select(f => new FeatureViewModel {ID = f.ID, Name = f.GetDetail().Title}).ToList();
         }
     }
 }

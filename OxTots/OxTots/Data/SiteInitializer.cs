@@ -46,7 +46,10 @@ namespace OxTots.Data
                 SearchNotFound = "SearchNotFound",
                 SearchPlaceHolder = "SearchPlaceHolder",
                 SearchError = "SearchError",
-                ResultsFound = "Results found",
+                SearchResultsFound = "Results found",
+
+                CategoryResultsFound = "Resources available",
+                CategoryFilterDescription = "CategoryFilterDescription",
 
                 SubmissionTitle = "SubmissionTitle",
                 SubmissionDescription = "SubmissionDescription",

@@ -16,7 +16,7 @@ namespace OxTots.Controllers
         {
             var page = db.Pages.GetPage();
             var categories = db.Categories;
-            var markers = categories.GetMarkers();
+            var markers = categories.GetMarkerViewModels();
             var model = new HomeViewModel
             {
                 SearchPlaceHolder = page.HomeSearch,
