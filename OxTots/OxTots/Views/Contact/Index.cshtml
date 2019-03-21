@@ -23,48 +23,22 @@
             {
                 @class = "contact-form-box", id = "contact-form"
             })) {
+                @Html.AntiForgeryToken()
                 <div class="row">
                     <div class="col-12 form-group">
-                        @Html.EditorFor(m => m.Name)
-                        @Html.LabelFor(m => m.Name)
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name*" } )
                     </div>
                     <div class="col-12 form-group">
-                        @Html.EditorFor(m => m.Email)
-                        @Html.LabelFor(m => m.Message)
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Your Email*" })
                     </div>
                     <div class="col-12 form-group">
-                        @Html.TextAreaFor(m => m.Name, 10, 55, null)
-                        @Html.LabelFor(m => m.Name)
+                        @Html.TextAreaFor(m => m.Message, 10, 55, new { @class = "form-control", placeholder = "Your Message*"})
                     </div>
                     <div class="col-12 form-group mb-0 mt-3">
                         <button type="submit" class="item-btn disabled">Submit Message</button>
                     </div>
                 </div>
             }
-            <form class="contact-form-box" id="contact-form" novalidate="true">
-                <div class="row">
-                    <div class="col-12 form-group has-error has-danger">
-                        <input type="text" placeholder="Your Name *" class="form-control" name="name" data-error="Name field is required" required="">
-                        <div class="help-block with-errors"><ul class="list-unstyled"><li>Name field is required</li></ul></div>
-                    </div>
-                    <div class="col-12 form-group">
-                        <input type="email" placeholder="Your E-mail *" class="form-control" name="email" data-error="E-mail field is required" required="">
-                        <div class="help-block with-errors"></div>
-                    </div>
-                    <div class="col-12 form-group">
-                        <input type="text" placeholder="Subject *" class="form-control" name="subject" data-error="Subject field is required" required="">
-                        <div class="help-block with-errors"></div>
-                    </div>
-                    <div class="col-12 form-group">
-                        <textarea placeholder="Message*" class="textarea form-control" name="message" id="form-message" rows="7" cols="20" data-error="Message field is required" required=""></textarea>
-                        <div class="help-block with-errors"></div>
-                    </div>
-                    <div class="col-12 form-group mb-0 mt-3">
-                        <button type="submit" class="item-btn disabled">Submit Message</button>
-                    </div>
-                </div>
-                <div class="form-response"></div>
-            </form>
         </div>
     </div>
 </section>
