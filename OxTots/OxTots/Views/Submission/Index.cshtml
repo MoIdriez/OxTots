@@ -1,0 +1,88 @@
+﻿@model OxTots.ViewModel.SubmissionViewModel
+@{ ViewBag.Title = "Submission Page"; }
+
+<!-- Main Banner Area Start Here -->
+<section class="main-banner-wrap-layout1 bg-common overlay-dark-30 bg--gradient-top-30" data-bg-image="@Model.Image"></section>
+
+<!-- Feature Area Start Here -->
+<section class="feature-wrap-layout1 padding-top-9p6 padding-bottom-7 bg--accent">
+    <div class="container">
+        <div class="contact-box">
+            <h2 class="item-heading">@Model.Title</h2>
+            <p>@Model.Description</p>
+            @using (Html.BeginForm("Submit", "Submission", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new
+            {
+                @class = "widget-filter contact-form-box col-12",
+                id = "form"
+            }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="row">
+                    <div class="col-12">@Model.PersonalInformationTitle</div>
+                    <div class="col-6 form-group">
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = Model.NamePlaceholder })
+                    </div>
+                    <div class="col-6 form-group">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Model.EmailPlaceholder })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">@Model.ResourceInformationTitle</div>
+                    <div class="col-6 form-group">
+                        @Html.TextBoxFor(m => m.ResourceName, new { @class = "form-control", placeholder = Model.ResourceNamePlaceholder })
+                    </div>
+                    <div class="col-6 form-group">
+                        @Html.TextBoxFor(m => m.ResourceAddress, new { @class = "form-control", placeholder = Model.ResourceAddressPlaceholder })
+                    </div>
+                    <div class="col-12 form-group">
+                        @Html.TextAreaFor(m => m.ResourceDescription, new { @class = "form-control", placeholder = Model.ResourceDescriptionPlaceholder })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">@Model.ResourceCategoryTitle</div>
+                    <div class="col-12 form-group">
+                        <select name="SelectedCategoryID" class="form-control">
+                            @foreach (var c in Model.Categories)
+                            {
+                                <option value="@c.Value">@c.Text</option>
+                            }
+                        </select>
+                    </div>
+                    @*<div class="col-12">@Model.ResourceFeatureTitle</div>
+                    <div class="col-12 form-group">
+                        <div class="row">
+                            @for (var i = 0; i < Model.Features.Count; i++)
+                            {
+                                <div class="checkbox-filter col-4 col-lg-2">
+                                    @Html.CheckBoxFor(m => m.Features[i].IsSelected)
+                                    @Html.LabelFor(m => m.Features[i].Name, Model.Features[i].Name)
+                                    <input id="checkbox-@feature.ID" type="checkbox" name="selectedFilters" value="@feature.ID" @(feature.IsSelected ? "checked" : "")>
+                                        <label for="checkbox-@feature.ID">@feature.Name</label>
+                                </div>
+
+                                @Html.HiddenFor(m => m.Features[i].ID)
+                                @Html.HiddenFor(m => m.Features[i].CategoryID)
+                                @Html.HiddenFor(m => m.Features[i].Name)
+                            }
+                        </div>
+                    </div>*@
+                    <div class="col-6 form-group">
+                        @Html.TextBoxFor(m => m.ResourcePhone, new { @class = "form-control", placeholder = Model.ResourcePhonePlaceholder })
+                    </div>
+                    <div class="col-6 form-group">
+                        @Html.TextBoxFor(m => m.ResourceEmail, new { @class = "form-control", placeholder = Model.ResourceEmailPlaceholder })
+                    </div>
+                    <div class="col-12 form-group">
+                        @Html.TextAreaFor(m => m.ResourceWebsite, new { @class = "form-control", placeholder = Model.ResourceWebsitePlaceholder })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 form-group mb-0 mt-3">
+                        <button type="submit" class="item-btn disabled">@Model.SubmitButtonText</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- Feature Area End Here -->

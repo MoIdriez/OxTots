@@ -35,16 +35,23 @@
         public string CategoryResultsFound { get; set; }
         public string CategoryFilterDescription { get; set; }
 
+        public string SubmissionImage { get; set; }
         public string SubmissionTitle { get; set; }
         public string SubmissionDescription { get; set; }
-        public string SubmissionFormTitle { get; set; }
-        public string SubmissionFormDescription { get; set; }
-        public string SubmissionFormAddress { get; set; }
-        public string SubmissionFormWebsite { get; set; }
-        public string SubmissionFormCategory { get; set; }
-        public string SubmissionFormFeature { get; set; }
-        public string SubmissionFormPhone { get; set; }
-        public string SubmissionFormEmail { get; set; }
+        public string SubmissionFormPersonalInformationTitle { get; set; }
+        public string SubmissionFormResourceInformationTitle { get; set; }
+        public string SubmissionFormResourceCategoryTitle { get; set; }
+        public string SubmissionFormResourceFeatureTitle { get; set; }
+        public string SubmissionFormExtraInformationText { get; set; }
+        public string SubmissionFormSubmitButtonText { get; set; }
+        public string SubmissionFormNamePlaceholder { get; set; }
+        public string SubmissionFormEmailPlaceholder { get; set; }
+        public string SubmissionFormResourceNamePlaceholder { get; set; }
+        public string SubmissionFormResourceAddressPlaceholder { get; set; }
+        public string SubmissionFormResourceDescriptionPlaceholder { get; set; }
+        public string SubmissionFormResourcePhonePlaceholder { get; set; }
+        public string SubmissionFormResourceEmailPlaceholder { get; set; }
+        public string SubmissionFormResourceWebsitePlaceholder { get; set; }
 
         public string ContactTitle { get; set; }
         public string ContactHeading { get; set; }
@@ -66,6 +73,8 @@
         public string Error404Description { get; set; }
         public string Error500Title { get; set; }
         public string Error500Description { get; set; }
+
+        public string ResourceContactTitle { get; set; }
 
 
         public virtual Language Language { get; set; }

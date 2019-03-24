@@ -18,6 +18,11 @@ namespace OxTots.Controllers
             GetLayoutViewModel();
         }
 
+        public ActionResult ChangeLanguage(int languageID)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
         public void SetHeaderDark()
         {
             GetLayoutViewModel(true);
@@ -37,7 +42,14 @@ namespace OxTots.Controllers
                 Link1 = "Privacy",
                 Link2 = "Cookie Policy",
                 HeaderDark = dark,
-                Categories = db.Categories.ToList()
+                Categories = db.Categories.ToList(),
+
+                MainLogo = "/Images/logo.png",
+                MainLogoAlt = "/Images/sticky-logo.png",
+
+                LanguageName = db.Languages.First().Name,
+                LanguageIcon = db.Languages.First().Flag,
+                Languages = db.Languages.ToList()
             };
             //var test = db.CategoryDetails.ToList();
             ViewData["LayoutViewModel"] = model;

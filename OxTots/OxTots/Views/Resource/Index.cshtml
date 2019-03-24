@@ -1,0 +1,50 @@
+﻿@using System.Web.Script.Serialization
+@model OxTots.ViewModel.ResourceViewModel
+
+<section class="full-width-container inner-page-top-margin bg--accent">
+    <div class="container-fluid">
+        <div class="row no-gutters">
+            <div class="order-last order-lg-first col-xl-7">
+                <div class="listing-box-wrap-layout1">
+                    <div class="container">
+                        <div class="section-heading heading-dark heading-center">
+                            <h2 class="item-title">@Model.Title</h2>
+                            <div class="item-sub-title">@Model.Description</div>
+                        </div>
+                    </div>
+                    <div class="widget-filter row">
+                        @for (var i = 0; i < Model.Features.Count; i++)
+                        {
+                            <div class="checkbox-filter col-4 col-lg-2">
+                                @Html.CheckBoxFor(m => m.Features[i].IsSelected)
+                                @Html.LabelFor(m => m.Features[i].Name, Model.Features[i].Name)
+                                @*<input id="checkbox-@feature.ID" type="checkbox" name="selectedFilters" value="@feature.ID" @(feature.IsSelected ? "checked" : "")>
+                                                        <label for="checkbox-@feature.ID">@feature.Name</label>*@
+                            </div>
+
+                            @Html.HiddenFor(m => m.Features[i].ID)
+                            @Html.HiddenFor(m => m.Features[i].Name)
+                        }
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="widget widget-information widget-box-padding">
+                        <h3 class="widget-title">@Model.ContactTitle</h3>
+                        <ul class="block-list">
+                            <li class="block-list-item"><i class="fas fa-map-marker-alt"></i>@Model.Address</li>
+                            <li class="block-list-item"><i class="fas fa-phone"></i>@Model.Phone</li>
+                            <li class="block-list-item"><i class="far fa-clock"></i>@Model.OpeningHours</li>
+                            <li class="block-list-item"><i class="fas fa-globe"></i>@Model.Website</li>
+                            <li class="block-list-item"><i class="fas fa-envelope"></i>@Model.Email</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="order-first order-lg-last col-xl-5">
+                @{ var js = new JavaScriptSerializer();}
+                <div id="googleMapData" type="hidden" value="@js.Serialize(Model.Markers)"></div>
+                <div id="googleMap" class="SearchGoogleMap col-12"></div>
+            </div>
+        </div>
+    </div>
+</section>

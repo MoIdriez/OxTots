@@ -51,16 +51,22 @@ namespace OxTots.Data
                 CategoryResultsFound = "Resources available",
                 CategoryFilterDescription = "CategoryFilterDescription",
 
+                SubmissionImage = "/Images/figure/site-main-figure1.jpg",
                 SubmissionTitle = "SubmissionTitle",
-                SubmissionDescription = "SubmissionDescription",
-                SubmissionFormTitle = "SubmissionFormTitle",
-                SubmissionFormDescription = "SubmissionFormDescription",
-                SubmissionFormAddress = "SubmissionFormAddress",
-                SubmissionFormWebsite = "SubmissionFormWebsite",
-                SubmissionFormCategory = "SubmissionFormCategory",
-                SubmissionFormFeature = "SubmissionFormFeature",
-                SubmissionFormPhone = "SubmissionFormPhone",
-                SubmissionFormEmail = "SubmissionFormEmail",
+                SubmissionFormPersonalInformationTitle = "SubmissionFormPersonalInformationTitle",
+                SubmissionFormResourceInformationTitle = "SubmissionFormResourceInformationTitle",
+                SubmissionFormResourceCategoryTitle = "SubmissionFormResourceCategoryTitle",
+                SubmissionFormResourceFeatureTitle = "SubmissionFormResourceFeatureTitle",
+                SubmissionFormExtraInformationText = "SubmissionFormExtraInformationText",
+                SubmissionFormSubmitButtonText = "SubmissionFormSubmitButtonText",
+                SubmissionFormNamePlaceholder = "SubmissionFormNamePlaceholder",
+                SubmissionFormEmailPlaceholder = "SubmissionFormEmailPlaceholder",
+                SubmissionFormResourceNamePlaceholder = "SubmissionFormResourceNamePlaceholder",
+                SubmissionFormResourceAddressPlaceholder = "SubmissionFormResourceAddressPlaceholder",
+                SubmissionFormResourceDescriptionPlaceholder = "SubmissionFormResourceDescriptionPlaceholder",
+                SubmissionFormResourcePhonePlaceholder = "SubmissionFormResourcePhonePlaceholder",
+                SubmissionFormResourceEmailPlaceholder = "SubmissionFormResourceEmailPlaceholder",
+                SubmissionFormResourceWebsitePlaceholder = "SubmissionFormResourceWebsitePlaceholder",
 
                 ContactTitle = "ContactTitle",
                 ContactHeading = "ContactHeading",
@@ -82,7 +88,8 @@ namespace OxTots.Data
                 Error404Description = "Error404Description",
                 Error500Title = "Error500Title",
                 Error500Description = "Error500Description",
-                Language = languages.First(l => l.CountryCode == "en-GB"),
+                ResourceContactTitle = "ResourceContactTitle",
+                Language = languages.First(l => l.CountryCode == "en-GB")
             };
             context.Pages.Add(page);
 

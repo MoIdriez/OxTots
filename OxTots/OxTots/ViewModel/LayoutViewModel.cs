@@ -21,5 +21,12 @@ namespace OxTots.ViewModel
         public string Link1 { get; set; }
         public string Link2 { get; set; }
         public bool HeaderDark { get; set; }
+
+        public string MainLogo { get; set; }
+        public string MainLogoAlt { get; set; }
+
+        public string LanguageIcon { get; set; }
+        public string LanguageName { get; set; }
+        public List<Language> Languages { get; set; }
     }
 }

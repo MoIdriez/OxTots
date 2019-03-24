@@ -91,6 +91,20 @@ namespace OxTots.Utility
             }).ToList();
         }
 
+        public static MarkerViewModel GetMarkerViewModel(this Resource resource)
+        {
+            var rd = resource.GetDetail();
+            return new MarkerViewModel
+                {
+                    ID = resource.ID,
+                    Title = rd.Title,
+                    Description = rd.Description,
+                    Long = resource.GPSLong,
+                    Lat = resource.GPSLat,
+                    Icon = resource.Icon
+                };
+        }
+
         public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this DbSet<Category> categories, string q = "")
         {
             var resources = SearchResources(categories, q);
@@ -154,6 +168,15 @@ namespace OxTots.Utility
         public static List<FeatureViewModel> ToViewModel(this ICollection<Feature> features)
         {
             return features.Select(f => new FeatureViewModel {ID = f.ID, Name = f.GetDetail().Title}).ToList();
+        }
+
+        public static List<FeatureViewModel> ToViewModel(this ICollection<ResourceFeature> resourceFeature)
+        {
+            return resourceFeature.Select(rf => new FeatureViewModel
+            {
+                Name = rf.Feature.GetDetail().Title,
+                IsSelected = rf.Enabled
+            }).ToList();
         }
     }
 }

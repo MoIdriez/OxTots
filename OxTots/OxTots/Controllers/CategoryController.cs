@@ -28,7 +28,7 @@ namespace OxTots.Controllers
                 ID = category.ID,
                 Title = categoryDetail.Title,
                 Description = categoryDetail.Description,
-                ResultsFound = page.SearchResultsFound,
+                ResultsFound = page.CategoryResultsFound,
                 FilterDescription = page.CategoryFilterDescription,
                 Features = category.Features.ToViewModel(),
                 Resources = category.GetResourceFilterViewModel(),

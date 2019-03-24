@@ -169,7 +169,7 @@
                                     "<p>" +
                                     gmd[i].Description +
                                     "</p>" +
-                                    "<a href='#'>Click here to go to resource</a>"
+                                    "<a href='/Resource/Index/" + gmd[i].ID + "'>Click here to go to resource</a>"
                                 );
                                 infowindow.open(map, marker);
                             }
