@@ -14,34 +14,40 @@ namespace OxTots.Controllers
         // GET: Submission
         public ActionResult Index()
         {
-            var page = db.Pages.GetPage();
-            var categories = db.Categories.ToList();
+            var page = Db.Pages.GetPage(UserLanguageID);
+            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
+
+            var categories = Db.Categories.ToList();
             var model = new SubmissionViewModel
             {
-                Image = page.SubmissionImage,
-                Title = page.SubmissionTitle,
-                Description = page.SubmissionDescription,
+                Image = page.SubmissionImage ?? dfPage.SubmissionImage,
+                Title = page.SubmissionTitle ?? dfPage.SubmissionTitle,
+                Description = page.SubmissionDescription ?? dfPage.SubmissionDescription,
 
-                NamePlaceholder = page.SubmissionFormNamePlaceholder,
-                EmailPlaceholder = page.SubmissionFormEmailPlaceholder,
-                ResourceNamePlaceholder = page.SubmissionFormResourceNamePlaceholder,
-                ResourceAddressPlaceholder = page.SubmissionFormResourceAddressPlaceholder,
-                ResourceDescriptionPlaceholder = page.SubmissionFormResourceDescriptionPlaceholder,
-                ResourcePhonePlaceholder = page.SubmissionFormResourcePhonePlaceholder,
-                ResourceEmailPlaceholder = page.SubmissionFormResourceEmailPlaceholder,
-                ResourceWebsitePlaceholder = page.SubmissionFormResourceWebsitePlaceholder,
+                NamePlaceholder = page.SubmissionFormNamePlaceholder ?? dfPage.SubmissionFormNamePlaceholder,
+                EmailPlaceholder = page.SubmissionFormEmailPlaceholder ?? dfPage.SubmissionFormEmailPlaceholder,
+                ResourceNamePlaceholder = page.SubmissionFormResourceNamePlaceholder ?? dfPage.SubmissionFormResourceNamePlaceholder,
+                ResourceAddressPlaceholder = page.SubmissionFormResourceAddressPlaceholder ?? dfPage.SubmissionFormResourceAddressPlaceholder,
+                ResourceDescriptionPlaceholder = page.SubmissionFormResourceDescriptionPlaceholder ?? dfPage.SubmissionFormResourceDescriptionPlaceholder,
+                ResourcePhonePlaceholder = page.SubmissionFormResourcePhonePlaceholder ?? dfPage.SubmissionFormResourcePhonePlaceholder,
+                ResourceEmailPlaceholder = page.SubmissionFormResourceEmailPlaceholder ?? dfPage.SubmissionFormResourceEmailPlaceholder,
+                ResourceWebsitePlaceholder = page.SubmissionFormResourceWebsitePlaceholder ?? dfPage.SubmissionFormResourceWebsitePlaceholder,
 
-                PersonalInformationTitle = page.SubmissionFormPersonalInformationTitle,
-                ResourceInformationTitle = page.SubmissionFormResourceInformationTitle,
-                ResourceCategoryTitle = page.SubmissionFormResourceCategoryTitle,
-                ResourceFeatureTitle = page.SubmissionFormResourceFeatureTitle,
-                ExtraInformationText = page.SubmissionFormExtraInformationText,
-                SubmitButtonText = page.SubmissionFormSubmitButtonText,
+                PersonalInformationTitle = page.SubmissionFormPersonalInformationTitle ?? dfPage.SubmissionFormPersonalInformationTitle,
+                ResourceInformationTitle = page.SubmissionFormResourceInformationTitle ?? dfPage.SubmissionFormResourceInformationTitle,
+                ResourceCategoryTitle = page.SubmissionFormResourceCategoryTitle ?? dfPage.SubmissionFormResourceCategoryTitle,
+                ResourceFeatureTitle = page.SubmissionFormResourceFeatureTitle ?? dfPage.SubmissionFormResourceFeatureTitle,
+                ExtraInformationText = page.SubmissionFormExtraInformationText ?? dfPage.SubmissionFormExtraInformationText,
+                SubmitButtonText = page.SubmissionFormSubmitButtonText ?? dfPage.SubmissionFormSubmitButtonText,
 
-                Categories = categories.Select(c => new SelectListItem
+                Categories = categories.Select(c =>
                 {
-                    Value = c.ID.ToString(),
-                    Text = c.Name
+                    var categoryDetail = c.GetDetail(UserLanguageID) ?? c.GetDetail(DefaultLanguageID);
+                    return new SelectListItem
+                    {
+                        Value = c.ID.ToString(),
+                        Text = categoryDetail.Title
+                    };
                 }).ToList()
             };
             return View(model);
@@ -51,7 +57,7 @@ namespace OxTots.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Submit(SubmissionViewModel model)
         {
-            db.Submissions.Add(new Submission 
+            Db.Submissions.Add(new Submission 
             {
                 Name = model.Name,
                 Email = model.Email,
@@ -61,11 +67,11 @@ namespace OxTots.Controllers
                 ResourcePhone = model.ResourcePhone,
                 ResourceEmail = model.ResourceEmail,
                 ResourceWebsite = model.ResourceWebsite,
-                Language = db.Languages.First(l => l.CountryCode == "en-GB"),
-                Category = db.Categories.First()
+                Language = Db.Languages.First(l => l.ID == UserLanguageID),
+                Category = Db.Categories.First(c => c.ID == model.SelectedCategoryID)
             });
 
-            db.SaveChanges();
+            Db.SaveChanges();
             return RedirectToAction("Index");
         }
     }

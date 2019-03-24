@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using OxTots.Models;
 
@@ -10,88 +9,15 @@ namespace OxTots.Data
         protected override void Seed(SiteContext context)
         {
             // Get all the languages 
-            var languages = CultureInfo.GetCultures(CultureTypes.AllCultures & ~CultureTypes.NeutralCultures).Select(
-                ci => new Language
-                {
-                    Name = ci.DisplayName,
-                    CountryCode = ci.Name
-                }).ToList();
+            var languages = new List<Language>
+            {
+                new Language { Name = "English", Icon = "united-kingdom.png" },
+                new Language { Name = "عربي", Icon = "saudi-arabia.png", InverseDirection = true }
+            };
             context.Languages.AddRange(languages);
 
-            var page = new Page
-            {
-                LayoutCookieTitle = "LayoutCookieTitle",
-                LayoutCookieDescription = "LayoutCookieDescription",
-
-                LayoutMenuHome = "LayoutMenuHome",
-                LayoutMenuListing = "LayoutMenuListing",
-                LayoutMenuSearch = "LayoutMenuSearch",
-                LayoutMenuSubmissions = "LayoutMenuSubmissions",
-                LayoutMenuContact = "LayoutMenuContact",
-                LayoutMenuMap = "LayoutMenuMap",
-
-                LayoutFooterLink1 = "LayoutFooterLink1",
-                LayoutFooterLink1Description = "LayoutFooterLink1Description",
-                LayoutFooterLink2 = "LayoutFooterLink2",
-                LayoutFooterLink2Description = "LayoutFooterLink2Description",
-
-                HomeSearch = "What are you looking for?",
-                HomeSearchError = "Search text required",
-                HomeTitle = "HomeTitle",
-                HomeDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
-                HomeCategoriesText = "Or Browse The Categories",
-
-                SearchTitle = "SearchTitle",
-                SearchDescription = "SearchDescription",
-                SearchNotFound = "SearchNotFound",
-                SearchPlaceHolder = "SearchPlaceHolder",
-                SearchError = "SearchError",
-                SearchResultsFound = "Results found",
-
-                CategoryResultsFound = "Resources available",
-                CategoryFilterDescription = "CategoryFilterDescription",
-
-                SubmissionImage = "/Images/figure/site-main-figure1.jpg",
-                SubmissionTitle = "SubmissionTitle",
-                SubmissionFormPersonalInformationTitle = "SubmissionFormPersonalInformationTitle",
-                SubmissionFormResourceInformationTitle = "SubmissionFormResourceInformationTitle",
-                SubmissionFormResourceCategoryTitle = "SubmissionFormResourceCategoryTitle",
-                SubmissionFormResourceFeatureTitle = "SubmissionFormResourceFeatureTitle",
-                SubmissionFormExtraInformationText = "SubmissionFormExtraInformationText",
-                SubmissionFormSubmitButtonText = "SubmissionFormSubmitButtonText",
-                SubmissionFormNamePlaceholder = "SubmissionFormNamePlaceholder",
-                SubmissionFormEmailPlaceholder = "SubmissionFormEmailPlaceholder",
-                SubmissionFormResourceNamePlaceholder = "SubmissionFormResourceNamePlaceholder",
-                SubmissionFormResourceAddressPlaceholder = "SubmissionFormResourceAddressPlaceholder",
-                SubmissionFormResourceDescriptionPlaceholder = "SubmissionFormResourceDescriptionPlaceholder",
-                SubmissionFormResourcePhonePlaceholder = "SubmissionFormResourcePhonePlaceholder",
-                SubmissionFormResourceEmailPlaceholder = "SubmissionFormResourceEmailPlaceholder",
-                SubmissionFormResourceWebsitePlaceholder = "SubmissionFormResourceWebsitePlaceholder",
-
-                ContactTitle = "ContactTitle",
-                ContactHeading = "ContactHeading",
-                ContactName = "ContactName",
-                ContactEmail = "ContactEmail",
-                ContactDescription = "ContactDescription",
-
-                ResultFromContact = "ResultFromContact",
-                ResultFromSubmission = "ResultFromSubmission",
-
-                MapTitle = "MapTitle",
-                MapDescription = "MapDescription",
-
-                AboutUsTitle = "AboutUsTitle",
-                AboutUsDescription = "AboutUsDescription",
-                AboutUsDescription2 = "AboutUsDescription2",
-
-                Error404Title = "Error404Title",
-                Error404Description = "Error404Description",
-                Error500Title = "Error500Title",
-                Error500Description = "Error500Description",
-                ResourceContactTitle = "ResourceContactTitle",
-                Language = languages.First(l => l.CountryCode == "en-GB")
-            };
-            context.Pages.Add(page);
+            context.Pages.Add(GetEnglishPage(languages));
+            context.Pages.Add(GetArabicPage(languages));
 
             var contact = new Contact { Name = "Bobby", Email = "bob@bob.bob", Message = "Important stuff" };
             context.Contacts.Add(contact);
@@ -114,7 +40,7 @@ namespace OxTots.Data
                     Title = "Category 1",
                     Description = "Description",
                     ShortDescription = "ShortDescription",
-                    Language = languages.First(l => l.CountryCode == "en-GB"),
+                    Language = languages.First(),
                     Category = categories.First()
                 },
                 new CategoryDetail
@@ -122,7 +48,7 @@ namespace OxTots.Data
                     Title = "Category 2",
                     Description = "Description",
                     ShortDescription = "ShortDescription",
-                    Language = languages.First(l => l.CountryCode == "en-GB"),
+                    Language = languages.First(),
                     Category = categories.First(c => c.Name == "Category 2")
                 },
                 new CategoryDetail
@@ -130,7 +56,7 @@ namespace OxTots.Data
                     Title = "Category 3",
                     Description = "Description",
                     ShortDescription = "ShortDescription",
-                    Language = languages.First(l => l.CountryCode == "en-GB"),
+                    Language = languages.First(),
                     Category = categories.First(c => c.Name == "Category 3")
                 },
                 new CategoryDetail
@@ -138,7 +64,7 @@ namespace OxTots.Data
                     Title = "Category 4",
                     Description = "Description",
                     ShortDescription = "ShortDescription",
-                    Language = languages.First(l => l.CountryCode == "en-GB"),
+                    Language = languages.First(),
                     Category = categories.First(c => c.Name == "Category 4")
                 },
                 new CategoryDetail
@@ -146,7 +72,7 @@ namespace OxTots.Data
                     Title = "Category 5",
                     Description = "Description",
                     ShortDescription = "ShortDescription",
-                    Language = languages.First(l => l.CountryCode == "en-GB"),
+                    Language = languages.First(),
                     Category = categories.First(c => c.Name == "Category 5")
                 },
                 new CategoryDetail
@@ -154,7 +80,7 @@ namespace OxTots.Data
                     Title = "Category 6",
                     Description = "Description",
                     ShortDescription = "ShortDescription",
-                    Language = languages.First(l => l.CountryCode == "en-GB"),
+                    Language = languages.First(),
                     Category = categories.First(c => c.Name == "Category 6")
                 }
 
@@ -174,12 +100,12 @@ namespace OxTots.Data
 
             var featureDetails = new List<FeatureDetail>
             {
-                new FeatureDetail { Title = "Feature 1 Title", Feature = features.First(f => f.Name == "Feature 1"), Language = languages.First(l => l.CountryCode == "en-GB") },
-                new FeatureDetail { Title = "Feature 2 Title", Feature = features.First(f => f.Name == "Feature 2"), Language = languages.First(l => l.CountryCode == "en-GB") },
-                new FeatureDetail { Title = "Feature 3 Title", Feature = features.First(f => f.Name == "Feature 3"), Language = languages.First(l => l.CountryCode == "en-GB") },
-                new FeatureDetail { Title = "Feature 4 Title", Feature = features.First(f => f.Name == "Feature 4"), Language = languages.First(l => l.CountryCode == "en-GB") },
-                new FeatureDetail { Title = "Feature 5 Title", Feature = features.First(f => f.Name == "Feature 5"), Language = languages.First(l => l.CountryCode == "en-GB") },
-                new FeatureDetail { Title = "Feature 6 Title", Feature = features.First(f => f.Name == "Feature 6"), Language = languages.First(l => l.CountryCode == "en-GB") },
+                new FeatureDetail { Title = "Feature 1 Title", Feature = features.First(f => f.Name == "Feature 1"), Language = languages.First() },
+                new FeatureDetail { Title = "Feature 2 Title", Feature = features.First(f => f.Name == "Feature 2"), Language = languages.First() },
+                new FeatureDetail { Title = "Feature 3 Title", Feature = features.First(f => f.Name == "Feature 3"), Language = languages.First() },
+                new FeatureDetail { Title = "Feature 4 Title", Feature = features.First(f => f.Name == "Feature 4"), Language = languages.First() },
+                new FeatureDetail { Title = "Feature 5 Title", Feature = features.First(f => f.Name == "Feature 5"), Language = languages.First() },
+                new FeatureDetail { Title = "Feature 6 Title", Feature = features.First(f => f.Name == "Feature 6"), Language = languages.First() },
             };
             context.FeatureDetails.AddRange(featureDetails);
 
@@ -246,7 +172,7 @@ namespace OxTots.Data
                     Description = "Resource 1 Description",
                     ShortDescription = "Resource 1 ShortDescription",
                     OpeningHours = "Resource 1 OpeningHours",
-                    Language = languages.First(l => l.CountryCode == "en-GB"),
+                    Language = languages.First(),
                     Resource = resources.First(r => r.Name == "Resource 1")
                 },
                 new ResourceDetail
@@ -255,7 +181,7 @@ namespace OxTots.Data
                     Description = "Resource 2 Description",
                     ShortDescription = "Resource 2 ShortDescription",
                     OpeningHours = "Resource 2 OpeningHours",
-                    Language = languages.First(l => l.CountryCode == "en-GB"),
+                    Language = languages.First(),
                     Resource = resources.First(r => r.Name == "Resource 2")
                 },
                 new ResourceDetail
@@ -264,7 +190,7 @@ namespace OxTots.Data
                     Description = "Resource 3 Description",
                     ShortDescription = "Resource 3 ShortDescription",
                     OpeningHours = "Resource 3 OpeningHours",
-                    Language = languages.First(l => l.CountryCode == "en-GB"),
+                    Language = languages.First(),
                     Resource = resources.First(r => r.Name == "Resource 3")
                 },
                 new ResourceDetail
@@ -273,7 +199,7 @@ namespace OxTots.Data
                     Description = "Resource 4 Description",
                     ShortDescription = "Resource 4 ShortDescription",
                     OpeningHours = "Resource 4 OpeningHours",
-                    Language = languages.First(l => l.CountryCode == "en-GB"),
+                    Language = languages.First(),
                     Resource = resources.First(r => r.Name == "Resource 4")
                 }
             };
@@ -314,6 +240,105 @@ namespace OxTots.Data
 
 
             context.SaveChanges();
+        }
+
+        private static Page GetArabicPage(List<Language> languages)
+        {
+            return new Page
+            {
+                LayoutMenuListing = "الفئات",
+                LayoutMenuSearch = "بحث",
+                LayoutMenuSubmissions = "تقديم",
+                LayoutMenuContact = "جهة الاتصال",
+                LayoutMenuMap = "الخريطة",
+                LayoutMenuAboutUs = "من نحن",
+
+                LayoutFooterLink1 = "الخصوصية",
+                LayoutFooterLink2 = "سياسة ملفات تعريف الارتباط",
+                Language = languages.Last()
+            };
+        }
+
+        private static Page GetEnglishPage(List<Language> languages)
+        {
+            return new Page
+            {
+                LayoutMenuListing = "Categories",
+                LayoutMenuSearch = "Search",
+                LayoutMenuSubmissions = "Submission",
+                LayoutMenuContact = "Contact",
+                LayoutMenuMap = "Map",
+                LayoutMenuAboutUs = "About Us",
+
+                LayoutFooterLink1 = "Privacy",
+                LayoutFooterLink1Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+                LayoutFooterLink2 = "Cookie Policy",
+                LayoutFooterLink2Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+
+                HomeImage = "/Images/figure/site-main-figure1.jpg",
+                HomeSearch = "What are you looking for?",
+                HomeSearchError = "Search text required",
+                HomeTitle = "HomeTitle",
+                HomeDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+                HomeCategoriesText = "Or Browse The Categories",
+
+                SearchTitle = "SearchTitle",
+                SearchDescription = "SearchDescription",
+                SearchNotFound = "SearchNotFound",
+                SearchPlaceHolder = "SearchPlaceHolder",
+                SearchError = "SearchError",
+                SearchResultsFound = "Results found",
+                SearchGoToResource = "Go to this resource",
+
+                CategoryResultsFound = "Resources available",
+                CategoryFilterDescription = "CategoryFilterDescription",
+                CategoryGoToResource = "Go to this resource",
+
+                SubmissionImage = "/Images/figure/site-main-figure1.jpg",
+                SubmissionTitle = "SubmissionTitle",
+                SubmissionFormPersonalInformationTitle = "SubmissionFormPersonalInformationTitle",
+                SubmissionFormResourceInformationTitle = "SubmissionFormResourceInformationTitle",
+                SubmissionFormResourceCategoryTitle = "SubmissionFormResourceCategoryTitle",
+                SubmissionFormResourceFeatureTitle = "SubmissionFormResourceFeatureTitle",
+                SubmissionFormExtraInformationText = "SubmissionFormExtraInformationText",
+                SubmissionFormSubmitButtonText = "SubmissionFormSubmitButtonText",
+                SubmissionFormNamePlaceholder = "SubmissionFormNamePlaceholder",
+                SubmissionFormEmailPlaceholder = "SubmissionFormEmailPlaceholder",
+                SubmissionFormResourceNamePlaceholder = "SubmissionFormResourceNamePlaceholder",
+                SubmissionFormResourceAddressPlaceholder = "SubmissionFormResourceAddressPlaceholder",
+                SubmissionFormResourceDescriptionPlaceholder = "SubmissionFormResourceDescriptionPlaceholder",
+                SubmissionFormResourcePhonePlaceholder = "SubmissionFormResourcePhonePlaceholder",
+                SubmissionFormResourceEmailPlaceholder = "SubmissionFormResourceEmailPlaceholder",
+                SubmissionFormResourceWebsitePlaceholder = "SubmissionFormResourceWebsitePlaceholder",
+
+                ContactTitle = "ContactTitle",
+                ContactHeading = "ContactHeading",
+                ContactName = "ContactName",
+                ContactEmail = "ContactEmail",
+                ContactDescription = "ContactDescription",
+                ContactNamePlaceHolder = "Name *",
+                ContactEmailPlaceHolder = "Email *",
+                ContactMessagePlaceHolder = "Message *",
+                ContactSubmitButtonText = "Submit Message *",
+
+                ResultFromContact = "ResultFromContact",
+                ResultFromSubmission = "ResultFromSubmission",
+
+                MapTitle = "MapTitle",
+                MapDescription = "MapDescription",
+
+                AboutUsTitle = "AboutUsTitle",
+                AboutUsImage = "/Images/figure/site-main-figure1.jpg",
+                AboutUsDescription = "AboutUsDescription",
+                AboutUsDescription2 = "AboutUsDescription2",
+
+                Error404Title = "Error404Title",
+                Error404Description = "Error404Description",
+                Error500Title = "Error500Title",
+                Error500Description = "Error500Description",
+                ResourceContactTitle = "ResourceContactTitle",
+                Language = languages.First()
+            };
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace OxTots.ViewModel
 {
@@ -9,10 +6,12 @@ namespace OxTots.ViewModel
     {
         public string Title { get; set; }
         public string Description { get; set; }
-        public string SearchPlaceHolder { get; set; }
         public string SearchError { get; set; }
+        public string GoToResource { get; set; }
         public string ResultsFound { get; set; }
+        public string SearchPlaceHolder { get; set; }
         public List<MarkerViewModel> Markers { get; set; }
         public List<ResourceFilterViewModel> Results { get; set; }
+        
     }
 }

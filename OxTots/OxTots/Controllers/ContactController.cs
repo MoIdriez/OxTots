@@ -10,11 +10,16 @@ namespace OxTots.Controllers
         // GET: Contact
         public ActionResult Index()
         {
-            var page = db.Pages.GetPage();
+            var page = Db.Pages.GetPage(UserLanguageID);
+            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
             var model = new ContactViewModel
             {
-                Title = page.ContactTitle,
-                Description = page.ContactDescription
+                Title = page.ContactTitle ?? dfPage.ContactTitle,
+                Description = page.ContactDescription ?? dfPage.ContactDescription,
+                NamePlaceHolder = page.ContactNamePlaceHolder ?? dfPage.ContactNamePlaceHolder,
+                EmailPlaceHolder = page.ContactEmailPlaceHolder ?? dfPage.ContactEmailPlaceHolder,
+                MessagePlaceHolder = page.ContactMessagePlaceHolder ?? dfPage.ContactMessagePlaceHolder,
+                SubmitButtonText = page.ContactSubmitButtonText ?? dfPage.ContactSubmitButtonText,
             };
             return View(model);
         }
@@ -23,14 +28,14 @@ namespace OxTots.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Submit(ContactViewModel model)
         {
-            db.Contacts.Add(new Contact
+            Db.Contacts.Add(new Contact
             {
                 Name = model.Name,
                 Email = model.Email,
                 Message = model.Message
             });
 
-            db.SaveChanges();
+            Db.SaveChanges();
             return RedirectToAction("Index");
         }
     }

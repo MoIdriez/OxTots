@@ -14,12 +14,13 @@ namespace OxTots.Controllers
         public ActionResult Index()
         {
             this.SetHeaderDark();
-            var page = db.Pages.GetPage();
-            var markers = db.Categories.GetMarkerViewModels();
+            var page = Db.Pages.GetPage(UserLanguageID);
+            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
+            var markers = Db.Categories.ToList().GetMarkerViewModels(UserLanguageID, DefaultLanguageID);
             var model = new MapViewModel
             {
-                Title = page.MapTitle,
-                Description = page.MapDescription,
+                Title = page.MapTitle ?? dfPage.MapTitle,
+                Description = page.MapDescription ?? dfPage.MapDescription,
                 Markers = markers
             };
             return View(model);

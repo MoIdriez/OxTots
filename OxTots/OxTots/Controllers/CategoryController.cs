@@ -14,25 +14,27 @@ namespace OxTots.Controllers
         public ActionResult Index(int id)
         {
             base.SetHeaderDark();
-            var page = db.Pages.GetPage();
-            var category = db.Categories.FirstOrDefault(c => c.ID == id);
+            var page = Db.Pages.GetPage(UserLanguageID);
+            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
+            var category = Db.Categories.FirstOrDefault(c => c.ID == id);
             if (category == null)
             {
                 // category doesn't exist send to error page
                 throw new NotImplementedException();
             }
 
-            var categoryDetail = category.GetDetail();
+            var categoryDetail = category.GetDetail(UserLanguageID) ?? category.GetDetail(DefaultLanguageID);
             var model = new CategoryViewModel
             {
                 ID = category.ID,
                 Title = categoryDetail.Title,
                 Description = categoryDetail.Description,
-                ResultsFound = page.CategoryResultsFound,
-                FilterDescription = page.CategoryFilterDescription,
-                Features = category.Features.ToViewModel(),
-                Resources = category.GetResourceFilterViewModel(),
-                Markers = category.GetMarkerViewModels()
+                ResultsFound = page.CategoryResultsFound ?? dfPage.CategoryResultsFound,
+                FilterDescription = page.CategoryFilterDescription ?? dfPage.CategoryFilterDescription,
+                GoToResource = page.CategoryGoToResource ?? dfPage.CategoryGoToResource,
+                Features = category.Features.ToList().ToViewModel(UserLanguageID, DefaultLanguageID),
+                Resources = category.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID),
+                Markers = category.GetMarkerViewModels(UserLanguageID, DefaultLanguageID)
             };
             return View(model);
         }
@@ -49,7 +51,7 @@ namespace OxTots.Controllers
                 return RedirectToAction("Index", new { id= model.ID });
             }
 
-            var category = db.Categories.FirstOrDefault(c => c.ID == model.ID);
+            var category = Db.Categories.FirstOrDefault(c => c.ID == model.ID);
             if (category == null)
             {
                 // category doesn't exist send to error page
@@ -63,8 +65,8 @@ namespace OxTots.Controllers
                 .Where(r => r.ResourceFeatures
                     .Any(rf => rf.Enabled && selectedFeatures.Contains(rf.Feature.ID))).ToList();
 
-            model.Resources = resources.GetResourceFilterViewModel();
-            model.Markers = resources.GetMarkerViewModels();
+            model.Resources = resources.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID);
+            model.Markers = resources.GetMarkerViewModels(UserLanguageID, DefaultLanguageID);
             return View("Index", model);
         }
     }

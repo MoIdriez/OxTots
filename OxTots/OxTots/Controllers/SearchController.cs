@@ -27,17 +27,20 @@ namespace OxTots.Controllers
 
         public SearchViewModel Search(string q)
         {
-            var page = db.Pages.GetPage();
-            var categories = db.Categories;
-            var markers = categories.GetMarkerViewModels(q);
-            var results = categories.GetResourceFilterViewModel(q);
+            var page = Db.Pages.GetPage(UserLanguageID);
+            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
+
+            var categories = Db.Categories.ToList();
+            var markers = categories.GetMarkerViewModels(UserLanguageID,DefaultLanguageID, q);
+            var results = categories.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID, q);
             return new SearchViewModel
             {
-                Title = page.SearchTitle,
-                Description = page.SearchDescription,
-                SearchPlaceHolder = page.SearchPlaceHolder,
-                SearchError = page.SearchError,
-                ResultsFound = page.SearchResultsFound,
+                Title = page.SearchTitle ?? dfPage.SearchTitle,
+                Description = page.SearchDescription ?? dfPage.SearchDescription,
+                SearchPlaceHolder = page.SearchPlaceHolder ?? dfPage.SearchDescription,
+                SearchError = page.SearchError ?? dfPage.SearchDescription,
+                ResultsFound = page.SearchResultsFound ?? dfPage.SearchDescription,
+                GoToResource = page.SearchGoToResource ?? dfPage.SearchGoToResource,
                 Markers = markers,
                 Results = results
             };

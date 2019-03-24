@@ -48,24 +48,6 @@
                             }
                         </select>
                     </div>
-                    @*<div class="col-12">@Model.ResourceFeatureTitle</div>
-                    <div class="col-12 form-group">
-                        <div class="row">
-                            @for (var i = 0; i < Model.Features.Count; i++)
-                            {
-                                <div class="checkbox-filter col-4 col-lg-2">
-                                    @Html.CheckBoxFor(m => m.Features[i].IsSelected)
-                                    @Html.LabelFor(m => m.Features[i].Name, Model.Features[i].Name)
-                                    <input id="checkbox-@feature.ID" type="checkbox" name="selectedFilters" value="@feature.ID" @(feature.IsSelected ? "checked" : "")>
-                                        <label for="checkbox-@feature.ID">@feature.Name</label>
-                                </div>
-
-                                @Html.HiddenFor(m => m.Features[i].ID)
-                                @Html.HiddenFor(m => m.Features[i].CategoryID)
-                                @Html.HiddenFor(m => m.Features[i].Name)
-                            }
-                        </div>
-                    </div>*@
                     <div class="col-6 form-group">
                         @Html.TextBoxFor(m => m.ResourcePhone, new { @class = "form-control", placeholder = Model.ResourcePhonePlaceholder })
                     </div>

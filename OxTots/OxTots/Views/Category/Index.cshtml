@@ -37,8 +37,6 @@
                                                 <div class="checkbox-filter col-4 col-lg-2">
                                                     @Html.CheckBoxFor(m => m.Features[i].IsSelected)
                                                     @Html.LabelFor(m => m.Features[i].Name, Model.Features[i].Name)
-                                                    @*<input id="checkbox-@feature.ID" type="checkbox" name="selectedFilters" value="@feature.ID" @(feature.IsSelected ? "checked" : "")>
-                                                        <label for="checkbox-@feature.ID">@feature.Name</label>*@
                                                 </div>
 
                                                 @Html.HiddenFor(m => m.Features[i].ID)
@@ -89,7 +87,7 @@
                                                 <h3 class="item-title"><a href="#">@result.Title</a></h3>
                                                 <p class="item-paragraph">@result.Description</p>
                                                 <ul class="meta-item">
-                                                    <li class="ctg-name"><a href="#">Go to this resource<i class="flaticon-next"></i></a></li>
+                                                    <li class="ctg-name"><a href="#">@Model.GoToResource<i class="flaticon-next"></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>

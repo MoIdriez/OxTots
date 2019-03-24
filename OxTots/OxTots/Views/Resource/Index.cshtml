@@ -18,8 +18,6 @@
                             <div class="checkbox-filter col-4 col-lg-2">
                                 @Html.CheckBoxFor(m => m.Features[i].IsSelected)
                                 @Html.LabelFor(m => m.Features[i].Name, Model.Features[i].Name)
-                                @*<input id="checkbox-@feature.ID" type="checkbox" name="selectedFilters" value="@feature.ID" @(feature.IsSelected ? "checked" : "")>
-                                                        <label for="checkbox-@feature.ID">@feature.Name</label>*@
                             </div>
 
                             @Html.HiddenFor(m => m.Features[i].ID)

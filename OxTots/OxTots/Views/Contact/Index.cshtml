@@ -26,16 +26,16 @@
                 @Html.AntiForgeryToken()
                 <div class="row">
                     <div class="col-12 form-group">
-                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Name*" } )
+                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = Model.NamePlaceHolder } )
                     </div>
                     <div class="col-12 form-group">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Your Email*" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Model.EmailPlaceHolder })
                     </div>
                     <div class="col-12 form-group">
-                        @Html.TextAreaFor(m => m.Message, 10, 55, new { @class = "form-control", placeholder = "Your Message*"})
+                        @Html.TextAreaFor(m => m.Message, 10, 55, new { @class = "form-control", placeholder = Model.MessagePlaceHolder })
                     </div>
                     <div class="col-12 form-group mb-0 mt-3">
-                        <button type="submit" class="item-btn disabled">Submit Message</button>
+                        <button type="submit" class="item-btn disabled">@Model.SubmitButtonText</button>
                     </div>
                 </div>
             }

@@ -13,12 +13,14 @@ namespace OxTots.Controllers
         // GET: AboutUs
         public ActionResult Index()
         {
-            var page = db.Pages.GetPage();
+            var page = Db.Pages.GetPage(UserLanguageID);
+            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
             var model = new AboutUsViewModel
             {
-                Title = page.AboutUsTitle,
-                Description = page.AboutUsDescription,
-                Description2 = page.AboutUsDescription2
+                Image = page.AboutUsImage ?? dfPage.AboutUsImage,
+                Title = page.AboutUsTitle ?? dfPage.AboutUsTitle,
+                Description = page.AboutUsDescription ?? dfPage.AboutUsDescription,
+                Description2 = page.AboutUsDescription2 ?? dfPage.AboutUsDescription2
             };
             return View(model);
         }

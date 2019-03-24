@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Globalization;
 using System.Linq;
 using OxTots.Models;
 using OxTots.ViewModel;
@@ -9,41 +8,32 @@ namespace OxTots.Utility
 {
     public static class ConvenienceFunctions
     {
-        private static string DefaultLanguage => "en-GB";
-        public static CategoryDetail GetDetail(this Category category)
+        public static CategoryDetail GetDetail(this Category category, int languageID)
         {
-            var cc = CultureInfo.CurrentCulture;
-            var cd = category.CategoryDetails.FirstOrDefault(c => c.Language.CountryCode == cc.Name);
-            return cd ?? category.CategoryDetails.First(c => c.Language.CountryCode == DefaultLanguage);
+            return category.CategoryDetails.FirstOrDefault(c => c.Language.ID == languageID);
         }
 
-        public static ResourceDetail GetDetail(this Resource resource)
+        public static ResourceDetail GetDetail(this Resource resource, int languageID)
         {
-            var cc = CultureInfo.CurrentCulture;
-            var cd = resource.ResourceDetails.FirstOrDefault(c => c.Language.CountryCode == cc.Name);
-            return cd ?? resource.ResourceDetails.First(c => c.Language.CountryCode == DefaultLanguage);
+            return resource.ResourceDetails.FirstOrDefault(c => c.Language.ID == languageID);
         }
 
-        public static FeatureDetail GetDetail(this Feature feature)
+        public static FeatureDetail GetDetail(this Feature feature, int languageID)
         {
-            var cc = CultureInfo.CurrentCulture;
-            var cd = feature.FeatureDetails.FirstOrDefault(c => c.Language.CountryCode == cc.Name);
-            return cd ?? feature.FeatureDetails.First(c => c.Language.CountryCode == DefaultLanguage);
+            return feature.FeatureDetails.FirstOrDefault(c => c.Language.ID == languageID);
         }
 
-        public static Page GetPage(this DbSet<Page> pages)
+        public static Page GetPage(this DbSet<Page> pages, int languageID)
         {
-            var cc = CultureInfo.CurrentCulture;
-            var page = pages.FirstOrDefault(p => p.Language.CountryCode == cc.Name);
-            return page ?? pages.First(p => p.Language.CountryCode == DefaultLanguage);
+            return pages.FirstOrDefault(p => p.Language.ID == languageID);
         }
 
-        public static List<MarkerViewModel> GetMarkerViewModels(this DbSet<Category> categories, string q = "")
+        public static List<MarkerViewModel> GetMarkerViewModels(this List<Category> categories, int languageID, int dfLanguageID, string q = "")
         {
-            var resources = SearchResources(categories, q);
+            var resources = SearchResources(categories, languageID, dfLanguageID, q);
             return resources.Select(r =>
             {
-                var rd = r.GetDetail();
+                var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
                 return new MarkerViewModel
                 {
                     ID = r.ID,
@@ -56,11 +46,11 @@ namespace OxTots.Utility
             }).ToList();
         }
 
-        public static List<MarkerViewModel> GetMarkerViewModels(this List<Resource> resources)
+        public static List<MarkerViewModel> GetMarkerViewModels(this List<Resource> resources, int languageID, int dfLanguageID)
         {
             return resources.Select(r =>
             {
-                var rd = r.GetDetail();
+                var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
                 return new MarkerViewModel
                 {
                     ID = r.ID,
@@ -73,12 +63,12 @@ namespace OxTots.Utility
             }).ToList();
         }
 
-        public static List<MarkerViewModel> GetMarkerViewModels(this Category category)
+        public static List<MarkerViewModel> GetMarkerViewModels(this Category category, int languageID, int dfLanguageID)
         {
             var resources = category.Resources;
             return resources.Select(r =>
             {
-                var rd = r.GetDetail();
+                var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
                 return new MarkerViewModel
                 {
                     ID = r.ID,
@@ -91,9 +81,9 @@ namespace OxTots.Utility
             }).ToList();
         }
 
-        public static MarkerViewModel GetMarkerViewModel(this Resource resource)
+        public static MarkerViewModel GetMarkerViewModel(this Resource resource, int languageID, int dfLanguageID)
         {
-            var rd = resource.GetDetail();
+            var rd = resource.GetDetail(languageID) ?? resource.GetDetail(dfLanguageID);
             return new MarkerViewModel
                 {
                     ID = resource.ID,
@@ -105,12 +95,12 @@ namespace OxTots.Utility
                 };
         }
 
-        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this DbSet<Category> categories, string q = "")
+        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this List<Category> categories, int languageID, int dfLanguageID, string q = "")
         {
-            var resources = SearchResources(categories, q);
+            var resources = SearchResources(categories, languageID, dfLanguageID, q);
             return resources.Select(r =>
             {
-                var rd = r.GetDetail();
+                var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
                 return new ResourceFilterViewModel
                 {
                     ID = r.ID,
@@ -122,11 +112,11 @@ namespace OxTots.Utility
             }).ToList();
         }
 
-        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this List<Resource> resources)
+        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this List<Resource> resources, int languageID, int dfLanguageID)
         {
             return resources.Select(r =>
             {
-                var rd = r.GetDetail();
+                var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
                 return new ResourceFilterViewModel
                 {
                     ID = r.ID,
@@ -138,11 +128,11 @@ namespace OxTots.Utility
             }).ToList();
         }
 
-        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this Category category)
+        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this Category category, int languageID, int dfLanguageID)
         {
             return category.Resources.Select(r =>
             {
-                var rd = r.GetDetail();
+                var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
                 return new ResourceFilterViewModel
                 {
                     ID = r.ID,
@@ -154,28 +144,36 @@ namespace OxTots.Utility
             }).ToList();
         }
 
-        private static IEnumerable<Resource> SearchResources(DbSet<Category> categories, string q)
+        private static IEnumerable<Resource> SearchResources(List<Category> categories, int languageID, int dfLanguageID, string q)
         {
             q = q.Trim();
             var resources = categories.SelectMany(c => c.Resources).ToList().Where(r =>
             {
-                var resourceDetail = r.GetDetail();
+                var resourceDetail = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
                 return resourceDetail.Title.ToUpper().Contains(q.ToUpper()) || resourceDetail.Description.ToUpper().Contains(q.ToUpper());
             });
             return resources;
         }
 
-        public static List<FeatureViewModel> ToViewModel(this ICollection<Feature> features)
+        public static List<FeatureViewModel> ToViewModel(this List<Feature> features, int languageID, int dfLanguageID)
         {
-            return features.Select(f => new FeatureViewModel {ID = f.ID, Name = f.GetDetail().Title}).ToList();
+            return features.Select(f =>
+            {
+                var featureDetail = f.GetDetail(languageID) ?? f.GetDetail(dfLanguageID);
+                return new FeatureViewModel {ID = f.ID, Name = featureDetail.Title};
+            }).ToList();
         }
 
-        public static List<FeatureViewModel> ToViewModel(this ICollection<ResourceFeature> resourceFeature)
+        public static List<FeatureViewModel> ToViewModel(this List<ResourceFeature> resourceFeature, int languageID, int dfLanguageID)
         {
-            return resourceFeature.Select(rf => new FeatureViewModel
+            return resourceFeature.Select(rf =>
             {
-                Name = rf.Feature.GetDetail().Title,
-                IsSelected = rf.Enabled
+                var featureDetail = rf.Feature.GetDetail(languageID) ?? rf.Feature.GetDetail(dfLanguageID);
+                return new FeatureViewModel
+                {
+                    Name = featureDetail.Title,
+                    IsSelected = rf.Enabled
+                };
             }).ToList();
         }
     }

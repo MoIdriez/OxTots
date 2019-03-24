@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@viewModel.Title</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -40,8 +40,8 @@
                     <div class="row">
                         <div class="col-lg-2 col-12">
                             <div class="site-logo">
-                                <a href="@Url.Action("Index", "Home")" class="main-logo"><img src="/Images/logo.png" alt="Site Logo"></a>
-                                <a href="@Url.Action("Index", "Home")" class="sticky-logo"><img src="/Images/sticky-logo.png" alt="Site Logo"></a>
+                                <a href="@Url.Action("Index", "Home")" class="main-logo"><img src="@viewModel.MainLogo" alt="Site Logo"></a>
+                                <a href="@Url.Action("Index", "Home")" class="sticky-logo"><img src="@viewModel.MainLogoAlt" alt="Site Logo"></a>
                             </div>
                         </div>
                         <div class="col-lg-7 col-12 possition-static">
@@ -54,8 +54,7 @@
                                             @foreach (var c in viewModel.Categories)
                                             {
                                                 <li>
-                                                    @{ var cd = c.GetDetail(); }
-                                                    @Html.ActionLink(cd.Title, "Index", "Category", new { c.ID }, null)
+                                                    @Html.ActionLink(c.Title, "Index", "Category", new { c.ID }, null)
                                                 </li>
                                             }
                                         </ul>
@@ -75,9 +74,9 @@
                                         <ul class="dropdown-menu-col-1">
                                             @foreach (var l in viewModel.Languages)
                                             {
-                                            <li>
-                                                <a href="@Url.Action("ChangeLanguage", "Base", new { l.ID })"><i class="@l.Flag"></i>@l.Name</a>
-                                            </li>
+                                                <li>
+                                                    <a href="@Url.Action("ChangeLanguage", "Base", new { l.ID })"><i class="@l.Icon"></i>@l.Name</a>
+                                                </li>
                                             }
                                         </ul>
                                     </li>
@@ -100,6 +99,7 @@
                             <div class="footer-box">
                                 <div class="footer-header">
                                     <h3>@viewModel.Link1</h3>
+                                    @Html.Hidden("link1-content", viewModel.Link1Content)
                                 </div>
                             </div>
                         </div>
@@ -107,6 +107,7 @@
                             <div class="footer-box">
                                 <div class="footer-header">
                                     <h3>@viewModel.Link2</h3>
+                                    @Html.Hidden("link2-content", viewModel.Link2Content)
                                 </div>
                             </div>
                         </div>
@@ -116,39 +117,20 @@
         </footer>
         <!-- Footer Area End Here -->
     </div>
+
     <!-- Modal Start-->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="title-default-bold mb-none">Login</div>
+                    <div id="modal-title-content" class="title-default-bold mb-none"></div>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form class="login-form">
-                        <input class="main-input-box" type="text" placeholder="User Name" />
-                        <input class="main-input-box" type="password" placeholder="Password" />
-                        <div class="inline-box mb-5 mt-4">
-                            <div class="checkbox checkbox-primary">
-                                <input id="checkbox1" type="checkbox">
-                                <label for="checkbox1">Remember Me</label>
-                            </div>
-                            <label class="lost-password"><a href="#">Lost your password?</a></label>
-                        </div>
-                        <div class="inline-box mb-5 mt-4">
-                            <button class="btn-fill" type="submit" value="Login">Login</button>
-                            <a href="#" class="btn-register"><i class="fas fa-user"></i>Register Here!</a>
-                        </div>
-                    </form>
-                    <label>Login connect with your Social Network</label>
-                    <div class="login-box-social">
-                        <ul>
-                            <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                            <li><a href="#" class="google"><i class="fab fa-google-plus-g"></i></a></li>
-                        </ul>
-                    </div>
+                    <p id="modal-body-content"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
