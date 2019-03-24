@@ -23,6 +23,14 @@ namespace OxTots.Controllers
                 Description = page.MapDescription ?? dfPage.MapDescription,
                 Markers = markers
             };
+
+            SetOg(new OgViewModel
+            {
+                Url = page.OgMapUrl ?? dfPage.OgMapUrl,
+                Title = page.OgMapTitle ?? dfPage.OgMapTitle,
+                Image = page.OgMapImage ?? dfPage.OgMapImage,
+                Description = page.OgMapDescription ?? dfPage.OgMapDescription
+            });
             return View(model);
         }
     }

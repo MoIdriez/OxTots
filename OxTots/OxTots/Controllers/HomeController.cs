@@ -28,21 +28,15 @@ namespace OxTots.Controllers
                 }).ToList(),
                 Markers = categories.GetMarkerViewModels(UserLanguageID, DefaultLanguageID)
             };
+
+            SetOg(new OgViewModel
+            {
+                Url = page.OgHomeUrl ?? dfPage.OgHomeUrl,
+                Title = page.OgHomeTitle ?? dfPage.OgHomeTitle,
+                Image = page.OgHomeImage ?? dfPage.OgHomeImage,
+                Description = page.OgHomeDescription ?? dfPage.OgHomeDescription
+            });
             return View(model);
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }

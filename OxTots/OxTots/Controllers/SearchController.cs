@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using OxTots.Utility;
 using OxTots.ViewModel;
@@ -13,15 +10,33 @@ namespace OxTots.Controllers
         // GET: Search
         public ActionResult Index()
         {
-            base.SetHeaderDark();
+            SetHeaderDark();
             var model = Search("");
+            var page = Db.Pages.GetPage(UserLanguageID);
+            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
+            SetOg(new OgViewModel
+            {
+                Url = page.OgSearchUrl ?? dfPage.OgSearchUrl,
+                Title = page.OgSearchTitle ?? dfPage.OgSearchTitle,
+                Image = page.OgSearchImage ?? dfPage.OgSearchImage,
+                Description = page.OgSearchDescription ?? dfPage.OgSearchDescription
+            });
             return View(model);
         }
 
         public ActionResult Query(string q)
         {
-            base.SetHeaderDark();
+            SetHeaderDark();
             var model = Search(q);
+            var page = Db.Pages.GetPage(UserLanguageID);
+            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
+            SetOg(new OgViewModel
+            {
+                Url = page.OgSearchUrl ?? dfPage.OgSearchUrl,
+                Title = page.OgSearchTitle ?? dfPage.OgSearchTitle,
+                Image = page.OgSearchImage ?? dfPage.OgSearchImage,
+                Description = page.OgSearchDescription ?? dfPage.OgSearchDescription
+            });
             return View("Index", model);
         }
 

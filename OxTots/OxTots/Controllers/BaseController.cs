@@ -50,6 +50,11 @@ namespace OxTots.Controllers
             GetLayoutViewModel(true);
         }
 
+        protected void SetOg(OgViewModel model)
+        {
+            ViewData["OgViewModel"] = model;
+        }
+
         private void GetLayoutViewModel(bool dark = false)
         {
             var page = Db.Pages.GetPage(UserLanguageID);

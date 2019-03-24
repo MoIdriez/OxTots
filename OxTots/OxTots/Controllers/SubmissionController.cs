@@ -50,6 +50,14 @@ namespace OxTots.Controllers
                     };
                 }).ToList()
             };
+
+            SetOg(new OgViewModel
+            {
+                Url = page.OgSubmissionUrl ?? dfPage.OgSubmissionUrl,
+                Title = page.OgSubmissionTitle ?? dfPage.OgSubmissionTitle,
+                Image = page.OgSubmissionImage ?? dfPage.OgSubmissionImage,
+                Description = page.OgSubmissionDescription ?? dfPage.OgSubmissionDescription
+            });
             return View(model);
         }
 

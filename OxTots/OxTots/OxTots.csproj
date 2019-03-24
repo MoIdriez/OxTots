@@ -165,6 +165,7 @@
     <Compile Include="ViewModel\LayoutViewModel.cs" />
     <Compile Include="ViewModel\MapViewModel.cs" />
     <Compile Include="ViewModel\MarkerViewModel.cs" />
+    <Compile Include="ViewModel\OgViewModel.cs" />
     <Compile Include="ViewModel\ResourceFilterViewModel.cs" />
     <Compile Include="ViewModel\ResourceViewModel.cs" />
     <Compile Include="ViewModel\SearchViewModel.cs" />

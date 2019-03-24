@@ -1,6 +1,7 @@
 ﻿@using OxTots.ViewModel
 @{
     var viewModel = (LayoutViewModel)ViewBag.LayoutViewModel;
+    var ogModel = (OgViewModel)ViewBag.OgViewModel;
 }
 
 <!DOCTYPE html>
@@ -8,9 +9,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="Oxtots">
-    <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.">
-    <meta property="og:image" content="https://www.oxtots.co.uk">
+    <meta property="og:url" content="@ogModel.Url">
+    <meta property="og:title" content="@ogModel.Title">
+    <meta property="og:image" content="@ogModel.Image" />
+    <meta property="og:description" content="@ogModel.Description">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -108,9 +110,9 @@
             <p>@viewModel.ShareDescription</p>
             <div class="login-box-social">
                 <ul>
-                    <li><a href="https://facebook.com/sharer.php?u=oxtots.co.uk" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="https://twitter.com/intent/tweet?url=oxtots.co.uk&text=Title" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="whatsapp://send?text=Check out this awesome website https://www.oxtots.co.uk" data-action="share/whatsapp/share" class="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
+                    <li><a href="https://facebook.com/sharer.php?u=@ogModel.Url" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?url=@ogModel.Url&text=@ogModel.Title" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                    <li class="d-md-none"><a href="whatsapp://send?text=@ogModel.Title @ogModel.Url" data-action="share/whatsapp/share" class="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
                 </ul>
             </div>
         </div>

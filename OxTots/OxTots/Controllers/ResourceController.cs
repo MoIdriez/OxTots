@@ -38,6 +38,14 @@ namespace OxTots.Controllers
                 Features = resource.ResourceFeatures.ToList().ToViewModel(UserLanguageID, DefaultLanguageID),
                 Markers = new List<MarkerViewModel> { resource.GetMarkerViewModel(UserLanguageID, DefaultLanguageID) }
             };
+
+            SetOg(new OgViewModel
+            {
+                Url = (page.OgResourceUrl ?? dfPage.OgResourceUrl) + resource.ID,
+                Title = page.OgResourceTitle ?? dfPage.OgResourceTitle,
+                Image = page.OgResourceImage ?? dfPage.OgResourceImage,
+                Description = page.OgResourceDescription ?? dfPage.OgResourceDescription
+            });
             return View(model);
         }
     }

@@ -36,6 +36,14 @@ namespace OxTots.Controllers
                 Resources = category.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID),
                 Markers = category.GetMarkerViewModels(UserLanguageID, DefaultLanguageID)
             };
+
+            SetOg(new OgViewModel
+            {
+                Url = (page.OgCategoryUrl ?? dfPage.OgCategoryUrl) + category.ID,
+                Title = page.OgCategoryTitle ?? dfPage.OgCategoryTitle,
+                Image = page.OgCategoryImage ?? dfPage.OgCategoryImage,
+                Description = page.OgCategoryDescription ?? dfPage.OgCategoryDescription
+            });
             return View(model);
         }
         
@@ -44,6 +52,9 @@ namespace OxTots.Controllers
         public ActionResult Filter(CategoryViewModel model)
         {
             base.SetHeaderDark();
+
+            var page = Db.Pages.GetPage(UserLanguageID);
+            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
 
             // if no option is selected
             if (model.Features.All(f => !f.IsSelected))
@@ -67,6 +78,14 @@ namespace OxTots.Controllers
 
             model.Resources = resources.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID);
             model.Markers = resources.GetMarkerViewModels(UserLanguageID, DefaultLanguageID);
+
+            SetOg(new OgViewModel
+            {
+                Url = (page.OgCategoryUrl ?? dfPage.OgCategoryUrl) + category.ID,
+                Title = page.OgCategoryTitle ?? dfPage.OgCategoryTitle,
+                Image = page.OgCategoryImage ?? dfPage.OgCategoryImage,
+                Description = page.OgCategoryDescription ?? dfPage.OgCategoryDescription
+            });
             return View("Index", model);
         }
     }

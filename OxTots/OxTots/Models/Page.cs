@@ -94,6 +94,39 @@
 
 
         public virtual Language Language { get; set; }
+
+        public string OgAboutUsUrl { get; set; }
+        public string OgAboutUsTitle { get; set; }
+        public string OgAboutUsImage { get; set; }
+        public string OgAboutUsDescription { get; set; }
+        public string OgCategoryUrl { get; set; }
+        public string OgCategoryTitle { get; set; }
+        public string OgCategoryImage { get; set; }
+        public string OgCategoryDescription { get; set; }
+        public string OgContactUrl { get; set; }
+        public string OgContactTitle { get; set; }
+        public string OgContactImage { get; set; }
+        public string OgContactDescription { get; set; }
+        public string OgHomeUrl { get; set; }
+        public string OgHomeTitle { get; set; }
+        public string OgHomeImage { get; set; }
+        public string OgHomeDescription { get; set; }
+        public string OgMapUrl { get; set; }
+        public string OgMapTitle { get; set; }
+        public string OgMapImage { get; set; }
+        public string OgMapDescription { get; set; }
+        public string OgResourceUrl { get; set; }
+        public string OgResourceTitle { get; set; }
+        public string OgResourceImage { get; set; }
+        public string OgResourceDescription { get; set; }
+        public string OgSearchUrl { get; set; }
+        public string OgSearchTitle { get; set; }
+        public string OgSearchImage { get; set; }
+        public string OgSearchDescription { get; set; }
+        public string OgSubmissionUrl { get; set; }
+        public string OgSubmissionTitle { get; set; }
+        public string OgSubmissionImage { get; set; }
+        public string OgSubmissionDescription { get; set; }
         
     }
 }

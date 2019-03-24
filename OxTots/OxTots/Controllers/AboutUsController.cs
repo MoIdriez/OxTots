@@ -22,6 +22,15 @@ namespace OxTots.Controllers
                 Description = page.AboutUsDescription ?? dfPage.AboutUsDescription,
                 Description2 = page.AboutUsDescription2 ?? dfPage.AboutUsDescription2
             };
+
+            SetOg(new OgViewModel
+            {
+                Url = page.OgAboutUsUrl ?? dfPage.OgAboutUsUrl,
+                Title = page.OgAboutUsTitle ?? dfPage.OgAboutUsTitle,
+                Image = page.OgAboutUsImage ?? dfPage.OgAboutUsImage,
+                Description = page.OgAboutUsDescription ?? dfPage.OgAboutUsDescription
+            });
+
             return View(model);
         }
     }

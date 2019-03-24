@@ -21,6 +21,14 @@ namespace OxTots.Controllers
                 MessagePlaceHolder = page.ContactMessagePlaceHolder ?? dfPage.ContactMessagePlaceHolder,
                 SubmitButtonText = page.ContactSubmitButtonText ?? dfPage.ContactSubmitButtonText,
             };
+
+            SetOg(new OgViewModel
+            {
+                Url = page.OgContactUrl ?? dfPage.OgContactUrl,
+                Title = page.OgContactTitle ?? dfPage.OgContactTitle,
+                Image = page.OgContactImage ?? dfPage.OgContactImage,
+                Description = page.OgContactDescription ?? dfPage.OgContactDescription
+            });
             return View(model);
         }
 

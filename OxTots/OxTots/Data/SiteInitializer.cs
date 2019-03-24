@@ -344,7 +344,47 @@ namespace OxTots.Data
                 Error500Title = "Error500Title",
                 Error500Description = "Error500Description",
                 ResourceContactTitle = "ResourceContactTitle",
-                Language = languages.First()
+                Language = languages.First(),
+
+                OgAboutUsUrl = "https://wwww.oxtots.co.uk/AboutUs/",
+                OgAboutUsTitle = "Check out ",
+                OgAboutUsImage = "https://wwww.oxtots.co.uk/Images/logo.png",
+                OgAboutUsDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+
+                OgCategoryUrl = "https://wwww.oxtots.co.uk/Category/Index/",
+                OgCategoryTitle = "Check out ",
+                OgCategoryImage = "https://wwww.oxtots.co.uk/Images/logo.png",
+                OgCategoryDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+
+                OgContactUrl = "https://wwww.oxtots.co.uk/Contact/",
+                OgContactTitle = "Check out ",
+                OgContactImage = "https://wwww.oxtots.co.uk/Images/logo.png",
+                OgContactDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+
+                OgHomeUrl = "https://wwww.oxtots.co.uk/",
+                OgHomeTitle = "Check out ",
+                OgHomeImage = "https://wwww.oxtots.co.uk/Images/logo.png",
+                OgHomeDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+
+                OgMapUrl = "https://wwww.oxtots.co.uk/Map/",
+                OgMapTitle = "Check out ",
+                OgMapImage = "https://wwww.oxtots.co.uk/Images/logo.png",
+                OgMapDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+
+                OgResourceUrl = "https://wwww.oxtots.co.uk/Resource/Index/",
+                OgResourceTitle = "Check out ",
+                OgResourceImage = "https://wwww.oxtots.co.uk/Images/logo.png",
+                OgResourceDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+
+                OgSearchUrl = "https://wwww.oxtots.co.uk/Search/",
+                OgSearchTitle = "Check out ",
+                OgSearchImage = "https://wwww.oxtots.co.uk/Images/logo.png",
+                OgSearchDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+
+                OgSubmissionUrl = "https://wwww.oxtots.co.uk/Submission/",
+                OgSubmissionTitle = "Check out ",
+                OgSubmissionImage = "https://wwww.oxtots.co.uk/Images/logo.png",
+                OgSubmissionDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
             };
         }
     }
