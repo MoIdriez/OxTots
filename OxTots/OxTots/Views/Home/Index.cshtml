@@ -31,7 +31,7 @@
                 @foreach (var c in Model.Categories)
                 {
                     <li>
-                        <a class="item-icon" href="@Url.Action("Index", "Category", new { c.ID }, null)"><i class="@c.Icon"></i></a>-->
+                        <a class="item-icon" href="@Url.Action("Index", "Category", new { c.ID }, null)"><i class="@c.Icon"></i></a>
                         <a href="listing-grid-view1.html" class="ctg-title">@c.Title</a>
                     </li>
                 }

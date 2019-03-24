@@ -8,6 +8,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Oxtots">
+    <meta property="og:description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.">
+    <meta property="og:image" content="https://www.oxtots.co.uk">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -65,33 +68,16 @@
                                 </ul>
                             </nav>
                         </div>
-                        @*<div class="col-lg-3 d-none d-lg-flex align-items-center justify-content-end">
+                        <div class="col-lg-3 d-flex align-items-center justify-content-end">
                             <div class="nav-action-elements">
                                 <ul>
                                     <li>
-                                        <a href="#"><i class="@viewModel.LanguageIcon"></i>@viewModel.LanguageName</a>
-                                        <ul class="dropdown-menu-col-1">
-                                            @foreach (var l in viewModel.Languages)
-                                            {
-                                                <li>
-                                                    <a href="@Url.Action("ChangeLanguage", "Base", new { l.ID })"><i class="@l.Icon"></i>@l.Name</a>
-                                                </li>
-                                            }
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>*@
-                        <div class="col-lg-3 d-none d-lg-flex align-items-center justify-content-end">
-                            <div class="nav-action-elements">
-                                <ul>
-                                    <li>
-                                        <button type="button" class="login-btn" onclick="language()" data-toggle="modal" data-target="#myModal">
+                                        <button type="button" class="login-btn" onclick="language()" data-toggle="modal" data-target="#mainModal">
                                             <i class="fas fa-globe"></i>Language
                                         </button>
                                     </li>
                                     <li>
-                                        <button type="button" class="login-btn" onclick="share()" data-toggle="modal" data-target="#myModal">
+                                        <button type="button" class="login-btn" onclick="share()" data-toggle="modal" data-target="#mainModal">
                                             <i class="fas fa-share-alt"></i>Share
                                         </button>
                                     </li>
@@ -122,8 +108,9 @@
             <p>@viewModel.ShareDescription</p>
             <div class="login-box-social">
                 <ul>
-                    <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#" class="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
+                    <li><a href="https://facebook.com/sharer.php?u=oxtots.co.uk" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://twitter.com/intent/tweet?url=oxtots.co.uk&text=Title" class="twitter"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="whatsapp://send?text=Check out this awesome website https://www.oxtots.co.uk" data-action="share/whatsapp/share" class="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -159,7 +146,7 @@
     </div>
 
     <!-- Modal Start-->
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="mainModal" role="dialog" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
