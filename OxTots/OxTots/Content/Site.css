@@ -14,3 +14,22 @@
 .listing-box-list .product-box .item-content .meta-item li.ctg-name { display: block; }
 .filter-box-layout1 label { font-size: 16px;}
 .contact-box .item-heading:after { width: 344px; }
+
+.languages-image { height: 35px; }
+.modal-button {
+    color: #ffffff;
+    padding: 13px 50px;
+    border-radius: 4px;
+    background: #ff4a52;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: inline-block;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.whatsapp {
+    background-color: #25D366;
+    border-color: #25D366;
+}

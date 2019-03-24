@@ -17,6 +17,11 @@
         public string LayoutMenuMap { get; set; }
         public string LayoutMenuAboutUs { get; set; }
 
+        public string LayoutLanguagesTitle { get; set; }
+        public string LayoutLanguagesDescription { get; set; }
+        public string LayoutShareTitle { get; set; }
+        public string LayoutShareDescription { get; set; }
+
         public string LayoutFooterLink1 { get; set; }
         public string LayoutFooterLink1Content { get; set; }
         public string LayoutFooterLink2 { get; set; }

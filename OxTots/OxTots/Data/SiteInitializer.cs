@@ -269,6 +269,13 @@ namespace OxTots.Data
                 LayoutMenuContact = "Contact",
                 LayoutMenuMap = "Map",
                 LayoutMenuAboutUs = "About Us",
+                LayoutMainLogo = "/Images/logo.png",
+                LayoutMainLogoAlt = "/Images/sticky-logo.png",
+
+                LayoutLanguagesTitle = "Change Language",
+                LayoutLanguagesDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+                LayoutShareTitle = "Share Page",
+                LayoutShareDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
 
                 LayoutFooterLink1 = "Privacy",
                 LayoutFooterLink1Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",

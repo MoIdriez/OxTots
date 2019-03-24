@@ -17,6 +17,8 @@ namespace OxTots.Controllers
         {
             get
             {
+                if (Request == null)
+                    return Db.Languages.First().ID;
                 if (Request.Cookies["UserLanguageID"] == null)
                 {
                     Request.Cookies.Add(new HttpCookie("UserLanguageID")
@@ -67,19 +69,24 @@ namespace OxTots.Controllers
                 Link2 = page.LayoutFooterLink2 ?? dfPage.LayoutFooterLink2,
                 Link2Content = page.LayoutFooterLink2Content ?? dfPage.LayoutFooterLink2Content,
                 HeaderDark = dark,
-                Categories = Db.Categories.Select(c => new LayoutCategoryViewModel
+                Categories = Db.Categories.ToList().Select(c => new LayoutCategoryViewModel
                 {
                     ID = c.ID,
                     Title = c.GetDetail(UserLanguageID).Title ?? c.GetDetail(DefaultLanguageID).Title
                 }).ToList(),
 
-                MainLogo = page.LayoutMainLogo ?? dfPage.LayoutFooterLink1Content,
-                MainLogoAlt = page.LayoutMainLogoAlt ?? dfPage.LayoutFooterLink1Content,
+                MainLogo = page.LayoutMainLogo ?? dfPage.LayoutMainLogo,
+                MainLogoAlt = page.LayoutMainLogoAlt ?? dfPage.LayoutMainLogoAlt,
 
                 LanguageID = UserLanguageID,
                 LanguageName = language.Name,
                 LanguageIcon = language.Icon,
-                Languages = Db.Languages.ToList()
+                Languages = Db.Languages.ToList(),
+
+                LanguagesTitle = page.LayoutLanguagesTitle ?? dfPage.LayoutLanguagesTitle,
+                LanguagesDescription = page.LayoutLanguagesDescription ?? dfPage.LayoutLanguagesDescription,
+                ShareTitle = page.LayoutShareTitle ?? dfPage.LayoutShareTitle,
+                ShareDescription = page.LayoutShareDescription ?? dfPage.LayoutShareDescription,
             };
             ViewData["LayoutViewModel"] = model;
         }

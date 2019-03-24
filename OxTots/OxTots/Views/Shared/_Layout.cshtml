@@ -1,5 +1,4 @@
-﻿@using OxTots.Utility
-@using OxTots.ViewModel
+﻿@using OxTots.ViewModel
 @{
     var viewModel = (LayoutViewModel)ViewBag.LayoutViewModel;
 }
@@ -66,7 +65,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <div class="col-lg-3 d-none d-lg-flex align-items-center justify-content-end">
+                        @*<div class="col-lg-3 d-none d-lg-flex align-items-center justify-content-end">
                             <div class="nav-action-elements">
                                 <ul>
                                     <li>
@@ -82,11 +81,52 @@
                                     </li>
                                 </ul>
                             </div>
+                        </div>*@
+                        <div class="col-lg-3 d-none d-lg-flex align-items-center justify-content-end">
+                            <div class="nav-action-elements">
+                                <ul>
+                                    <li>
+                                        <button type="button" class="login-btn" onclick="language()" data-toggle="modal" data-target="#myModal">
+                                            <i class="fas fa-globe"></i>Language
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button type="button" class="login-btn" onclick="share()" data-toggle="modal" data-target="#myModal">
+                                            <i class="fas fa-share-alt"></i>Share
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </header>
+        <div id="modal-language-title" class="hidden">@viewModel.LanguagesTitle</div>
+        <div id="modal-language-body" class="hidden">
+            <p>@viewModel.LanguagesDescription</p>
+            <div class="languages">
+                @foreach (var l in viewModel.Languages)
+                {
+                    <p>
+                        <a href="@Url.Action("ChangeLanguage", "Base", new {l.ID})">
+                            <img class="languages-image" src="/Images/flags/@l.Icon"/>
+                            <span class="languages-text">@l.Name</span>
+                        </a>
+                    </p>
+                }
+            </div>
+        </div>
+        <div id="modal-share-title" class="hidden">@viewModel.ShareTitle</div>
+        <div id="modal-share-body" class="hidden">
+            <p>@viewModel.ShareDescription</p>
+            <div class="login-box-social">
+                <ul>
+                    <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" class="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
+                </ul>
+            </div>
+        </div>
         <!-- Header Area End Here -->
         <!-- Main Banner Area End Here -->
         @RenderBody()
@@ -95,7 +135,7 @@
             <section class="footer-top-wrap">
                 <div class="container">
                     <div class="row">
-                        <div class="single-item offset-lg-3 col-lg-3 col-md-6 col-12">
+                        <div class="single-item col-lg-offset-3 col-lg-3 col-md-6 col-12">
                             <div class="footer-box">
                                 <div class="footer-header">
                                     <h3>@viewModel.Link1</h3>
@@ -127,10 +167,12 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p id="modal-body-content"></p>
+                    <p id="modal-body-content">
+                        
+                    </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    <button type="button" class="modal-button btn btn-primary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

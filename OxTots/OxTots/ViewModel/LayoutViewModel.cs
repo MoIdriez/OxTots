@@ -26,11 +26,18 @@ namespace OxTots.ViewModel
         public string MainLogo { get; set; }
         public string MainLogoAlt { get; set; }
 
+        public string LanguagesTitle { get; set; }
+        public string LanguagesDescription { get; set; }
+
+        public string ShareTitle { get; set; }
+        public string ShareDescription { get; set; }
+
         public int LanguageID { get; set; }
         public string LanguageIcon { get; set; }
         public string LanguageName { get; set; }
         public List<Language> Languages { get; set; }
         public List<LayoutCategoryViewModel> Categories { get; set; }
+        
     }
 
     public class LayoutCategoryViewModel
