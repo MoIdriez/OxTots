@@ -1,0 +1,41 @@
+﻿@model OxTots.ViewModel.AdminSubmissionViewModel
+@{ ViewBag.Title = "Submission"; Layout = null; }
+
+<h2>Submissions Page</h2>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Language</th>
+        <th>Category</th>
+        <th>Email</th>
+        <th>Resource Name</th>
+        <th>Resource Address</th>
+        <th>Resource Description</th>
+        <th>Resource Phone</th>
+        <th>Resource Email</th>
+        <th>Resource Website</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Submissions) {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Language.Name</td>
+            <td>@item.Category.Name</td>
+            <td>@item.Email</td>
+            <td>@item.ResourceName</td>
+            <td>@item.ResourceAddress</td>
+            <td>@item.ResourceDescription</td>
+            <td>@item.ResourcePhone</td>
+            <td>@item.ResourceEmail</td>
+            <td>@item.ResourceWebsite</td>
+            <td>
+                <a href="@Url.Action("SubmissionRemove", new { id = item.ID})">Remove this entry</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href="@Url.Action("Main")">back to the main page</a>

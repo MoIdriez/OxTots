@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using OxTots.Models;
 
@@ -237,7 +238,36 @@ namespace OxTots.Data
             };
             context.ResourceFeatures.AddRange(resourceFeatures);
 
-
+            var submissions = new List<Submission>
+            {
+                new Submission
+                {
+                    Language = languages.First(),
+                    Category = categories.First(),
+                    Name = "Submission English",
+                    Email = "123@123.123",
+                    ResourceName = "ResourceName",
+                    ResourceAddress = "ResourceAddress",
+                    ResourceDescription = "ResourceDescription",
+                    ResourcePhone = "ResourcePhone",
+                    ResourceEmail = "ResourceEmail",
+                    ResourceWebsite = "ResourceWebsite"
+                },
+                new Submission
+                {
+                    Language = languages.Last(),
+                    Category = categories.Last(),
+                    Name = "Submission Arabic",
+                    Email = "123@123.123",
+                    ResourceName = "ليرتفع",
+                    ResourceAddress = "إستعمل الأوروبيّون",
+                    ResourceDescription = "بأيدي, هذا مع ",
+                    ResourcePhone = "،, بل لان إستعمل ",
+                    ResourceEmail = "الخارجية ثم",
+                    ResourceWebsite = "الأوروبيّون"
+                }
+            };
+            context.Submissions.AddRange(submissions);
 
             context.SaveChanges();
         }

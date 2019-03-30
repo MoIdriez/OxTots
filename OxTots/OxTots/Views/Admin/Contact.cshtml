@@ -1,0 +1,29 @@
+﻿@model OxTots.ViewModel.AdminContactViewModel
+@{ ViewBag.Title = "Contact"; Layout = null; }
+
+<h2>Contact Page</h2>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Contacts)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.Message</td>
+            <td>
+                <a href="@Url.Action("ContactRemove", new { id = item.ID})">Remove this entry</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href="@Url.Action("Main")">back to the main page</a>
+

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using OxTots.Models;
+﻿using OxTots.Models;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -27,7 +24,6 @@ namespace OxTots.Data
         public DbSet<ResourceFeature> ResourceFeatures { get; set; }
 
         public DbSet<Submission> Submissions { get; set; }
-        public DbSet<SubmissionFeature> SubmissionFeatures { get; set; }
         
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

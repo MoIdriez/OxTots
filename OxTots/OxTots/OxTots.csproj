@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -143,6 +144,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ViewModel\AdminLoginViewModel.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CategoryDetail.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -154,10 +156,10 @@
     <Compile Include="Models\ResourceDetail.cs" />
     <Compile Include="Models\ResourceFeature.cs" />
     <Compile Include="Models\Submission.cs" />
-    <Compile Include="Models\SubmissionFeature.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ConvenienceFunctions.cs" />
     <Compile Include="ViewModel\AboutUsViewModel.cs" />
+    <Compile Include="ViewModel\AdminSubmissionViewModel.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\ContactViewModel.cs" />
     <Compile Include="ViewModel\FeatureViewModel.cs" />
@@ -673,6 +675,9 @@
     <Content Include="Views\AboutUs\Index.cshtml" />
     <Content Include="Views\Submission\Index.cshtml" />
     <Content Include="Views\Resource\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Main.cshtml" />
+    <Content Include="Views\Admin\Submission.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

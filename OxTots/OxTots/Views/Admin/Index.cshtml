@@ -1,0 +1,13 @@
+﻿@model OxTots.ViewModel.AdminLoginViewModel
+@{ ViewBag.Title = "Admin"; Layout = null; }
+
+
+<h2 class="item-heading">Login</h2>
+@using (Html.BeginForm("Login", "Admin"))
+{
+    @Html.AntiForgeryToken()
+    @Html.TextBoxFor(m => m.Username, new { @class = "form-control", placeholder = "Enter the Username" })
+    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+    <button type="submit">Login</button>
+}
+
