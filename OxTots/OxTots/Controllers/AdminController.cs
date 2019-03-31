@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using OxTots.Data;
+using OxTots.Models;
 using OxTots.ViewModel;
 
 namespace OxTots.Controllers
@@ -105,7 +107,65 @@ namespace OxTots.Controllers
             var sb = Db.Submissions.Where(s => s.ID == id);
             Db.Submissions.RemoveRange(sb);
             Db.SaveChanges();
-            return RedirectToAction("Submission");
+            return RedirectToAction("Contact");
+        }
+
+        public ActionResult Language()
+        {
+            if (!IsLoggedIn)
+                return RedirectToAction("Index");
+
+            var model = new AdminLanguageViewModel
+            {
+                AvailableLanguages = Directory.EnumerateFiles(Server.MapPath("~/Images/flags")).Select(Path.GetFileName).ToList(),
+                Languages = Db.Languages.ToList()
+            };
+            return View(model);
+        }
+
+        public ActionResult LanguageRemove(int id)
+        {
+            if (!IsLoggedIn)
+                return RedirectToAction("Main");
+
+            var sb = Db.Languages.Where(s => s.ID == id);
+            Db.Languages.RemoveRange(sb);
+            Db.SaveChanges();
+            return RedirectToAction("Language");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LanguageAdd(AdminLanguageViewModel model)
+        {
+            if (!IsLoggedIn)
+                return RedirectToAction("Main");
+
+            var l = new Language
+            {
+                Name = model.Name,
+                Icon = model.Icon,
+                InverseDirection = model.InverseDirection
+            };
+            Db.Languages.Add(l);
+            Db.SaveChanges();
+            return RedirectToAction("Language");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LanguageEdit(AdminLanguageViewModel model)
+        {
+            if (!IsLoggedIn)
+                return RedirectToAction("Main");
+
+            var language = Db.Languages.First(l => l.ID == model.ID);
+            language.Name = model.Name;
+            language.Icon = model.Icon;
+            language.InverseDirection = model.InverseDirection;
+
+            Db.SaveChanges();
+            return RedirectToAction("Language");
         }
     }
 }

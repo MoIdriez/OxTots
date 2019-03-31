@@ -1,0 +1,72 @@
+﻿@model OxTots.ViewModel.AdminLanguageViewModel
+@{ ViewBag.Title = "Contact"; Layout = null; }
+
+<h2>Language Page</h2>
+
+<h3>Add a new Language</h3>
+@using (Html.BeginForm("LanguageAdd", "Admin"))
+{
+    @Html.AntiForgeryToken()
+    @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+
+    <select name="Icon" class="form-control">
+        @foreach (var c in Model.AvailableLanguages)
+        {
+            <option value="@c">@c</option>
+        }
+    </select>
+
+    @Html.Label("Inverse Direction")
+    @Html.CheckBoxFor(m => m.InverseDirection)
+
+    <button type="submit">Add</button>
+}
+
+<h3>Edit Language</h3>
+@using (Html.BeginForm("LanguageEdit", "Admin"))
+{
+    @Html.AntiForgeryToken()
+    <select name="ID" class="form-control">
+        @foreach (var c in Model.Languages)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+    @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+    <select name="Icon" class="form-control">
+        @foreach (var c in Model.AvailableLanguages)
+        {
+            <option value="@c">@c</option>
+        }
+    </select>
+
+    @Html.Label("Inverse Direction")
+    @Html.CheckBoxFor(m => m.InverseDirection)
+
+    <button type="submit">Add</button>
+}
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Icon</th>
+        <th>InverseDirection</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Languages)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td><img style="height: 35px;" src="/Images/flags/@item.Icon" /></td>
+            <td>@item.InverseDirection</td>
+            <td>
+                <a href="@Url.Action("LanguageRemove", new { id = item.ID})">Remove this entry</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href="@Url.Action("Main")">back to the main page</a>
+
