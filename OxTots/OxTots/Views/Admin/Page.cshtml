@@ -1,0 +1,254 @@
+﻿@model OxTots.ViewModel.AdminPageViewModel
+@{ ViewBag.Title = "Page"; Layout = null; }
+
+<h2>Page information page</h2>
+
+@Html.ActionLink("Add a new translation", "PageAdd")
+
+<h3>Edit Page</h3>
+@using (Html.BeginForm("PageEdit", "Admin", FormMethod.Get))
+{
+    <select name="ID" class="form-control">
+        @foreach (var p in Model.Pages)
+        {
+            <option value="@p.ID">@p.Language.Name</option>
+        }
+    </select>
+    <button type="submit">Edit</button>
+}
+
+<h3>Remove Page</h3>
+<table class="table">
+    <tr><th>Language</th> @foreach (var p in Model.Pages) { <td><img style="height: 35px;" src="/Images/flags/@p.Language.Icon" /></td> } </tr>
+    
+
+    <tr><th>LayoutCookieTitle</th> @foreach (var p in Model.Pages) { <td>@p.LayoutCookieTitle</td> } </tr>
+    <tr><th>LayoutCookieDescription</th> @foreach (var p in Model.Pages) { <td>@p.LayoutCookieDescription</td> } </tr>
+
+    <tr><th>LayoutMainLogo</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.LayoutMainLogo" /></td>} </tr>
+    
+    <tr><th>LayoutMainLogoAlt</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.LayoutMainLogoAlt" /></td>} </tr>
+
+    <tr><th>LayoutMenuListing</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutMenuListing</td>} </tr>
+    <tr><th>LayoutMenuSearch</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutMenuSearch</td>} </tr>
+    <tr><th>LayoutMenuSubmissions</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutMenuSubmissions</td>} </tr>
+    <tr><th>LayoutMenuContact</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutMenuContact</td>} </tr>
+    <tr><th>LayoutMenuMap</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutMenuMap</td>} </tr>
+    <tr><th>LayoutMenuAboutUs</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutMenuAboutUs</td>} </tr>
+
+    <tr><th>LayoutLanguagesTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutLanguagesTitle</td>} </tr>
+    <tr><th>LayoutLanguagesDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutLanguagesDescription</td>} </tr>
+    <tr><th>LayoutShareTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutShareTitle</td>} </tr>
+    <tr><th>LayoutShareDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutShareDescription</td>} </tr>
+
+    <tr><th>LayoutFooterLink1</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutFooterLink1</td>} </tr>
+    <tr><th>LayoutFooterLink1Content</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutFooterLink1Content</td>} </tr>
+    <tr><th>LayoutFooterLink2</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutFooterLink2</td>} </tr>
+    <tr><th>LayoutFooterLink2Content</th> @foreach (var p in Model.Pages)
+    {<td>@p.LayoutFooterLink2Content</td>} </tr>
+
+    <tr><th>HomeImage</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.HomeImage" /></td>} </tr>
+    <tr><th>HomeSearch</th> @foreach (var p in Model.Pages)
+    {<td>@p.HomeSearch</td>} </tr>
+    <tr><th>HomeSearchError</th> @foreach (var p in Model.Pages)
+    {<td>@p.HomeSearchError</td>} </tr>
+    <tr><th>HomeTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.HomeTitle</td>} </tr>
+    <tr><th>HomeDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.HomeDescription</td>} </tr>
+    <tr><th>HomeCategoriesText</th> @foreach (var p in Model.Pages)
+    {<td>@p.HomeCategoriesText</td>} </tr>
+
+    <tr><th>SearchTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.SearchTitle</td>} </tr>
+    <tr><th>SearchDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.SearchDescription</td>} </tr>
+    <tr><th>SearchNotFound</th> @foreach (var p in Model.Pages)
+    {<td>@p.SearchNotFound</td>} </tr>
+    <tr><th>SearchPlaceHolder</th> @foreach (var p in Model.Pages)
+    {<td>@p.SearchPlaceHolder</td>} </tr>
+    <tr><th>SearchError</th> @foreach (var p in Model.Pages)
+    {<td>@p.SearchError</td>} </tr>
+    <tr><th>SearchResultsFound</th> @foreach (var p in Model.Pages)
+    {<td>@p.SearchResultsFound</td>} </tr>
+    <tr><th>SearchGoToResource</th> @foreach (var p in Model.Pages)
+    {<td>@p.SearchGoToResource</td>} </tr>
+
+    <tr><th>CategoryResultsFound</th> @foreach (var p in Model.Pages)
+    {<td>@p.CategoryResultsFound</td>} </tr>
+    <tr><th>CategoryFilterDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.CategoryFilterDescription</td>} </tr>
+    <tr><th>CategoryGoToResource</th> @foreach (var p in Model.Pages)
+    {<td>@p.CategoryGoToResource</td>} </tr>
+
+    <tr><th>SubmissionImage</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.SubmissionImage" /></td>} </tr>
+    <tr><th>SubmissionTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionTitle</td>} </tr>
+    <tr><th>SubmissionDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionDescription</td>} </tr>
+    <tr><th>SubmissionFormPersonalInformationTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormPersonalInformationTitle</td>} </tr>
+    <tr><th>SubmissionFormResourceInformationTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormResourceInformationTitle</td>} </tr>
+    <tr><th>SubmissionFormResourceCategoryTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormResourceCategoryTitle</td>} </tr>
+    <tr><th>SubmissionFormResourceFeatureTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormResourceFeatureTitle</td>} </tr>
+    <tr><th>SubmissionFormExtraInformationText</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormExtraInformationText</td>} </tr>
+    <tr><th>SubmissionFormSubmitButtonText</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormSubmitButtonText</td>} </tr>
+    <tr><th>SubmissionFormNamePlaceholder</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormNamePlaceholder</td>} </tr>
+    <tr><th>SubmissionFormEmailPlaceholder</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormEmailPlaceholder</td>} </tr>
+    <tr><th>SubmissionFormResourceNamePlaceholder</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormResourceNamePlaceholder</td>} </tr>
+    <tr><th>SubmissionFormResourceAddressPlaceholder</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormResourceAddressPlaceholder</td>} </tr>
+    <tr><th>SubmissionFormResourceDescriptionPlaceholder</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormResourceDescriptionPlaceholder</td>} </tr>
+    <tr><th>SubmissionFormResourcePhonePlaceholder</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormResourcePhonePlaceholder</td>} </tr>
+    <tr><th>SubmissionFormResourceEmailPlaceholder</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormResourceEmailPlaceholder</td>} </tr>
+    <tr><th>SubmissionFormResourceWebsitePlaceholder</th> @foreach (var p in Model.Pages)
+    {<td>@p.SubmissionFormResourceWebsitePlaceholder</td>} </tr>
+
+    <tr><th>ContactTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.ContactTitle</td>} </tr>
+    <tr><th>ContactHeading</th> @foreach (var p in Model.Pages)
+    {<td>@p.ContactHeading</td>} </tr>
+    <tr><th>ContactName</th> @foreach (var p in Model.Pages)
+    {<td>@p.ContactName</td>} </tr>
+    <tr><th>ContactEmail</th> @foreach (var p in Model.Pages)
+    {<td>@p.ContactEmail</td>} </tr>
+    <tr><th>ContactDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.ContactDescription</td>} </tr>
+    <tr><th>ContactNamePlaceHolder</th> @foreach (var p in Model.Pages)
+    {<td>@p.ContactNamePlaceHolder</td>} </tr>
+    <tr><th>ContactEmailPlaceHolder</th> @foreach (var p in Model.Pages)
+    {<td>@p.ContactEmailPlaceHolder</td>} </tr>
+    <tr><th>ContactMessagePlaceHolder</th> @foreach (var p in Model.Pages)
+    {<td>@p.ContactMessagePlaceHolder</td>} </tr>
+    <tr><th>ContactSubmitButtonText</th> @foreach (var p in Model.Pages)
+    {<td>@p.ContactSubmitButtonText</td>} </tr>
+
+    <tr><th>ResultFromContact</th> @foreach (var p in Model.Pages)
+    {<td>@p.ResultFromContact</td>} </tr>
+    <tr><th>ResultFromSubmission</th> @foreach (var p in Model.Pages)
+    {<td>@p.ResultFromSubmission</td>} </tr>
+
+    <tr><th>MapTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.MapTitle</td>} </tr>
+    <tr><th>MapDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.MapDescription</td>} </tr>
+
+    <tr><th>AboutUsTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.AboutUsTitle</td>} </tr>
+    <tr><th>AboutUsImage</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.AboutUsImage" /></td>} </tr>
+    <tr><th>AboutUsDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.AboutUsDescription</td>} </tr>
+    <tr><th>AboutUsDescription2</th> @foreach (var p in Model.Pages)
+    {<td>@p.AboutUsDescription2</td>} </tr>
+
+    <tr><th>Error404Title</th> @foreach (var p in Model.Pages)
+    {<td>@p.Error404Title</td>} </tr>
+    <tr><th>Error404Description</th> @foreach (var p in Model.Pages)
+    {<td>@p.Error404Description</td>} </tr>
+    <tr><th>Error500Title</th> @foreach (var p in Model.Pages)
+    {<td>@p.Error500Title</td>} </tr>
+    <tr><th>Error500Description</th> @foreach (var p in Model.Pages)
+    {<td>@p.Error500Description</td>} </tr>
+
+    <tr><th>ResourceContactTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.ResourceContactTitle</td>} </tr>
+
+    <tr><th>OgAboutUsUrl</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgAboutUsUrl</td>} </tr>
+    <tr><th>OgAboutUsTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgAboutUsTitle</td>} </tr>
+    <tr><th>OgAboutUsImage</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgAboutUsImage</td>} </tr>
+    <tr><th>OgAboutUsDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgAboutUsDescription</td>} </tr>
+    <tr><th>OgCategoryUrl</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgCategoryUrl</td>} </tr>
+    <tr><th>OgCategoryTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgCategoryTitle</td>} </tr>
+    <tr><th>OgCategoryImage</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgCategoryImage</td>} </tr>
+    <tr><th>OgCategoryDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgCategoryDescription</td>} </tr>
+    <tr><th>OgContactUrl</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgContactUrl</td>} </tr>
+    <tr><th>OgContactTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgContactTitle</td>} </tr>
+    <tr><th>OgContactImage</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.OgContactImage" /></td>} </tr>
+    <tr><th>OgContactDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgContactDescription</td>} </tr>
+    <tr><th>OgHomeUrl</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgHomeUrl</td>} </tr>
+    <tr><th>OgHomeTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgHomeTitle</td>} </tr>
+    <tr><th>OgHomeImage</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.OgHomeImage" /></td>} </tr>
+    <tr><th>OgHomeDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgHomeDescription</td>} </tr>
+    <tr><th>OgMapUrl</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgMapUrl</td>} </tr>
+    <tr><th>OgMapTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgMapTitle</td>} </tr>
+    <tr><th>OgMapImage</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.OgMapImage" /></td>} </tr>
+    <tr><th>OgMapDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgMapDescription</td>} </tr>
+    <tr><th>OgResourceUrl</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgResourceUrl</td>} </tr>
+    <tr><th>OgResourceTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgResourceTitle</td>} </tr>
+    <tr><th>OgResourceImage</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.OgResourceImage" /></td>} </tr>
+    <tr><th>OgResourceDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgResourceDescription</td>} </tr>
+    <tr><th>OgSearchUrl</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgSearchUrl</td>} </tr>
+    <tr><th>OgSearchTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgSearchTitle</td>} </tr>
+    <tr><th>OgSearchImage</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.OgSearchImage" /></td>} </tr>
+    <tr><th>OgSearchDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgSearchDescription</td>} </tr>
+    <tr><th>OgSubmissionUrl</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgSubmissionUrl</td>} </tr>
+    <tr><th>OgSubmissionTitle</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgSubmissionTitle</td>} </tr>
+    <tr><th>OgSubmissionImage</th> @foreach (var p in Model.Pages)
+    {<td><img style="height: 35px;" src="@p.OgSubmissionImage" /></td>} </tr>
+    <tr><th>OgSubmissionDescription</th> @foreach (var p in Model.Pages)
+    {<td>@p.OgSubmissionDescription</td>} </tr>
+    
+    <tr><th>Remove entry</th> @foreach (var p in Model.Pages) { <td><a href="@Url.Action("PageRemove", new {id = p.ID})">Remove this entry</a> </td> } </tr>    
+
+</table>
+
+<a href="@Url.Action("Main")">back to the main page</a>

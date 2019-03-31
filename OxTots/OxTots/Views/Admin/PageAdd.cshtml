@@ -1,0 +1,157 @@
+﻿@model OxTots.ViewModel.AdminPageAddModel
+@{ ViewBag.Title = "Add Page"; Layout = null; }
+
+<h2>Add Page translation</h2>
+
+@using (Html.BeginForm(Model.Edit ? "PageEdit" : "PageAdd", "Admin"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Page.ID)
+    <select name="SelectedLanguage" class="form-control">
+        @foreach (var c in Model.Languages)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+    <h3>Cookies</h3>
+    @Html.TextBoxFor(m => m.Page.LayoutCookieTitle, new { placeholder = "LayoutCookieTitle" })
+    @Html.TextBoxFor(m => m.Page.LayoutCookieDescription, new { placeholder = "LayoutCookieDescription" })
+
+    <h3>Layout</h3>
+    @Html.TextBoxFor(m => m.Page.LayoutMainLogo, new { placeholder = "LayoutMainLogo" })
+    @Html.TextBoxFor(m => m.Page.LayoutMainLogoAlt, new { placeholder = "LayoutMainLogoAlt" })<br />
+
+    @Html.TextBoxFor(m => m.Page.LayoutMenuListing, new { placeholder = "LayoutMenuListing" })
+    @Html.TextBoxFor(m => m.Page.LayoutMenuSearch, new { placeholder = "LayoutMenuSearch" })<br />
+    @Html.TextBoxFor(m => m.Page.LayoutMenuSubmissions, new { placeholder = "LayoutMenuSubmissions" })
+    @Html.TextBoxFor(m => m.Page.LayoutMenuContact, new { placeholder = "LayoutMenuContact" })<br />
+    @Html.TextBoxFor(m => m.Page.LayoutMenuMap, new { placeholder = "LayoutMenuMap" })
+    @Html.TextBoxFor(m => m.Page.LayoutMenuAboutUs, new { placeholder = "LayoutMenuAboutUs" })<br />
+
+    @Html.TextBoxFor(m => m.Page.LayoutLanguagesTitle, new { placeholder = "LayoutLanguagesTitle" })
+    @Html.TextBoxFor(m => m.Page.LayoutLanguagesDescription, new { placeholder = "LayoutLanguagesDescription" })<br />
+    @Html.TextBoxFor(m => m.Page.LayoutShareTitle, new { placeholder = "LayoutShareTitle" })
+    @Html.TextBoxFor(m => m.Page.LayoutShareDescription, new { placeholder = "LayoutShareDescription" })<br />
+
+    @Html.TextBoxFor(m => m.Page.LayoutFooterLink1, new { placeholder = "LayoutFooterLink1" })
+    @Html.TextBoxFor(m => m.Page.LayoutFooterLink1Content, new { placeholder = "LayoutFooterLink1Content" })<br />
+    @Html.TextBoxFor(m => m.Page.LayoutFooterLink2, new { placeholder = "LayoutFooterLink2" })
+    @Html.TextBoxFor(m => m.Page.LayoutFooterLink2Content, new { placeholder = "LayoutFooterLink2Content" })<br />
+
+    <h3>Home</h3>
+    @Html.TextBoxFor(m => m.Page.HomeImage, new { placeholder = "HomeImage" })
+    @Html.TextBoxFor(m => m.Page.HomeSearch, new { placeholder = "HomeSearch" })<br />
+    @Html.TextBoxFor(m => m.Page.HomeSearchError, new { placeholder = "HomeSearchError" })
+    @Html.TextBoxFor(m => m.Page.HomeTitle, new { placeholder = "HomeTitle" })<br />
+    @Html.TextBoxFor(m => m.Page.HomeDescription, new { placeholder = "HomeDescription" })
+    @Html.TextBoxFor(m => m.Page.HomeCategoriesText, new { placeholder = "HomeCategoriesText" })
+
+    <h3>Search</h3>
+    @Html.TextBoxFor(m => m.Page.SearchTitle, new { placeholder = "SearchTitle" })
+    @Html.TextBoxFor(m => m.Page.SearchDescription, new { placeholder = "SearchDescription" })<br />
+    @Html.TextBoxFor(m => m.Page.SearchNotFound, new { placeholder = "SearchNotFound" })
+    @Html.TextBoxFor(m => m.Page.SearchPlaceHolder, new { placeholder = "SearchPlaceHolder" })<br />
+    @Html.TextBoxFor(m => m.Page.SearchError, new { placeholder = "SearchError" })
+    @Html.TextBoxFor(m => m.Page.SearchResultsFound, new { placeholder = "SearchResultsFound" })<br />
+    @Html.TextBoxFor(m => m.Page.SearchGoToResource, new { placeholder = "SearchGoToResource" })
+
+    <h3>Category</h3>
+    @Html.TextBoxFor(m => m.Page.CategoryResultsFound, new { placeholder = "CategoryResultsFound" })
+    @Html.TextBoxFor(m => m.Page.CategoryFilterDescription, new { placeholder = "CategoryFilterDescription" })
+    @Html.TextBoxFor(m => m.Page.CategoryGoToResource, new { placeholder = "CategoryGoToResource" })
+
+    <h3>Submission</h3>
+    @Html.TextBoxFor(m => m.Page.SubmissionImage, new { placeholder = "SubmissionImage" })
+    @Html.TextBoxFor(m => m.Page.SubmissionTitle, new { placeholder = "SubmissionTitle" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionDescription, new { placeholder = "SubmissionDescription" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormPersonalInformationTitle, new { placeholder = "SubmissionFormPersonalInformationTitle" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceInformationTitle, new { placeholder = "SubmissionFormResourceInformationTitle" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceCategoryTitle, new { placeholder = "SubmissionFormResourceCategoryTitle" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceFeatureTitle, new { placeholder = "SubmissionFormResourceFeatureTitle" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormExtraInformationText, new { placeholder = "SubmissionFormExtraInformationText" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormSubmitButtonText, new { placeholder = "SubmissionFormSubmitButtonText" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormNamePlaceholder, new { placeholder = "SubmissionFormNamePlaceholder" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormEmailPlaceholder, new { placeholder = "SubmissionFormEmailPlaceholder" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceNamePlaceholder, new { placeholder = "SubmissionFormResourceNamePlaceholder" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceAddressPlaceholder, new { placeholder = "SubmissionFormResourceAddressPlaceholder" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceDescriptionPlaceholder, new { placeholder = "SubmissionFormResourceDescriptionPlaceholder" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourcePhonePlaceholder, new { placeholder = "SubmissionFormResourcePhonePlaceholder" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceEmailPlaceholder, new { placeholder = "SubmissionFormResourceEmailPlaceholder" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceWebsitePlaceholder, new { placeholder = "SubmissionFormResourceWebsitePlaceholder" })
+
+    <h3>Contact</h3>
+    @Html.TextBoxFor(m => m.Page.ContactTitle, new { placeholder = "ContactTitle" })
+    @Html.TextBoxFor(m => m.Page.ContactHeading, new { placeholder = "ContactHeading" })<br />
+    @Html.TextBoxFor(m => m.Page.ContactName, new { placeholder = "ContactName" })
+    @Html.TextBoxFor(m => m.Page.ContactEmail, new { placeholder = "ContactEmail" })<br />
+    @Html.TextBoxFor(m => m.Page.ContactDescription, new { placeholder = "ContactDescription" })
+    @Html.TextBoxFor(m => m.Page.ContactNamePlaceHolder, new { placeholder = "ContactNamePlaceHolder" })<br />
+    @Html.TextBoxFor(m => m.Page.ContactEmailPlaceHolder, new { placeholder = "ContactEmailPlaceHolder" })
+    @Html.TextBoxFor(m => m.Page.ContactMessagePlaceHolder, new { placeholder = "ContactMessagePlaceHolder" })<br />
+    @Html.TextBoxFor(m => m.Page.ContactSubmitButtonText, new { placeholder = "ContactSubmitButtonText" })
+
+    <h3>Action result</h3>
+    @Html.TextBoxFor(m => m.Page.ResultFromContact, new { placeholder = "ResultFromContact" })
+    @Html.TextBoxFor(m => m.Page.ResultFromSubmission, new { placeholder = "ResultFromSubmission" })
+
+    <h3>Map</h3>
+    @Html.TextBoxFor(m => m.Page.MapTitle, new { placeholder = "MapTitle" })
+    @Html.TextBoxFor(m => m.Page.MapDescription, new { placeholder = "MapDescription" })
+
+    <h3>About Us</h3>
+    @Html.TextBoxFor(m => m.Page.AboutUsTitle, new { placeholder = "AboutUsTitle" })
+    @Html.TextBoxFor(m => m.Page.AboutUsImage, new { placeholder = "AboutUsImage" })<br />
+    @Html.TextBoxFor(m => m.Page.AboutUsDescription, new { placeholder = "AboutUsDescription" })
+    @Html.TextBoxFor(m => m.Page.AboutUsDescription2, new { placeholder = "AboutUsDescription2" })
+
+    <h3>Error</h3>
+    @Html.TextBoxFor(m => m.Page.Error404Title, new { placeholder = "Error404Title" })
+    @Html.TextBoxFor(m => m.Page.Error404Description, new { placeholder = "Error404Description" })<br />
+    @Html.TextBoxFor(m => m.Page.Error500Title, new { placeholder = "Error500Title" })
+    @Html.TextBoxFor(m => m.Page.Error500Description, new { placeholder = "Error500Description" })
+
+    <h3>Resource</h3>
+    @Html.TextBoxFor(m => m.Page.ResourceContactTitle, new { placeholder = "ResourceContactTitle" })
+
+    <h3>Social media info</h3>
+    @Html.TextBoxFor(m => m.Page.OgAboutUsUrl, new { placeholder = "OgAboutUsUrl" })
+    @Html.TextBoxFor(m => m.Page.OgAboutUsTitle, new { placeholder = "OgAboutUsTitle" })
+    @Html.TextBoxFor(m => m.Page.OgAboutUsImage, new { placeholder = "OgAboutUsImage" })
+    @Html.TextBoxFor(m => m.Page.OgAboutUsDescription, new { placeholder = "OgAboutUsDescription" })<br />
+    @Html.TextBoxFor(m => m.Page.OgCategoryUrl, new { placeholder = "OgCategoryUrl" })
+    @Html.TextBoxFor(m => m.Page.OgCategoryTitle, new { placeholder = "OgCategoryTitle" })
+    @Html.TextBoxFor(m => m.Page.OgCategoryImage, new { placeholder = "OgCategoryImage" })
+    @Html.TextBoxFor(m => m.Page.OgCategoryDescription, new { placeholder = "OgCategoryDescription" })<br />
+    @Html.TextBoxFor(m => m.Page.OgContactUrl, new { placeholder = "OgContactUrl" })
+    @Html.TextBoxFor(m => m.Page.OgContactTitle, new { placeholder = "OgContactTitle" })
+    @Html.TextBoxFor(m => m.Page.OgContactImage, new { placeholder = "OgContactImage" })
+    @Html.TextBoxFor(m => m.Page.OgContactDescription, new { placeholder = "OgContactDescription" })<br />
+    @Html.TextBoxFor(m => m.Page.OgHomeUrl, new { placeholder = "OgHomeUrl" })
+    @Html.TextBoxFor(m => m.Page.OgHomeTitle, new { placeholder = "OgHomeTitle" })
+    @Html.TextBoxFor(m => m.Page.OgHomeImage, new { placeholder = "OgHomeImage" })
+    @Html.TextBoxFor(m => m.Page.OgHomeDescription, new { placeholder = "OgHomeDescription" })<br />
+    @Html.TextBoxFor(m => m.Page.OgMapUrl, new { placeholder = "OgMapUrl" })
+    @Html.TextBoxFor(m => m.Page.OgMapTitle, new { placeholder = "OgMapTitle" })
+    @Html.TextBoxFor(m => m.Page.OgMapImage, new { placeholder = "OgMapImage" })
+    @Html.TextBoxFor(m => m.Page.OgMapDescription, new { placeholder = "OgMapDescription" })<br />
+    @Html.TextBoxFor(m => m.Page.OgResourceUrl, new { placeholder = "OgResourceUrl" })
+    @Html.TextBoxFor(m => m.Page.OgResourceTitle, new { placeholder = "OgResourceTitle" })
+    @Html.TextBoxFor(m => m.Page.OgResourceImage, new { placeholder = "OgResourceImage" })
+    @Html.TextBoxFor(m => m.Page.OgResourceDescription, new { placeholder = "OgResourceDescription" })<br />
+    @Html.TextBoxFor(m => m.Page.OgSearchUrl, new { placeholder = "OgSearchUrl" })
+    @Html.TextBoxFor(m => m.Page.OgSearchTitle, new { placeholder = "OgSearchTitle" })
+    @Html.TextBoxFor(m => m.Page.OgSearchImage, new { placeholder = "OgSearchImage" })
+    @Html.TextBoxFor(m => m.Page.OgSearchDescription, new { placeholder = "OgSearchDescription" })<br />
+    @Html.TextBoxFor(m => m.Page.OgSubmissionUrl, new { placeholder = "OgSubmissionUrl" })
+    @Html.TextBoxFor(m => m.Page.OgSubmissionTitle, new { placeholder = "OgSubmissionTitle" })
+    @Html.TextBoxFor(m => m.Page.OgSubmissionImage, new { placeholder = "OgSubmissionImage" })
+    @Html.TextBoxFor(m => m.Page.OgSubmissionDescription, new { placeholder = "OgSubmissionDescription" })<br />
+
+
+    <br/>
+    <br/>
+    <button type="submit">@(Model.Edit ? "Edit" : "Add")</button>
+}
+
+<a href="@Url.Action("Main")">back to the main page</a>
+

@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminPageController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -161,6 +162,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utility\ConvenienceFunctions.cs" />
     <Compile Include="ViewModel\AboutUsViewModel.cs" />
+    <Compile Include="ViewModel\AdminPageAddModel.cs" />
+    <Compile Include="ViewModel\AdminPageViewModel.cs" />
     <Compile Include="ViewModel\AdminSubmissionViewModel.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\ContactViewModel.cs" />
@@ -682,6 +685,8 @@
     <Content Include="Views\Admin\Submission.cshtml" />
     <Content Include="Views\Admin\Contact.cshtml" />
     <Content Include="Views\Admin\Language.cshtml" />
+    <Content Include="Views\Admin\Page.cshtml" />
+    <Content Include="Views\Admin\PageAdd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,7 +10,7 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
-    public class AdminController : Controller
+    public partial class AdminController : Controller
     {
         protected SiteContext Db = new SiteContext();
         private bool IsLoggedIn
