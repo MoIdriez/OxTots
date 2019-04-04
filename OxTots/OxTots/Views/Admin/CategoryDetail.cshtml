@@ -1,0 +1,73 @@
+﻿@model OxTots.ViewModel.AdminCategoryDetailViewModel
+@{ ViewBag.Title = "Category Details"; Layout = null; }
+
+<h2>Category Details Page</h2>
+
+<h3>Add a new Category</h3>
+@using (Html.BeginForm("CategoryDetailAdd", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <select name="LanguageID" class="form-control">
+        @foreach (var c in Model.Languages)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+
+    @Html.HiddenFor(m => m.CategoryID)
+    @Html.TextBoxFor(m => m.Title, new { placeholder = "Title" })
+    @Html.TextBoxFor(m => m.Description, new { placeholder = "Description" })
+    @Html.TextBoxFor(m => m.ShortDescription, new { placeholder = "ShortDescription" })
+    <button type="submit">Add</button>
+}
+
+<h3>Edit Language</h3>
+@using (Html.BeginForm("CategoryDetailEdit", "Admin"))
+{
+    @Html.AntiForgeryToken()
+    <select name="ID" class="form-control">
+        @foreach (var c in Model.CategoryDetails)
+        {
+            <option value="@c.ID">@c.Title</option>
+        }
+    </select>
+    <select name="LanguageID" class="form-control">
+        @foreach (var c in Model.Languages)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+
+    @Html.HiddenFor(m => m.CategoryID)
+    @Html.TextBoxFor(m => m.Title, new { placeholder = "Title" })
+    @Html.TextBoxFor(m => m.Description, new { placeholder = "Description" })
+    @Html.TextBoxFor(m => m.ShortDescription, new { placeholder = "ShortDescription" })
+
+    <button type="submit">Edit</button>
+}
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Language</th>
+        <th>Description</th>
+        <th>ShortDescription</th>
+        <th>Remove</th>
+    </tr>
+
+    @foreach (var item in Model.CategoryDetails)
+    {
+    <tr>
+        <td>@item.Title</td>
+        <td><img style="height: 35px;" src="/Images/flags/@item.Language.Icon" /></td>
+        <td>@item.Description</td>
+        <td>@item.ShortDescription</td>
+        <td><a href="@Url.Action("CategoryDetailRemove", new {id = item.ID})">Remove this entry</a></td>
+    </tr>
+    }
+
+</table>
+
+<a href="@Url.Action("Main")">back to the main page</a>
+

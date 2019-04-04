@@ -1,0 +1,52 @@
+﻿@model OxTots.ViewModel.AdminFeatureViewModel
+@{ ViewBag.Title = "Feature"; Layout = null; }
+
+<h2>Features Page</h2>
+
+<h3>Add a new Feature</h3>
+@using (Html.BeginForm("FeatureAdd", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.CategoryID)
+    @Html.TextBoxFor(m => m.Name, new { placeholder = "Title" })
+    <button type="submit">Add</button>
+}
+
+<h3>Edit Feature</h3>
+@using (Html.BeginForm("FeatureEdit", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <select name="ID" class="form-control">
+        @foreach (var c in Model.Features)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+
+    @Html.HiddenFor(m => m.CategoryID)
+    @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+    <button type="submit">Edit</button>
+}
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Edit</th>
+        <th>Remove</th>
+    </tr>
+
+    @foreach (var item in Model.Features)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td><a href="@Url.Action("FeatureDetail", new {id = item.ID})">Edit this entry</a></td>
+            <td><a href="@Url.Action("FeatureRemove", new {id = item.ID})">Remove this entry</a></td>
+        </tr>
+    }
+
+</table>
+
+<a href="@Url.Action("Main")">back to the main page</a>
+
+

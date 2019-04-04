@@ -1,0 +1,61 @@
+﻿@model OxTots.ViewModel.AdminCategoryViewModel
+@{ ViewBag.Title = "Category"; Layout = null; }
+
+<h2>Categories Page</h2>
+
+<h3>Add a new Category</h3>
+@using (Html.BeginForm("CategoryAdd", "Admin"))
+{
+    @Html.AntiForgeryToken()
+    @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+    @Html.TextBoxFor(m => m.Image, new { placeholder = "Image" })
+    @Html.TextBoxFor(m => m.Icon, new { placeholder = "Icon" })
+
+    <button type="submit">Add</button>
+}
+
+<h3>Edit Language</h3>
+@using (Html.BeginForm("CategoryEdit", "Admin"))
+{
+    @Html.AntiForgeryToken()
+    <select name="ID" class="form-control">
+        @foreach (var c in Model.Categories)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+    @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+    @Html.TextBoxFor(m => m.Image, new { placeholder = "Image" })
+    @Html.TextBoxFor(m => m.Icon, new { placeholder = "Icon" })
+
+    <button type="submit">Edit</button>
+}
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Icon</th>
+        <th>View Details</th>
+        <th>View Features</th>
+        <th>View Resources</th>
+        <th>Remove</th>
+    </tr>
+
+    @foreach (var item in Model.Categories)
+    {
+    <tr>
+        <td>@item.Name</td>
+        <td><img style="height: 35px;" src="@item.Image" /></td>
+        <td><i style="height: 35px;" class="@item.Icon"></i></td>
+        <td><a href="@Url.Action("CategoryDetail", new {id = item.ID})">Details</a></td>
+        <td><a href="@Url.Action("Feature", new {id = item.ID})">Features</a></td>
+        <td><a href="@Url.Action("Resource", new {id = item.ID})">Resources</a></td>
+        <td><a href="@Url.Action("CategoryRemove", new {id = item.ID})">Remove this entry</a></td>
+    </tr>
+    }
+
+</table>
+
+<a href="@Url.Action("Main")">back to the main page</a>
+

@@ -129,7 +129,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\AdminCategoryController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AdminFeatureController.cs" />
     <Compile Include="Controllers\AdminPageController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -145,7 +147,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ViewModel\AdminCategoryDetailViewModel.cs" />
+    <Compile Include="ViewModel\AdminCategoryViewModel.cs" />
     <Compile Include="ViewModel\AdminContactViewModel.cs" />
+    <Compile Include="ViewModel\AdminFeatureDetailViewModel.cs" />
+    <Compile Include="ViewModel\AdminFeatureViewModel.cs" />
     <Compile Include="ViewModel\AdminLanguageViewModel.cs" />
     <Compile Include="ViewModel\AdminLoginViewModel.cs" />
     <Compile Include="Models\Category.cs" />
@@ -687,9 +693,15 @@
     <Content Include="Views\Admin\Language.cshtml" />
     <Content Include="Views\Admin\Page.cshtml" />
     <Content Include="Views\Admin\PageAdd.cshtml" />
+    <Content Include="Views\Admin\Category.cshtml" />
+    <Content Include="Views\Admin\CategoryDetail.cshtml" />
+    <Content Include="Views\Admin\Feature.cshtml" />
+    <Content Include="Views\Admin\FeatureDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\AdminCategory\" />
+    <Folder Include="Views\AdminFeature\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
