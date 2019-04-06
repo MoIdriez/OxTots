@@ -102,25 +102,6 @@ namespace OxTots.Controllers
             return RedirectToAction("FeatureDetail", new { id = model.FeatureID });
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult FeatureDetailEdit(AdminFeatureDetailViewModel model)
-        {
-            if (!IsLoggedIn)
-                return RedirectToAction("Index");
-
-            var fd = new FeatureDetail
-            {
-                ID = model.ID,
-                Title = model.Title
-            };
-            var featureDetail = Db.FeatureDetails.First(ct => ct.ID == model.ID);
-            featureDetail.Language = Db.Languages.Single(l => l.ID == model.LanguageID);
-            Db.Entry(featureDetail).CurrentValues.SetValues(fd);
-            Db.SaveChanges();
-            return RedirectToAction("FeatureDetail", new { id = model.FeatureID });
-        }
-
         public ActionResult FeatureDetailRemove(int id)
         {
             if (!IsLoggedIn)

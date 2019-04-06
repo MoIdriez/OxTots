@@ -104,8 +104,8 @@ namespace OxTots.Controllers
             if (!IsLoggedIn)
                 return RedirectToAction("Main");
 
-            var sb = Db.Submissions.Where(s => s.ID == id);
-            Db.Submissions.RemoveRange(sb);
+            var sb = Db.Contacts.Where(s => s.ID == id);
+            Db.Contacts.RemoveRange(sb);
             Db.SaveChanges();
             return RedirectToAction("Contact");
         }

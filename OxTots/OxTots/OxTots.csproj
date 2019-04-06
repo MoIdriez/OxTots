@@ -133,6 +133,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AdminFeatureController.cs" />
     <Compile Include="Controllers\AdminPageController.cs" />
+    <Compile Include="Controllers\AdminResourceController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
@@ -170,6 +171,8 @@
     <Compile Include="ViewModel\AboutUsViewModel.cs" />
     <Compile Include="ViewModel\AdminPageAddModel.cs" />
     <Compile Include="ViewModel\AdminPageViewModel.cs" />
+    <Compile Include="ViewModel\AdminResourceDetailViewModel.cs" />
+    <Compile Include="ViewModel\AdminResourceViewModel.cs" />
     <Compile Include="ViewModel\AdminSubmissionViewModel.cs" />
     <Compile Include="ViewModel\CategoryViewModel.cs" />
     <Compile Include="ViewModel\ContactViewModel.cs" />
@@ -697,11 +700,14 @@
     <Content Include="Views\Admin\CategoryDetail.cshtml" />
     <Content Include="Views\Admin\Feature.cshtml" />
     <Content Include="Views\Admin\FeatureDetail.cshtml" />
+    <Content Include="Views\Admin\Resource.cshtml" />
+    <Content Include="Views\Admin\ResourceDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\AdminCategory\" />
     <Folder Include="Views\AdminFeature\" />
+    <Folder Include="Views\AdminResource\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,108 @@
+﻿@model OxTots.ViewModel.AdminResourceViewModel
+
+@{ ViewBag.Title = "Resources"; Layout = null; }
+
+<h2>Resources Page</h2>
+
+<h3>Add a new Resource</h3>
+@using (Html.BeginForm("ResourceAdd", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.CategoryID)
+    @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+    @Html.TextBoxFor(m => m.Address, new { placeholder = "Address" })
+    @Html.TextBoxFor(m => m.GPSLong, new { placeholder = "GPSLong" })
+    @Html.TextBoxFor(m => m.GPSLat, new { placeholder = "GPSLat" })
+    @Html.TextBoxFor(m => m.Phone, new { placeholder = "Phone" })
+    @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+    @Html.TextBoxFor(m => m.Website, new { placeholder = "Website" })
+    @Html.TextBoxFor(m => m.Image, new { placeholder = "Image" })
+    @Html.TextBoxFor(m => m.Icon, new { placeholder = "Icon" })
+    <button type="submit">Add</button>
+}
+
+<h3>Edit Resource</h3>
+@using (Html.BeginForm("ResourceEdit", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <select name="ID" class="form-control">
+        @foreach (var c in Model.Resources)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+
+    @Html.HiddenFor(m => m.CategoryID)
+    @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+    @Html.TextBoxFor(m => m.Address, new { placeholder = "Address" })
+    @Html.TextBoxFor(m => m.GPSLong, new { placeholder = "GPSLong" })
+    @Html.TextBoxFor(m => m.GPSLat, new { placeholder = "GPSLat" })
+    @Html.TextBoxFor(m => m.Phone, new { placeholder = "Phone" })
+    @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+    @Html.TextBoxFor(m => m.Website, new { placeholder = "Website" })
+    @Html.TextBoxFor(m => m.Image, new { placeholder = "Image" })
+    @Html.TextBoxFor(m => m.Icon, new { placeholder = "Icon" })
+    <button type="submit">Edit</button>
+}
+
+<h3>Set Feature for Resource</h3>
+@using (Html.BeginForm("ResourceFeature", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.CategoryID)
+    <select name="ID" class="form-control">
+        @foreach (var c in Model.Resources)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+    <select name="FeatureID" class="form-control">
+        @foreach (var c in Model.Features)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+    @Html.LabelFor(m => m.FeatureEnabled, "Enable Feature")
+    @Html.CheckBoxFor(m => m.FeatureEnabled)
+
+    <button type="submit">Set feature</button>
+}
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>GPSLong</th>
+        <th>GPSLat</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Website</th>
+        <th>Image</th>
+        <th>Icon</th>
+        <th>Features</th>
+        <th>Details</th>
+        <th>Remove</th>
+    </tr>
+
+    @foreach (var item in Model.Resources)
+    {
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.Address</td>
+        <td>@item.GPSLong</td>
+        <td>@item.GPSLat</td>
+        <td>@item.Phone</td>
+        <td>@item.Email</td>
+        <td>@item.Website</td>
+        <td>@item.Image</td>
+        <td>@item.Icon</td>
+        <td>@(String.Join(",", item.ResourceFeatures.Where(f => f.Enabled).Select(f => f.Feature.Name)))</td>
+        <td><a href="@Url.Action("ResourceDetail", new {id = item.ID})">View the details</a></td>
+        <td><a href="@Url.Action("ResourceRemove", new {id = item.ID})">Remove this entry</a></td>
+    </tr>
+    }
+
+</table>
+
+<a href="@Url.Action("Main")">back to the main page</a>
