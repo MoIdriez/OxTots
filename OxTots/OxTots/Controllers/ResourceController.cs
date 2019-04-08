@@ -33,7 +33,7 @@ namespace OxTots.Controllers
                 ContactTitle = page.ResourceContactTitle ?? dfPage.ResourceContactTitle,
                 Phone = resource.Phone,
                 Email = resource.Email,
-                Address = resource.Address,
+                Address = resourceDetail.Address,
                 OpeningHours = resourceDetail.OpeningHours,
                 Features = resource.ResourceFeatures.ToList().ToViewModel(UserLanguageID, DefaultLanguageID),
                 Markers = new List<MarkerViewModel> { resource.GetMarkerViewModel(UserLanguageID, DefaultLanguageID) }

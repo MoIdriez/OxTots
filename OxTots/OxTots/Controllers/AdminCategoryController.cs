@@ -33,7 +33,6 @@ namespace OxTots.Controllers
             var c = new Category
             {
                 Name = model.Name,
-                Image = model.Image,
                 Icon = model.Icon
             };
             Db.Categories.Add(c);
@@ -51,7 +50,6 @@ namespace OxTots.Controllers
             {
                 ID = model.ID,
                 Name = model.Name,
-                Image = model.Image,
                 Icon = model.Icon
             };
             Db.Entry(Db.Categories.First(ct => ct.ID == model.ID)).CurrentValues.SetValues(c);

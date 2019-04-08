@@ -17,19 +17,22 @@ namespace OxTots.Controllers
         {
             get
             {
+                var userLanguageID = Db.Languages.First().ID;
+
                 if (Request == null)
-                    return Db.Languages.First().ID;
-                if (Request.Cookies["UserLanguageID"] == null)
+                    return userLanguageID;
+
+                if (Request.Cookies["UserLanguageID"] != null)
+                    return Convert.ToInt32(Request.Cookies["UserLanguageID"].Value);
+
+                Response.Cookies.Add(new HttpCookie("UserLanguageID")
                 {
-                    Request.Cookies.Add(new HttpCookie("UserLanguageID")
-                    {
-                        Value = Db.Languages.First().ID.ToString(),
-                        Expires = DateTime.Now.AddYears(1)
-                    });
-                }
-                return Convert.ToInt32(Request.Cookies["UserLanguageID"].Value);
+                    Value = userLanguageID.ToString(),
+                    Expires = DateTime.Now.AddYears(1)
+                });
+                return userLanguageID;
             }
-            set { Request.Cookies["UserLanguageID"].Value = value.ToString(); }
+            set => Response.Cookies["UserLanguageID"].Value = value.ToString();
         }
 
         
@@ -77,7 +80,7 @@ namespace OxTots.Controllers
                 Categories = Db.Categories.ToList().Select(c => new LayoutCategoryViewModel
                 {
                     ID = c.ID,
-                    Title = c.GetDetail(UserLanguageID).Title ?? c.GetDetail(DefaultLanguageID).Title
+                    Title = (c.GetDetail(UserLanguageID) ?? c.GetDetail(DefaultLanguageID)).Title
                 }).ToList(),
 
                 MainLogo = page.LayoutMainLogo ?? dfPage.LayoutMainLogo,

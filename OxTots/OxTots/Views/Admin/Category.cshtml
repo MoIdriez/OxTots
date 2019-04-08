@@ -8,7 +8,6 @@
 {
     @Html.AntiForgeryToken()
     @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
-    @Html.TextBoxFor(m => m.Image, new { placeholder = "Image" })
     @Html.TextBoxFor(m => m.Icon, new { placeholder = "Icon" })
 
     <button type="submit">Add</button>
@@ -25,7 +24,6 @@
         }
     </select>
     @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
-    @Html.TextBoxFor(m => m.Image, new { placeholder = "Image" })
     @Html.TextBoxFor(m => m.Icon, new { placeholder = "Icon" })
 
     <button type="submit">Edit</button>
@@ -34,7 +32,6 @@
 <table class="table">
     <tr>
         <th>Name</th>
-        <th>Image</th>
         <th>Icon</th>
         <th>View Details</th>
         <th>View Features</th>
@@ -46,7 +43,6 @@
     {
     <tr>
         <td>@item.Name</td>
-        <td><img style="height: 35px;" src="@item.Image" /></td>
         <td><i style="height: 35px;" class="@item.Icon"></i></td>
         <td><a href="@Url.Action("CategoryDetail", new {id = item.ID})">Details</a></td>
         <td><a href="@Url.Action("Feature", new {id = item.ID})">Features</a></td>

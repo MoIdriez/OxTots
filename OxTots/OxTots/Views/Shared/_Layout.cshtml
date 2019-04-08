@@ -97,7 +97,7 @@
                 @foreach (var l in viewModel.Languages)
                 {
                     <p>
-                        <a href="@Url.Action("ChangeLanguage", "Base", new {l.ID})">
+                        <a href="@Url.Action("ChangeLanguage", "Base", new {languageID = l.ID})">
                             <img class="languages-image" src="/Images/flags/@l.Icon"/>
                             <span class="languages-text">@l.Name</span>
                         </a>

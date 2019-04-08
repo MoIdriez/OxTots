@@ -7,7 +7,6 @@ namespace OxTots.ViewModel
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public string Image { get; set; }
         public string Icon { get; set; }
         public List<Category> Categories { get; set; }
     }

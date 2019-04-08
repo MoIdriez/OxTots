@@ -38,7 +38,6 @@ namespace OxTots.Controllers
             var r = new Resource
             {
                 Name = model.Name,
-                Address = model.Address,
                 GPSLong = model.GPSLong,
                 GPSLat = model.GPSLat,
                 Phone = model.Phone,
@@ -71,7 +70,6 @@ namespace OxTots.Controllers
             {
                 ID = model.ID,
                 Name = model.Name,
-                Address = model.Address,
                 GPSLong = model.GPSLong,
                 GPSLat = model.GPSLat,
                 Phone = model.Phone,
@@ -139,6 +137,7 @@ namespace OxTots.Controllers
                 Description = model.Description,
                 ShortDescription = model.ShortDescription,
                 OpeningHours = model.OpeningHours,
+                Address = model.Address,
                 Language = Db.Languages.Single(l => l.ID == model.LanguageID),
                 Resource = Db.Resources.Single(c => c.ID == model.ResourceID)
             };

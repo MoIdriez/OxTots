@@ -18,6 +18,7 @@
     @Html.TextBoxFor(m => m.Description, new { placeholder = "Description" })
     @Html.TextBoxFor(m => m.ShortDescription, new { placeholder = "ShortDescription" })
     @Html.TextBoxFor(m => m.OpeningHours, new { placeholder = "OpeningHours" })
+    @Html.TextBoxFor(m => m.Address, new { placeholder = "Address" })
     <button type="submit">Add</button>
 }
 
@@ -27,6 +28,7 @@
         <th>Language</th>
         <th>Description</th>
         <th>ShortDescription</th>
+        <th>Address</th>
         <th>OpeningHours</th>
         <th>Remove</th>
     </tr>
@@ -39,6 +41,7 @@
         <td>@item.Description</td>
         <td>@item.ShortDescription</td>
         <td>@item.OpeningHours</td>
+        <td>@item.Address</td>
         <td><a href="@Url.Action("ResourceDetailRemove", new {id = item.ID})">Remove this entry</a></td>
     </tr>
     }

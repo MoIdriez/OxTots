@@ -24,7 +24,7 @@ namespace OxTots.Controllers
                 {
                     ID = c.ID,
                     Icon = c.Icon,
-                    Title = c.GetDetail(UserLanguageID).Title ?? c.GetDetail(DefaultLanguageID).Title
+                    Title = (c.GetDetail(UserLanguageID) ?? c.GetDetail(DefaultLanguageID)).Title
                 }).ToList(),
                 Markers = categories.GetMarkerViewModels(UserLanguageID, DefaultLanguageID)
             };

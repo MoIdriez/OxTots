@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using OxTots.Models;
 
@@ -20,255 +19,307 @@ namespace OxTots.Data
             context.Pages.Add(GetEnglishPage(languages));
             context.Pages.Add(GetArabicPage(languages));
 
-            var contact = new Contact { Name = "Bobby", Email = "bob@bob.bob", Message = "Important stuff" };
-            context.Contacts.Add(contact);
+            var featureStrings = new List<string>
+            {
+                "Health visitor", "Breastfeeding support", "Stay and play", "Free", "Baby changing", "Refreshments provided", "Outdoors", "Buggy-friendly", "Learning", "Music", "Weekday", "Weekend"
+            };
 
             var categories = new List<Category>
             {
-                new Category { Name = "Category 1", Icon = "flaticon-chef" },
-                new Category { Name = "Category 2", Icon = "flaticon-dish" },
-                new Category { Name = "Category 3", Icon = "flaticon-supermarket" },
-                new Category { Name = "Category 4", Icon = "flaticon-musical-note" },
-                new Category { Name = "Category 5", Icon = "flaticon-coffee-cup" },
-                new Category { Name = "Category 6", Icon = "flaticon-hotel" }
+                new Category
+                {
+                    Name = "Health and Breastfeeding Support",
+                    Icon = "fas fa-heartbeat",
+                    Features = featureStrings.Select(f =>
+                        new Feature
+                        {
+                            Name = f,
+                            FeatureDetails = new List<FeatureDetail>
+                            {
+                                new FeatureDetail { Title = f, Language = languages.First()}
+                            }
+                        }).ToList()
+                },
+                new Category { Name = "Playgroups", Icon = "fas fa-child" },
+                new Category { Name = "Activities", Icon = "fas fa-futbol" },
+                new Category { Name = "For parents", Icon = "fas fa-users" }
             };
-            context.Categories.AddRange(categories);
+
 
             var categoryDetails = new List<CategoryDetail>
             {
                 new CategoryDetail
                 {
-                    Title = "Category 1",
-                    Description = "Description",
-                    ShortDescription = "ShortDescription",
+                    Title = "Health and Breastfeeding Support",
+                    Description = "Health and Breastfeeding Support Description",
+                    ShortDescription = "Health and Breastfeeding Support Short Description",
                     Language = languages.First(),
                     Category = categories.First()
                 },
                 new CategoryDetail
                 {
-                    Title = "Category 2",
-                    Description = "Description",
-                    ShortDescription = "ShortDescription",
-                    Language = languages.First(),
-                    Category = categories.First(c => c.Name == "Category 2")
+                    Title = "دعم الصحة والرضاعة الطبيعية",
+                    Description = "وصف دعم الصحة والرضاعة الطبيعية",
+                    ShortDescription = "وصف دعم الصحة والرضاعة الطبيعية",
+                    Language = languages.Last(),
+                    Category = categories.First()
                 },
                 new CategoryDetail
                 {
-                    Title = "Category 3",
-                    Description = "Description",
-                    ShortDescription = "ShortDescription",
+                    Title = "Playgroups Support",
+                    Description = "Playgroups Description",
+                    ShortDescription = "Playgroups Description",
                     Language = languages.First(),
-                    Category = categories.First(c => c.Name == "Category 3")
+                    Category = categories.First(c => c.Name == "Playgroups")
                 },
                 new CategoryDetail
                 {
-                    Title = "Category 4",
-                    Description = "Description",
-                    ShortDescription = "ShortDescription",
+                    Title = "Activities Support",
+                    Description = "Activities Description",
+                    ShortDescription = "Activities Description",
                     Language = languages.First(),
-                    Category = categories.First(c => c.Name == "Category 4")
+                    Category = categories.First(c => c.Name == "Activities")
                 },
                 new CategoryDetail
                 {
-                    Title = "Category 5",
-                    Description = "Description",
-                    ShortDescription = "ShortDescription",
+                    Title = "For parents Support",
+                    Description = "For parents Description",
+                    ShortDescription = "For parents Description",
                     Language = languages.First(),
-                    Category = categories.First(c => c.Name == "Category 5")
-                },
-                new CategoryDetail
-                {
-                    Title = "Category 6",
-                    Description = "Description",
-                    ShortDescription = "ShortDescription",
-                    Language = languages.First(),
-                    Category = categories.First(c => c.Name == "Category 6")
+                    Category = categories.First(c => c.Name == "For parents")
                 }
-
             };
+            context.Categories.AddRange(categories);
             context.CategoryDetails.AddRange(categoryDetails);
-
-            var features = new List<Feature>
-            {
-                new Feature { Name = "Feature 1", Category = categories.First() },
-                new Feature { Name = "Feature 2", Category = categories.First() },
-                new Feature { Name = "Feature 3", Category = categories.First() },
-                new Feature { Name = "Feature 4", Category = categories.First() },
-                new Feature { Name = "Feature 5", Category = categories.First() },
-                new Feature { Name = "Feature 6", Category = categories.First() }
-            };
-            context.Features.AddRange(features);
-
-            var featureDetails = new List<FeatureDetail>
-            {
-                new FeatureDetail { Title = "Feature 1 Title", Feature = features.First(f => f.Name == "Feature 1"), Language = languages.First() },
-                new FeatureDetail { Title = "Feature 2 Title", Feature = features.First(f => f.Name == "Feature 2"), Language = languages.First() },
-                new FeatureDetail { Title = "Feature 3 Title", Feature = features.First(f => f.Name == "Feature 3"), Language = languages.First() },
-                new FeatureDetail { Title = "Feature 4 Title", Feature = features.First(f => f.Name == "Feature 4"), Language = languages.First() },
-                new FeatureDetail { Title = "Feature 5 Title", Feature = features.First(f => f.Name == "Feature 5"), Language = languages.First() },
-                new FeatureDetail { Title = "Feature 6 Title", Feature = features.First(f => f.Name == "Feature 6"), Language = languages.First() },
-            };
-            context.FeatureDetails.AddRange(featureDetails);
 
             var resources = new List<Resource>
             {
-                new Resource {
-                    Name = "Resource 1",
-                    Address = "Address",
-                    GPSLong = -1.25785,
-                    GPSLat = 51.752013,
-                    Phone = "Phone",
-                    Email = "Email",
-                    Website = "Website",
+                new Resource
+                {
+                    Name = "Health visitor - Grandpont",
+                    GPSLong = -1.2619519,
+                    GPSLat = 51.7430529,
+                    Phone = "",
+                    Email = "",
+                    Website = "www.sofr.org.uk",
                     Category = categories.First(),
                     Image = "/Images/listing/listing-1-1.jpg",
-                    Icon = "/Images/map-marker.png"
+                    Icon = "/Images/map-marker.png",
+                    ResourceDetails = new List<ResourceDetail> {
+                        new ResourceDetail {
+                            Title = "Health visitor - Grandpont",
+                            Description = "Oxfordshire Breastfeeding Support, health visitor, and stay and play",
+                            ShortDescription = "Oxfordshire Breastfeeding Support, health visitor, and stay and play",
+                            Address = "South Oxford Family Room, Grandpont Nursery School and Children’s Centre, OX1 4QH",
+                            OpeningHours = "Tuesday 10am - 12noon",
+                            Language = languages.First()
+                        }, new ResourceDetail {
+                            Title = "زائر الصحة - Grandpont",
+                            Description = "دعم أوكسفوردشاير للرضاعة الطبيعية ، زائر صحي ، والبقاء واللعب",
+                            ShortDescription = "دعم أوكسفوردشاير للرضاعة الطبيعية ، زائر صحي ، والبقاء واللعب",
+                            Address = " غرفة عائلية بجنوب أكسفورد ، مدرسة حضانة Grandpont ومركز الأطفال ، OX1 4QH",
+                            OpeningHours = "الثلاثاء 10:00 حتي 12 ظهرا",
+                            Language = languages.Last()
+                        }
+                    },
+                    ResourceFeatures = new List<ResourceFeature>
+                    {
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Health visitor"),
+                            Enabled = true
+                        },
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Breastfeeding support"),
+                            Enabled = true
+                        },
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Stay and play"),
+                            Enabled = true
+                        },
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Free"),
+                            Enabled = true
+                        }
+                    }
                 },
                 new Resource
                 {
-                    Name = "Resource 2",
-                    Address = "Address",
-                    GPSLong = -1.25785,
-                    GPSLat = 51.772013,
-                    Phone = "Phone",
-                    Email = "Email",
-                    Website = "Website",
+                    Name = "Health visitor - Jericho",
+                    GPSLong = -1.2679139,
+                    GPSLat = 51.7600863,
+                    Phone = "01865 559742",
+                    Email = "",
+                    Website = "",
                     Category = categories.First(),
                     Image = "/Images/listing/listing-1-1.jpg",
-                    Icon = "/Images/map-marker.png"
-                },
-                new Resource {
-                    Name = "Resource 3",
-                    Address = "Address",
-                    GPSLong = -1.20785,
-                    GPSLat = 51.772013,
-                    Phone = "Phone",
-                    Email = "Email",
-                    Website = "Website",
-                    Category = categories.First(),
-                    Image = "/Images/listing/listing-1-1.jpg",
-                    Icon = "/Images/map-marker.png"
+                    Icon = "/Images/map-marker.png",
+                    ResourceDetails = new List<ResourceDetail> { new ResourceDetail
+                    {
+                        Title = "Health visitor - Jericho",
+                        Description = "Oxfordshire Breastfeeding Support, health visitor",
+                        ShortDescription = "Oxfordshire Breastfeeding Support, health visitor",
+                        Address = "Jericho Health Centre New Radcliffe House Walton Street Oxford OX2 6NW",
+                        OpeningHours = "Wednesday 12noon - 2pm",
+                        Language = languages.First()
+                    }},
+                    ResourceFeatures = new List<ResourceFeature>
+                    {
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Health visitor"),
+                            Enabled = true
+                        },
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Breastfeeding support"),
+                            Enabled = true
+                        },
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Free"),
+                            Enabled = true
+                        }
+                    }
                 },
                 new Resource
                 {
-                    Name = "Resource 4",
-                    Address = "Address",
-                    GPSLong = -1.25785,
-                    GPSLat = 51.702013,
-                    Phone = "Phone",
-                    Email = "Email",
-                    Website = "Website",
+                    Name = "Health visitor clinic - East Oxford",
+                    GPSLong = -1.2346703,
+                    GPSLat = 51.7472588,
+                    Phone = "",
+                    Email = "",
+                    Website = "",
                     Category = categories.First(),
                     Image = "/Images/listing/listing-1-1.jpg",
-                    Icon = "/Images/map-marker.png"
+                    Icon = "/Images/map-marker.png",
+                    ResourceDetails = new List<ResourceDetail> {
+                        new ResourceDetail {
+                            Title = "Health visitor - East Oxford",
+                            Description = "Health visitor clinic",
+                            ShortDescription = "Health visitor clinic",
+                            Address = "East Oxford Health Centre, Manzil Way, Cowley Road, OX4 1XD",
+                            OpeningHours = "Wednesday 11am - 12noon",
+                            Language = languages.First()
+                        },
+                        new ResourceDetail {
+                            Title = "زائر صحي - شرق أكسفورد",
+                            Description = "عيادة الزائر الصحي",
+                            ShortDescription = "عيادة الزائر الصحي",
+                            Address = "مركز شرق أوكسفورد الصحي ، طريق المنزل ، طريق كاولي ، OX4 1XD",
+                            OpeningHours = "الأربعاء 11:00 حتي 12 ظهرا",
+                            Language = languages.Last()
+                        }
+
+                    },
+                    ResourceFeatures = new List<ResourceFeature>
+                    {
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Health visitor"),
+                            Enabled = true
+                        },
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Free"),
+                            Enabled = true
+                        }
+                    }
+                },
+                new Resource
+                {
+                    Name = "Breastfeeding support - East Oxford",
+                    GPSLong = -1.2370894,
+                    GPSLat = 51.7481535,
+                    Phone = "01865 248729",
+                    Email = "",
+                    Website = "",
+                    Category = categories.First(),
+                    Image = "/Images/listing/listing-1-1.jpg",
+                    Icon = "/Images/map-marker.png",
+                    ResourceDetails = new List<ResourceDetail> { new ResourceDetail
+                    {
+                        Title = "Breastfeeding support - East Oxford",
+                        Description = "Oxfordshire Breastfeeding Support",
+                        ShortDescription = "Oxfordshire Breastfeeding Support",
+                        Address = "East Oxford Children's Centre Collins Street Oxford OX4 1EE",
+                        OpeningHours = "Thursday 1pm-3pm",
+                        Language = languages.First()
+                    }},
+                    ResourceFeatures = new List<ResourceFeature>
+                    {
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Breastfeeding support"),
+                            Enabled = true
+                        },
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Free"),
+                            Enabled = true
+                        }
+                    }
+                },
+                new Resource
+                {
+                    Name = "Breastfeeding Support - Donnington",
+                    GPSLong = -1.2389885,
+                    GPSLat = 51.7367842,
+                    Phone = "01865 727721",
+                    Email = "",
+                    Website = "",
+                    Category = categories.First(),
+                    Image = "/Images/listing/listing-1-1.jpg",
+                    Icon = "/Images/map-marker.png",
+                    ResourceDetails = new List<ResourceDetail> { new ResourceDetail
+                    {
+                        Title = "Breastfeeding Support - Donnington",
+                        Description = "Oxfordshire Breastfeeding Support",
+                        ShortDescription = "Oxfordshire Breastfeeding Support",
+                        Address = "Donnington Doorstep Family Centre Townsend Square Oxford OX4 4BB ",
+                        OpeningHours = "Friday 12noon - 2pm",
+                        Language = languages.First()
+                    }},
+                    ResourceFeatures = new List<ResourceFeature>
+                    {
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Breastfeeding support"),
+                            Enabled = true
+                        },
+                        new ResourceFeature
+                        {
+                            Feature = categories.First().Features.Single(f => f.Name == "Free"),
+                            Enabled = true
+                        }
+                    }
+                },
+                new Resource
+                {
+                    Name = "Fit and Healthy Mums",
+                    GPSLong = -1.2389885,
+                    GPSLat = 51.7367842,
+                    Phone = "",
+                    Email = "",
+                    Website = "http://www.fitandhealthymums.com/",
+                    Category = categories.First(),
+                    Image = "/Images/listing/listing-1-1.jpg",
+                    Icon = "/Images/map-marker.png",
+                    ResourceDetails = new List<ResourceDetail> { new ResourceDetail
+                    {
+                        Title = "Fit and Healthy Mums",
+                        Description = "Pre and post natal fitness, baby massage specialists",
+                        ShortDescription = "Pre and post natal fitness, baby massage specialists",
+                        Address = "Donnington Doorstep Family Centre Townsend Square Oxford OX4 4BB ",
+                        OpeningHours = "",
+                        Language = languages.First()
+                    }}
                 }
             };
             context.Resources.AddRange(resources);
-
-            var resourceDetails = new List<ResourceDetail>
-            {
-                new ResourceDetail
-                {
-                    Title = "Resource 1 Title",
-                    Description = "Resource 1 Description",
-                    ShortDescription = "Resource 1 ShortDescription",
-                    OpeningHours = "Resource 1 OpeningHours",
-                    Language = languages.First(),
-                    Resource = resources.First(r => r.Name == "Resource 1")
-                },
-                new ResourceDetail
-                {
-                    Title = "Resource 2 Title",
-                    Description = "Resource 2 Description",
-                    ShortDescription = "Resource 2 ShortDescription",
-                    OpeningHours = "Resource 2 OpeningHours",
-                    Language = languages.First(),
-                    Resource = resources.First(r => r.Name == "Resource 2")
-                },
-                new ResourceDetail
-                {
-                    Title = "Resource 3 Title",
-                    Description = "Resource 3 Description",
-                    ShortDescription = "Resource 3 ShortDescription",
-                    OpeningHours = "Resource 3 OpeningHours",
-                    Language = languages.First(),
-                    Resource = resources.First(r => r.Name == "Resource 3")
-                },
-                new ResourceDetail
-                {
-                    Title = "Resource 4 Title",
-                    Description = "Resource 4 Description",
-                    ShortDescription = "Resource 4 ShortDescription",
-                    OpeningHours = "Resource 4 OpeningHours",
-                    Language = languages.First(),
-                    Resource = resources.First(r => r.Name == "Resource 4")
-                }
-            };
-            context.ResourceDetails.AddRange(resourceDetails);
-
-            var resourceFeatures = new List<ResourceFeature>
-            {
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 1"), Feature = features.First(f => f.Name == "Feature 1"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 1"), Feature = features.First(f => f.Name == "Feature 2"), Enabled = false },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 1"), Feature = features.First(f => f.Name == "Feature 3"), Enabled = false },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 1"), Feature = features.First(f => f.Name == "Feature 4"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 1"), Feature = features.First(f => f.Name == "Feature 5"), Enabled = false },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 1"), Feature = features.First(f => f.Name == "Feature 6"), Enabled = true },
-
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 2"), Feature = features.First(f => f.Name == "Feature 1"), Enabled = false },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 2"), Feature = features.First(f => f.Name == "Feature 2"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 2"), Feature = features.First(f => f.Name == "Feature 3"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 2"), Feature = features.First(f => f.Name == "Feature 4"), Enabled = false },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 2"), Feature = features.First(f => f.Name == "Feature 5"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 2"), Feature = features.First(f => f.Name == "Feature 6"), Enabled = true },
-
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 3"), Feature = features.First(f => f.Name == "Feature 1"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 3"), Feature = features.First(f => f.Name == "Feature 2"), Enabled = false },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 3"), Feature = features.First(f => f.Name == "Feature 3"), Enabled = false },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 3"), Feature = features.First(f => f.Name == "Feature 4"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 3"), Feature = features.First(f => f.Name == "Feature 5"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 3"), Feature = features.First(f => f.Name == "Feature 6"), Enabled = false },
-
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 4"), Feature = features.First(f => f.Name == "Feature 1"), Enabled = false },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 4"), Feature = features.First(f => f.Name == "Feature 2"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 4"), Feature = features.First(f => f.Name == "Feature 3"), Enabled = false },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 4"), Feature = features.First(f => f.Name == "Feature 4"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 4"), Feature = features.First(f => f.Name == "Feature 5"), Enabled = true },
-                new ResourceFeature { Resource = resources.First(r => r.Name == "Resource 4"), Feature = features.First(f => f.Name == "Feature 6"), Enabled = false },
-            };
-            context.ResourceFeatures.AddRange(resourceFeatures);
-
-            var submissions = new List<Submission>
-            {
-                new Submission
-                {
-                    Language = languages.First(),
-                    Category = categories.First(),
-                    Name = "Submission English",
-                    Email = "123@123.123",
-                    ResourceName = "ResourceName",
-                    ResourceAddress = "ResourceAddress",
-                    ResourceDescription = "ResourceDescription",
-                    ResourcePhone = "ResourcePhone",
-                    ResourceEmail = "ResourceEmail",
-                    ResourceWebsite = "ResourceWebsite"
-                },
-                new Submission
-                {
-                    Language = languages.Last(),
-                    Category = categories.Last(),
-                    Name = "Submission Arabic",
-                    Email = "123@123.123",
-                    ResourceName = "ليرتفع",
-                    ResourceAddress = "إستعمل الأوروبيّون",
-                    ResourceDescription = "بأيدي, هذا مع ",
-                    ResourcePhone = "،, بل لان إستعمل ",
-                    ResourceEmail = "الخارجية ثم",
-                    ResourceWebsite = "الأوروبيّون"
-                }
-            };
-            context.Submissions.AddRange(submissions);
-
             context.SaveChanges();
         }
 

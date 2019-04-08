@@ -13,6 +13,7 @@ namespace OxTots.Models
         public string Description { get; set; }
         public string ShortDescription { get; set; }
 
+        public string Address { get; set; }
         public string OpeningHours { get; set; }
 
         public virtual Language Language { get; set; }
