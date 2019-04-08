@@ -13,3 +13,13 @@ function share() {
     $("#modal-title-content").html($("#modal-share-title").html());
     $("#modal-body-content").html($("#modal-share-body").html());
 }
+
+function link1() {
+    $("#modal-title-content").html($("#modal-link1-title").html());
+    $("#modal-body-content").html($("#modal-link1-body").html());
+}
+
+function link2() {
+    $("#modal-title-content").html($("#modal-link2-title").html());
+    $("#modal-body-content").html($("#modal-link2-body").html());
+}
