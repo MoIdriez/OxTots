@@ -38,6 +38,9 @@ namespace OxTots.ViewModel
         public List<Language> Languages { get; set; }
         public List<LayoutCategoryViewModel> Categories { get; set; }
         
+        public string GDPRTitle { get; set; }
+        public string GDPRMessage { get; set; }
+        public string GDPRButton { get; set; }
     }
 
     public class LayoutCategoryViewModel

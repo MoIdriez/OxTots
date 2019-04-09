@@ -344,6 +344,9 @@ namespace OxTots.Data
         {
             return new Page
             {
+                LayoutGDPRTitle = "GDPR Notice",
+                LayoutGDPRMessage = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+                LayoutGDPRButton = "Accept",
                 LayoutMenuListing = "Categories",
                 LayoutMenuSearch = "Search",
                 LayoutMenuSubmissions = "Submission",

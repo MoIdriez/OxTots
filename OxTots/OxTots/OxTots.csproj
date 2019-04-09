@@ -148,6 +148,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Utility\CookieConsentAttribute.cs" />
+    <Compile Include="Utility\LayoutAttribute.cs" />
     <Compile Include="ViewModel\AdminCategoryDetailViewModel.cs" />
     <Compile Include="ViewModel\AdminCategoryViewModel.cs" />
     <Compile Include="ViewModel\AdminContactViewModel.cs" />
@@ -206,7 +208,6 @@
     <Content Include="Content\slick-theme.css" />
     <Content Include="Content\slick.css" />
     <Content Include="Content\style.css" />
-    <Content Include="favicon.ico" />
     <Content Include="Images\flags\abkhazia.png" />
     <Content Include="Images\flags\afghanistan.png" />
     <Content Include="Images\flags\aland-islands.png" />

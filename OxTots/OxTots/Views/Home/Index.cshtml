@@ -1,15 +1,15 @@
-﻿@{ ViewBag.Title = "Home Page"; }
-@using System.Web.Script.Serialization
-@using OxTots.Utility
+﻿@using System.Web.Script.Serialization
 @model OxTots.ViewModel.HomeViewModel
+
+@{ ViewBag.Title = "Home Page"; }
 
 <!-- Main Banner Area Start Here -->
 <section class="main-banner-wrap-layout1 bg-common overlay-dark-30 bg--gradient-top-30" data-bg-image="@Model.Image">
     <div class="container">
         <div class="main-banner-box-layout1">
             <div class="row category-search-form">
-                @using (Html.BeginForm("Query", "Search", new { ReturnUrl = ViewBag.ReturnUrl }, 
-                    FormMethod.Get, new { @class="col-12" }))
+                @using (Html.BeginForm("Query", "Search", new { ReturnUrl = ViewBag.ReturnUrl },
+                    FormMethod.Get, new { @class = "col-12" }))
                 {
                     <div class="form-items col-12">
                         <div class="input-group stylish-input-group">

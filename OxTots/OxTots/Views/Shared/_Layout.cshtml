@@ -18,18 +18,9 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <!--[if lte IE 9]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-    <![endif]-->
-    <!-- Preloader Start Here -->
+    
     <div id="preloader"></div>
-    <!-- Preloader End Here -->
-    <!-- ScrollUp Start Here -->
-    <a href="#wrapper" data-type="section-switch" class="scrollup">
-        <i class="fas fa-angle-double-up"></i>
-    </a>
-    <!-- ScrollUp End Here -->
-
+    
     <div id="wrapper" class="wrapper">
         <!-- Header Area Start Here -->
         <header id="site-header" class="header-one">
@@ -116,6 +107,11 @@
                 </ul>
             </div>
         </div>
+        <div id="modal-gdpr-title" class="hidden">@viewModel.GDPRTitle</div>
+        <div id="modal-gdpr-body" class="hidden">@viewModel.GDPRMessage</div>
+        <div id="modal-gdpr-button" class="hidden">
+            <a href="@Url.Action("AcceptGDPR", "Base")" class="btn btn-primary btn-lg" role="button">@viewModel.GDPRButton</a>
+        </div>
         <!-- Header Area End Here -->
         <!-- Main Banner Area End Here -->
         @RenderBody()
@@ -155,7 +151,6 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <div id="modal-title-content" class="title-default-bold mb-none"></div>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
                     <p id="modal-body-content">
@@ -163,7 +158,8 @@
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="modal-button btn btn-primary" data-dismiss="modal">Close</button>
+                    <button id="modal-button" type="button" class="modal-button btn btn-primary" data-dismiss="modal">Close</button>
+                    <div id="modal-button-content"></div>
                 </div>
             </div>
         </div>
@@ -171,5 +167,15 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfQAitaAFcbjL3bS5IQk4ESCLVV3H5fms"></script>
     @Scripts.Render("~/bundles/js")
     @RenderSection("scripts", required: false)
+    @if (ViewBag.NeedConsent)
+    {
+        <script>
+            $("#modal-title-content").html($("#modal-gdpr-title").html());
+            $("#modal-body-content").html($("#modal-gdpr-body").html());
+            $("#modal-button-content").html($("#modal-gdpr-button").html());
+            $('#mainModal').modal({ backdrop: 'static', keyboard: false });
+            $("#modal-button").addClass("hidden");
+        </script>
+    }
 </body>
 </html>

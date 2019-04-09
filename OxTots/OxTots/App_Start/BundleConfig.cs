@@ -17,7 +17,6 @@ namespace OxTots
                         "~/Scripts/isotope.pkgd.min.js",
                         "~/Scripts/slick.min.js",
                         "~/Scripts/parallaxie.js",
-                        "~/Scripts/smoothscroll.min.js",
                         "~/Scripts/select2.full.min.js",
                         "~/Scripts/jquery.datetimepicker.full.min.js",
                         "~/Scripts/main.js",

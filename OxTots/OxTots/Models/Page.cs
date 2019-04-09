@@ -4,6 +4,9 @@
     {
         public int ID { get; set; }
 
+        public string LayoutGDPRTitle { get; set; }
+        public string LayoutGDPRMessage { get; set; }
+        public string LayoutGDPRButton { get; set; }
         public string LayoutCookieTitle { get; set; }
         public string LayoutCookieDescription { get; set; }
 

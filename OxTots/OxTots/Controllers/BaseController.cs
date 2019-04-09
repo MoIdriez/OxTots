@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using OxTots.Data;
 using OxTots.Utility;
@@ -8,6 +6,7 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    [CookieConsent, Layout]
     public class BaseController : Controller
     {
         protected SiteContext Db = new SiteContext();
@@ -15,31 +14,8 @@ namespace OxTots.Controllers
         protected int DefaultLanguageID => Db.Languages.First().ID;
         protected int UserLanguageID
         {
-            get
-            {
-                var userLanguageID = Db.Languages.First().ID;
-
-                if (Request == null)
-                    return userLanguageID;
-
-                if (Request.Cookies["UserLanguageID"] != null)
-                    return Convert.ToInt32(Request.Cookies["UserLanguageID"].Value);
-
-                Response.Cookies.Add(new HttpCookie("UserLanguageID")
-                {
-                    Value = userLanguageID.ToString(),
-                    Expires = DateTime.Now.AddYears(1)
-                });
-                return userLanguageID;
-            }
-            set => Response.Cookies["UserLanguageID"].Value = value.ToString();
-        }
-
-        
-
-        public BaseController()
-        {
-            GetLayoutViewModel();
+            get => LanguageCookie.GetLanguage(Request);
+            set => LanguageCookie.SetLanguage(Response, value);
         }
 
         public ActionResult ChangeLanguage(int languageID)
@@ -48,55 +24,22 @@ namespace OxTots.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public ActionResult AcceptGDPR()
+        {
+            CookieConsent.SetConsent(Response);
+            return RedirectToAction("Index", "Home");
+        }
+
         public void SetHeaderDark()
         {
-            GetLayoutViewModel(true);
+            var model = (LayoutViewModel) ViewData["LayoutViewModel"];
+            model.HeaderDark = true;
+            ViewData["LayoutViewModel"] = model;
         }
 
         protected void SetOg(OgViewModel model)
         {
             ViewData["OgViewModel"] = model;
-        }
-
-        private void GetLayoutViewModel(bool dark = false)
-        {
-            var page = Db.Pages.GetPage(UserLanguageID);
-            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
-
-            var language = Db.Languages.First(l => l.ID == UserLanguageID);
-            var model = new LayoutViewModel
-            {
-                Listing = page.LayoutMenuListing ?? dfPage.LayoutMenuListing,
-                Search = page.LayoutMenuSearch ?? dfPage.LayoutMenuSearch,
-                Map = page.LayoutMenuMap ?? dfPage.LayoutMenuMap,
-                Submission = page.LayoutMenuSubmissions ?? dfPage.LayoutMenuSubmissions,
-                Contact = page.LayoutMenuContact ?? dfPage.LayoutMenuContact,
-                AboutUs = page.LayoutMenuAboutUs ?? dfPage.LayoutMenuAboutUs,
-                Link1 = page.LayoutFooterLink1 ?? dfPage.LayoutFooterLink1,
-                Link1Content = page.LayoutFooterLink1Content??dfPage.LayoutFooterLink1Content,
-                Link2 = page.LayoutFooterLink2 ?? dfPage.LayoutFooterLink2,
-                Link2Content = page.LayoutFooterLink2Content ?? dfPage.LayoutFooterLink2Content,
-                HeaderDark = dark,
-                Categories = Db.Categories.ToList().Select(c => new LayoutCategoryViewModel
-                {
-                    ID = c.ID,
-                    Title = (c.GetDetail(UserLanguageID) ?? c.GetDetail(DefaultLanguageID)).Title
-                }).ToList(),
-
-                MainLogo = page.LayoutMainLogo ?? dfPage.LayoutMainLogo,
-                MainLogoAlt = page.LayoutMainLogoAlt ?? dfPage.LayoutMainLogoAlt,
-
-                LanguageID = UserLanguageID,
-                LanguageName = language.Name,
-                LanguageIcon = language.Icon,
-                Languages = Db.Languages.ToList(),
-
-                LanguagesTitle = page.LayoutLanguagesTitle ?? dfPage.LayoutLanguagesTitle,
-                LanguagesDescription = page.LayoutLanguagesDescription ?? dfPage.LayoutLanguagesDescription,
-                ShareTitle = page.LayoutShareTitle ?? dfPage.LayoutShareTitle,
-                ShareDescription = page.LayoutShareDescription ?? dfPage.LayoutShareDescription,
-            };
-            ViewData["LayoutViewModel"] = model;
         }
 
     }
