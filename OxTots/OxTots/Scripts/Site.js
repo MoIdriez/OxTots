@@ -1,8 +1,8 @@
-﻿$(function(){
-    $('input[type="checkbox"]').on('change',function(){
-        $('#form').submit();
-    });
-});
+﻿//$(function(){
+//    $('input[type="checkbox"]').on('change',function(){
+//        $('#form').submit();
+//    });
+//});
 
 function language() {
     $("#modal-button").removeClass("hidden");

@@ -1,4 +1,5 @@
 ﻿@using System.Web.Script.Serialization
+@using System.Web.UI.WebControls
 @{ ViewBag.Title = "Search Page"; }
 @model OxTots.ViewModel.CategoryViewModel
 <!-- Listing Area Start Here -->
@@ -21,7 +22,8 @@
                                     <div class="item-sub-title">@Model.FilterDescription</div>
                                     @using (Html.BeginForm("Filter", "Category", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new
                                     {
-                                        @class = "widget-filter col-12", id = "form"
+                                        @class = "widget-filter col-12",
+                                        id = "form"
 
                                     }))
                                     {
@@ -34,14 +36,18 @@
                                         <div class="row">
                                             @for (var i = 0; i < Model.Features.Count; i++)
                                             {
-                                                <div class="checkbox-filter col-4 col-lg-2">
-                                                    @Html.CheckBoxFor(m => m.Features[i].IsSelected)
-                                                    @Html.LabelFor(m => m.Features[i].Name, Model.Features[i].Name)
+                                                <div class="checkbox-filter col-lg-3 col-6">
+                                                    @Html.CheckBoxFor(m => m.Features[i].IsSelected, new {@class = "hidden"})
+                                                    @Html.LabelFor(m => m.Features[i].IsSelected, Model.Features[i].Name, new { @class = "float-left"})
                                                 </div>
 
                                                 @Html.HiddenFor(m => m.Features[i].ID)
                                                 @Html.HiddenFor(m => m.Features[i].Name)
                                             }
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-2"><a href="#" onclick="$('#form').submit()"><i class="fas fa-filter"></i></a></div>
+                                            <div class="offset-8 col-2"><a href="@Url.Action("Index")"><i class="fas fa-redo"></i></a></div>
                                         </div>
                                     }
 
@@ -84,10 +90,10 @@
                                                 <img src="@result.Image" alt="Listing" class="img-fluid list-view-img">
                                             </div>
                                             <div class="item-content">
-                                                <h3 class="item-title"><a href="#">@result.Title</a></h3>
+                                                <h3 class="item-title"><a href="@Url.Action("Index", "Resource", new { id = result.ID})">@result.Title</a></h3>
                                                 <p class="item-paragraph">@result.Description</p>
                                                 <ul class="meta-item">
-                                                    <li class="ctg-name"><a href="#">@Model.GoToResource<i class="flaticon-next"></i></a></li>
+                                                    <li class="ctg-name"><a href="@Url.Action("Index", "Resource", new { id = result.ID})">@Model.GoToResource<i class="flaticon-next"></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>

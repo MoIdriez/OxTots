@@ -103,7 +103,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "www.sofr.org.uk",
                     Category = categories.First(),
-                    Image = "/Images/listing/listing-1-1.jpg",
+                    Image = "/Images/temp/health.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> {
                         new ResourceDetail {
@@ -155,7 +155,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "",
                     Category = categories.First(),
-                    Image = "/Images/listing/listing-1-1.jpg",
+                    Image = "/Images/temp/health2.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
                     {
@@ -194,7 +194,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "",
                     Category = categories.First(),
-                    Image = "/Images/listing/listing-1-1.jpg",
+                    Image = "/Images/temp/health2.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> {
                         new ResourceDetail {
@@ -238,7 +238,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "",
                     Category = categories.First(),
-                    Image = "/Images/listing/listing-1-1.jpg",
+                    Image = "/Images/temp/breastfeeding.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
                     {
@@ -272,7 +272,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "",
                     Category = categories.First(),
-                    Image = "/Images/listing/listing-1-1.jpg",
+                    Image = "/Images/temp/breastfeeding2.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
                     {
@@ -306,7 +306,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "http://www.fitandhealthymums.com/",
                     Category = categories.First(),
-                    Image = "/Images/listing/listing-1-1.jpg",
+                    Image = "/Images/temp/health3.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
                     {
@@ -336,6 +336,20 @@ namespace OxTots.Data
 
                 LayoutFooterLink1 = "الخصوصية",
                 LayoutFooterLink2 = "سياسة ملفات تعريف الارتباط",
+                LayoutFooterLink1Content = "عن الأرضية ويكيبيديا غير, تطوير تغييرات هذا كل. أما ٣٠ يعادل الصفحة, في بعض وحلفاؤها الإنذار،, كلّ ثم الأول فرنسية ايطاليا،. رجوعهم المنتصر الدولارات بل حول, أن دنو جيوب قتيل، ارتكبها, هذا ٠٨٠٤ العالم قد. قبل ٣٠ عليها الوراء الدولارات, يبق ثم يعادل الإكتفاء.",
+                LayoutFooterLink2Content = "عن الأرضية ويكيبيديا غير, تطوير تغييرات هذا كل. أما ٣٠ يعادل الصفحة, في بعض وحلفاؤها الإنذار،, كلّ ثم الأول فرنسية ايطاليا،. رجوعهم المنتصر الدولارات بل حول, أن دنو جيوب قتيل، ارتكبها, هذا ٠٨٠٤ العالم قد. قبل ٣٠ عليها الوراء الدولارات, يبق ثم يعادل الإكتفاء.",
+
+                LayoutLanguagesTitle = "غير اللغة",
+                LayoutLanguagesDescription = "عن الأرضية ويكيبيديا غير, تطوير تغييرات هذا كل. أما ٣٠ يعادل الصفحة, في بعض وحلفاؤها الإنذار،, كلّ ثم الأول فرنسية ايطاليا،. رجوعهم المنتصر الدولارات بل حول, أن دنو جيوب قتيل، ارتكبها, هذا ٠٨٠٤ العالم قد. قبل ٣٠ عليها الوراء الدولارات, يبق ثم يعادل الإكتفاء.",
+                LayoutShareTitle = "مشاركة الصفحة",
+                LayoutShareDescription = "عن الأرضية ويكيبيديا غير, تطوير تغييرات هذا كل. أما ٣٠ يعادل الصفحة, في بعض وحلفاؤها الإنذار،, كلّ ثم الأول فرنسية ايطاليا،. رجوعهم المنتصر الدولارات بل حول, أن دنو جيوب قتيل، ارتكبها, هذا ٠٨٠٤ العالم قد. قبل ٣٠ عليها الوراء الدولارات, يبق ثم يعادل الإكتفاء.",
+
+                HomeSearch = "عما تبحث؟",
+                HomeSearchError = "البحث عن النص المطلوب",
+                HomeTitle = "عنوان المنزل",
+                HomeDescription = "عن الأرضية ويكيبيديا غير, تطوير تغييرات هذا كل. أما ٣٠ يعادل الصفحة, في بعض وحلفاؤها الإنذار،, كلّ ثم الأول فرنسية ايطاليا،. رجوعهم المنتصر الدولارات بل حول, أن دنو جيوب قتيل، ارتكبها, هذا ٠٨٠٤ العالم قد. قبل ٣٠ عليها الوراء الدولارات, يبق ثم يعادل الإكتفاء.",
+                HomeCategoriesText = "أو تصفح الفئات",
+
                 Language = languages.Last()
             };
         }
@@ -366,7 +380,7 @@ namespace OxTots.Data
                 LayoutFooterLink2 = "Cookie Policy",
                 LayoutFooterLink2Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
 
-                HomeImage = "/Images/figure/site-main-figure1.jpg",
+                HomeImage = "/Images/temp/mum1.jpg",
                 HomeSearch = "What are you looking for?",
                 HomeSearchError = "Search text required",
                 HomeTitle = "HomeTitle",

@@ -35,3 +35,59 @@
 }
 
 .main-banner-box-layout1 ul.item-ctg li { max-width: 150px; }
+
+.checkbox-filter {
+    text-align: left;
+}
+
+.checkbox-filter label {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.checkbox-filter label:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 0;
+    top: 2px;
+    margin-left: -5px;
+    border: 1px solid #cccccc;
+    border-radius: 2px;
+    background-color: #fff;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.checkbox-filter input[type="checkbox"]:checked ~ label::after {
+    color: #fff;
+}
+
+.checkbox-filter input[type="checkbox"]:checked ~ label::after {
+    font-family: 'FontAwesome';
+    content: "\f00c";
+}
+
+.checkbox-filter input[type="checkbox"]:checked ~ label::before {
+    background-color: #ff4a52;
+    border-color: #ff4a52;
+}
+
+.footer-box .footer-header {
+    cursor: pointer;
+}
+
+.feature-wrap-layout1 .container-fluid { padding-left: 0; padding-right: 0; }
+
+.fas.fa-redo,
+.fas.fa-filter {
+    color: #ff4a52;
+    font-size: 30px;
+    padding-top: 10px
+}

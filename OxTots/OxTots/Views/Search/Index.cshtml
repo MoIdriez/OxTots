@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-10">
                                 @using (Html.BeginForm("Query", "Search", new { ReturnUrl = ViewBag.ReturnUrl },
                                     FormMethod.Get, new { @class = "col-12" }))
                                 {
@@ -29,8 +29,11 @@
                                             </button>
                                         </span>
                                     </div>
+
                                 }
                             </div>
+                            <div class="col-1"><a href="@Url.Action("Index")"><i class="fas fa-redo"></i></a></div>
+                            
                         </div>
                     </div>
                     <div class="item-sorting-wrap">
@@ -69,10 +72,10 @@
                                             <img src="@result.Image" alt="Listing" class="img-fluid list-view-img">
                                         </div>
                                         <div class="item-content">
-                                            <h3 class="item-title"><a href="#">@result.Title</a></h3>
+                                            <h3 class="item-title"><a href="@Url.Action("Index", "Resource", new { id = result.ID})">@result.Title</a></h3>
                                             <p class="item-paragraph">@result.Description</p>
                                             <ul class="meta-item">
-                                                <li class="ctg-name"><a href="#">@Model.GoToResource<i class="flaticon-next"></i></a></li>
+                                                <li class="ctg-name"><a href="@Url.Action("Index", "Resource", new { id = result.ID})">@Model.GoToResource<i class="flaticon-next"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>

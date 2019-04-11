@@ -687,12 +687,12 @@ ul {
   padding: 0;
   z-index: 99999;
 }
-.modal:before {
+/*.modal:before {
   content: '';
   display: inline-block;
   height: 100%;
   vertical-align: middle;
-}
+}*/
 .modal .modal-dialog {
   display: inline-block;
   text-align: left;

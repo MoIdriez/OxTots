@@ -20,6 +20,7 @@ namespace OxTots.Controllers
                 CategoriesText = page.HomeCategoriesText ?? dfPage.HomeCategoriesText,
                 Title = page.HomeTitle ?? dfPage.HomeTitle,
                 Description = page.HomeDescription ?? dfPage.HomeDescription,
+                Image = page.HomeImage ?? dfPage.HomeImage,
                 Categories = categories.Select(c => new HomeCategoryViewModel
                 {
                     ID = c.ID,
