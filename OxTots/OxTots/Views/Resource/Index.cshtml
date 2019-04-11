@@ -15,7 +15,7 @@
                     <div class="widget-filter row">
                         @for (var i = 0; i < Model.Features.Count; i++)
                         {
-                            <div class="checkbox-filter col-4 col-lg-2">
+                            <div class="checkbox-filter col-6 col-lg-2">
                                 @Html.CheckBoxFor(m => m.Features[i].IsSelected, new { @class = "hidden" })
                                 @Html.LabelFor(m => m.Features[i].IsSelected, Model.Features[i].Name, new { @class = "float-left" })
                             </div>
@@ -29,8 +29,8 @@
                     <div class="widget widget-information widget-box-padding">
                         <h3 class="widget-title">@Model.ContactTitle</h3>
                         <ul class="block-list">
-                            <li class="block-list-item"><i class="fas fa-map-marker-alt"></i>@Model.Address</li>
-                            <li class="block-list-item"><i class="fas fa-phone"></i>@Model.Phone</li>
+                            <li class="block-list-item"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/?q=@Model.GPSLat,@Model.GPSLong" target="_blank">@Model.Address</a></li>
+                            <li class="block-list-item"><i class="fas fa-phone"></i><a href="tel:@Model.Phone">@Model.Phone</a></li>
                             <li class="block-list-item"><i class="far fa-clock"></i>@Model.OpeningHours</li>
                             <li class="block-list-item"><i class="fas fa-globe"></i>@Model.Website</li>
                             <li class="block-list-item"><i class="fas fa-envelope"></i>@Model.Email</li>

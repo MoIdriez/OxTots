@@ -35,6 +35,8 @@ namespace OxTots.Controllers
                 Email = resource.Email,
                 Address = resourceDetail.Address,
                 OpeningHours = resourceDetail.OpeningHours,
+                GPSLat = resource.GPSLat,
+                GPSLong = resource.GPSLong,
                 Features = resource.ResourceFeatures.ToList().ToViewModel(UserLanguageID, DefaultLanguageID),
                 Markers = new List<MarkerViewModel> { resource.GetMarkerViewModel(UserLanguageID, DefaultLanguageID) }
             };

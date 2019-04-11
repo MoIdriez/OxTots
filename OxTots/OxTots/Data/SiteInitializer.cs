@@ -424,6 +424,7 @@ namespace OxTots.Data
                 ContactNamePlaceHolder = "Name *",
                 ContactEmailPlaceHolder = "Email *",
                 ContactMessagePlaceHolder = "Message *",
+                ContactGDPRMessage = "Please check this to agree with GDPR something",
                 ContactSubmitButtonText = "Submit Message *",
 
                 ResultFromContact = "ResultFromContact",

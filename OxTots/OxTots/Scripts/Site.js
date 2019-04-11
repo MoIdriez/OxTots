@@ -1,8 +1,15 @@
-﻿//$(function(){
+﻿$(function () {
+    $('#gdpr-checkbox').change(function() {
+        if ($("#submit-form-button").is("[disabled]")) {
+            $("#submit-form-button").removeAttr("disabled");
+        } else {
+            $("#submit-form-button").attr("disabled", true);
+        }
+    });
 //    $('input[type="checkbox"]').on('change',function(){
 //        $('#form').submit();
 //    });
-//});
+});
 
 function language() {
     $("#modal-button").removeClass("hidden");

@@ -36,9 +36,7 @@
 
 .main-banner-box-layout1 ul.item-ctg li { max-width: 150px; }
 
-.checkbox-filter {
-    text-align: left;
-}
+.checkbox-filter { text-align: left; }
 
 .checkbox-filter label {
     display: inline-block;
@@ -90,4 +88,8 @@
     color: #ff4a52;
     font-size: 30px;
     padding-top: 10px
+}
+
+.contact-box .contact-form-box .form-group .item-btn:disabled {
+    background-color: #111111;
 }

@@ -16,6 +16,7 @@ namespace OxTots.ViewModel
         public string NamePlaceHolder { get; set; }
         public string EmailPlaceHolder { get; set; }
         public string MessagePlaceHolder { get; set; }
+        public string ContactGDPRMessage { get; set; }
         public string SubmitButtonText { get; set; }
     }
 }

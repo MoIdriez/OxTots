@@ -15,7 +15,11 @@ namespace OxTots.ViewModel
         public string Address { get; set; }
         public string Website { get; set; }
         public string OpeningHours { get; set; }
+
+        public double GPSLat { get; set; }
+        public double GPSLong { get; set; }
         
+
         public List<MarkerViewModel> Markers { get; set; }
         public List<FeatureViewModel> Features { get; set; }
     }

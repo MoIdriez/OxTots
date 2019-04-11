@@ -75,6 +75,7 @@
         public string ContactNamePlaceHolder { get; set; }
         public string ContactEmailPlaceHolder { get; set; }
         public string ContactMessagePlaceHolder { get; set; }
+        public string ContactGDPRMessage { get; set; }
         public string ContactSubmitButtonText { get; set; }
 
         public string ResultFromContact { get; set; }

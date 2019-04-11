@@ -163,9 +163,9 @@
                         (function(marker, i) {
                             return function() {
                                 infowindow.setContent(
-                                    "<h3>" +
+                                    "<h3><a href='https://maps.google.com/?q=" + gmd[i].Lat + "," + gmd[i].Long + "' target='_blank' >" +
                                     gmd[i].Title +
-                                    "</h3>" +
+                                    "</a></h3>" +
                                     "<p>" +
                                     gmd[i].Description +
                                     "</p>" +

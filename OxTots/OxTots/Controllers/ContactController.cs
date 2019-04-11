@@ -19,6 +19,7 @@ namespace OxTots.Controllers
                 NamePlaceHolder = page.ContactNamePlaceHolder ?? dfPage.ContactNamePlaceHolder,
                 EmailPlaceHolder = page.ContactEmailPlaceHolder ?? dfPage.ContactEmailPlaceHolder,
                 MessagePlaceHolder = page.ContactMessagePlaceHolder ?? dfPage.ContactMessagePlaceHolder,
+                ContactGDPRMessage = page.ContactGDPRMessage ?? dfPage.ContactGDPRMessage,
                 SubmitButtonText = page.ContactSubmitButtonText ?? dfPage.ContactSubmitButtonText,
             };
 
