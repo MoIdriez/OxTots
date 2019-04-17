@@ -150,7 +150,10 @@ namespace OxTots.Utility
             var resources = categories.SelectMany(c => c.Resources).ToList().Where(r =>
             {
                 var resourceDetail = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
-                return resourceDetail.Title.ToUpper().Contains(q.ToUpper()) || resourceDetail.Description.ToUpper().Contains(q.ToUpper());
+                return resourceDetail.Title.ToUpper().Contains(q.ToUpper()) 
+                       || resourceDetail.Description.ToUpper().Contains(q.ToUpper())
+                       || resourceDetail.Address.ToUpper().Contains(q.ToUpper())
+                    ;
             });
             return resources;
         }

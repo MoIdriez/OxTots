@@ -16,7 +16,7 @@
                         @for (var i = 0; i < Model.Features.Count; i++)
                         {
                             <div class="checkbox-filter col-6 col-lg-2">
-                                @Html.CheckBoxFor(m => m.Features[i].IsSelected, new { @class = "hidden" })
+                                @Html.CheckBoxFor(m => m.Features[i].IsSelected, new { @class = "hidden", disabled = "disabled" })
                                 @Html.LabelFor(m => m.Features[i].IsSelected, Model.Features[i].Name, new { @class = "float-left" })
                             </div>
 

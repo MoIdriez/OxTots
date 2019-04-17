@@ -163,13 +163,12 @@
                         (function(marker, i) {
                             return function() {
                                 infowindow.setContent(
-                                    "<h3><a href='https://maps.google.com/?q=" + gmd[i].Lat + "," + gmd[i].Long + "' target='_blank' >" +
+                                    "<h3><a href='/Resource/Index/" + gmd[i].ID + "' >" +
                                     gmd[i].Title +
                                     "</a></h3>" +
                                     "<p>" +
                                     gmd[i].Description +
-                                    "</p>" +
-                                    "<a href='/Resource/Index/" + gmd[i].ID + "'>Click here to go to resource</a>"
+                                    "</p>"
                                 );
                                 infowindow.open(map, marker);
                             }

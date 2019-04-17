@@ -66,7 +66,7 @@
                                 <ul>
                                     <li>
                                         <button type="button" class="login-btn" onclick="language()" data-toggle="modal" data-target="#mainModal">
-                                            <i class="fas fa-globe"></i>Language
+                                            <img src="/Images/flags/@viewModel.LanguageIcon" class="layout-icon-language" />@viewModel.LanguageName
                                         </button>
                                     </li>
                                     <li>
@@ -104,6 +104,7 @@
                     <li><a href="https://facebook.com/sharer.php?u=@ogModel.Url" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="https://twitter.com/intent/tweet?url=@ogModel.Url&text=@ogModel.Title" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a></li>
                     <li class="d-md-none"><a href="whatsapp://send?text=@ogModel.Title @ogModel.Url" data-action="share/whatsapp/share" class="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
+                    <li class="d-md-none"><a href="fb-messenger://share/?link=@ogModel.Url&app_id=544672649394435" class="messenger"><i class="fab fa-facebook-messenger"></i></a></li>
                 </ul>
             </div>
         </div>

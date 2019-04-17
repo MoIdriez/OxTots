@@ -34,6 +34,11 @@
     border-color: #25D366;
 }
 
+.messenger {
+    background-color: #0078FF;
+    border-color: #0078FF;
+}
+
 .main-banner-box-layout1 ul.item-ctg li { max-width: 150px; }
 
 .checkbox-filter { text-align: left; }
@@ -92,4 +97,9 @@
 
 .contact-box .contact-form-box .form-group .item-btn:disabled {
     background-color: #111111;
+}
+
+.layout-icon-language {
+    height: 20px;
+    padding-right: 5px;
 }
