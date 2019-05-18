@@ -16,7 +16,7 @@ namespace OxTots.Controllers
             this.SetHeaderDark();
             var page = Db.Pages.GetPage(UserLanguageID);
             var dfPage = Db.Pages.GetPage(DefaultLanguageID);
-            var markers = Db.Categories.ToList().GetMarkerViewModels(UserLanguageID, DefaultLanguageID);
+            var markers = Db.Resources.ToList().GetMarkerViewModels(UserLanguageID, DefaultLanguageID);
             var model = new MapViewModel
             {
                 Title = page.MapTitle ?? dfPage.MapTitle,

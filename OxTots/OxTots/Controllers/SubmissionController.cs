@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using OxTots.Models;
 using OxTots.Utility;
@@ -16,39 +13,35 @@ namespace OxTots.Controllers
         {
             var page = Db.Pages.GetPage(UserLanguageID);
             var dfPage = Db.Pages.GetPage(DefaultLanguageID);
-
-            var categories = Db.Categories.ToList();
             var model = new SubmissionViewModel
             {
                 Image = page.SubmissionImage ?? dfPage.SubmissionImage,
                 Title = page.SubmissionTitle ?? dfPage.SubmissionTitle,
                 Description = page.SubmissionDescription ?? dfPage.SubmissionDescription,
 
-                NamePlaceholder = page.SubmissionFormNamePlaceholder ?? dfPage.SubmissionFormNamePlaceholder,
-                EmailPlaceholder = page.SubmissionFormEmailPlaceholder ?? dfPage.SubmissionFormEmailPlaceholder,
-                ResourceNamePlaceholder = page.SubmissionFormResourceNamePlaceholder ?? dfPage.SubmissionFormResourceNamePlaceholder,
-                ResourceAddressPlaceholder = page.SubmissionFormResourceAddressPlaceholder ?? dfPage.SubmissionFormResourceAddressPlaceholder,
-                ResourceDescriptionPlaceholder = page.SubmissionFormResourceDescriptionPlaceholder ?? dfPage.SubmissionFormResourceDescriptionPlaceholder,
-                ResourcePhonePlaceholder = page.SubmissionFormResourcePhonePlaceholder ?? dfPage.SubmissionFormResourcePhonePlaceholder,
-                ResourceEmailPlaceholder = page.SubmissionFormResourceEmailPlaceholder ?? dfPage.SubmissionFormResourceEmailPlaceholder,
-                ResourceWebsitePlaceholder = page.SubmissionFormResourceWebsitePlaceholder ?? dfPage.SubmissionFormResourceWebsitePlaceholder,
+                SelectedType = "New",
+                ActionNew = page.SubmissionActionNew ?? dfPage.SubmissionActionNew,
+                ActionTranslate = page.SubmissionActionTranslate ?? dfPage.SubmissionActionTranslate,
 
-                PersonalInformationTitle = page.SubmissionFormPersonalInformationTitle ?? dfPage.SubmissionFormPersonalInformationTitle,
-                ResourceInformationTitle = page.SubmissionFormResourceInformationTitle ?? dfPage.SubmissionFormResourceInformationTitle,
-                ResourceCategoryTitle = page.SubmissionFormResourceCategoryTitle ?? dfPage.SubmissionFormResourceCategoryTitle,
-                ResourceFeatureTitle = page.SubmissionFormResourceFeatureTitle ?? dfPage.SubmissionFormResourceFeatureTitle,
-                ExtraInformationText = page.SubmissionFormExtraInformationText ?? dfPage.SubmissionFormExtraInformationText,
+                LanguageTitle = page.SubmissionLanguageTitle ?? dfPage.SubmissionLanguageTitle,
+                Languages = Db.Languages.ToList(),
+
+                PersonalTitle = page.SubmissionFormPersonalTitle ?? dfPage.SubmissionFormPersonalTitle,
+                PersonalNamePlaceholder = page.SubmissionFormPersonalPlaceholderName ?? dfPage.SubmissionFormPersonalPlaceholderName,
+                PersonalEmailPlaceholder = page.SubmissionFormPersonalPlaceholderEmail ?? dfPage.SubmissionFormPersonalPlaceholderEmail,
+
+                ResourceTitle = page.SubmissionFormResourceTitle ?? dfPage.SubmissionFormResourceTitle,
+                ResourceNamePlaceholder = page.SubmissionFormResourcePlaceholderName ?? dfPage.SubmissionFormResourcePlaceholderName,
+                ResourceDescriptionPlaceholder = page.SubmissionFormResourcePlaceholderDescription ?? dfPage.SubmissionFormResourcePlaceholderDescription,
+                ResourceEmailPlaceholder = page.SubmissionFormResourcePlaceholderEmail ?? dfPage.SubmissionFormResourcePlaceholderEmail,
+                ResourceWebsitePlaceholder = page.SubmissionFormResourcePlaceholderWebsite ?? dfPage.SubmissionFormResourcePlaceholderWebsite,
+                ResourceAddressPlaceholder = page.SubmissionFormResourcePlaceholderAddress ?? dfPage.SubmissionFormResourcePlaceholderAddress,
+
+                AssociatedResourceTitle = page.SubmissionAssociatedResourceTitle ?? dfPage.SubmissionAssociatedResourceTitle,
+                GDPRText = page.SubmissionDescriptionGDPRNotice ?? dfPage.SubmissionDescriptionGDPRNotice,
                 SubmitButtonText = page.SubmissionFormSubmitButtonText ?? dfPage.SubmissionFormSubmitButtonText,
 
-                Categories = categories.Select(c =>
-                {
-                    var categoryDetail = c.GetDetail(UserLanguageID) ?? c.GetDetail(DefaultLanguageID);
-                    return new SelectListItem
-                    {
-                        Value = c.ID.ToString(),
-                        Text = categoryDetail.Title
-                    };
-                }).ToList()
+                Resources = Db.Resources.ToList()
             };
 
             SetOg(new OgViewModel
@@ -67,16 +60,16 @@ namespace OxTots.Controllers
         {
             Db.Submissions.Add(new Submission 
             {
-                Name = model.Name,
-                Email = model.Email,
+                Language = Db.Languages.Single(l => l.ID == model.SelectedLanguageID),
+                Resource = Db.Resources.Single(r => r.ID == model.SelectedResourceID),
+                Type = model.SelectedType,
+                PersonalName = model.PersonalName,
+                PersonalEmail = model.PersonalEmail,
                 ResourceName = model.ResourceName,
                 ResourceAddress = model.ResourceAddress,
                 ResourceDescription = model.ResourceDescription,
-                ResourcePhone = model.ResourcePhone,
                 ResourceEmail = model.ResourceEmail,
-                ResourceWebsite = model.ResourceWebsite,
-                Language = Db.Languages.First(l => l.ID == UserLanguageID),
-                Category = Db.Categories.First(c => c.ID == model.SelectedCategoryID)
+                ResourceWebsite = model.ResourceWebsite
             });
 
             Db.SaveChanges();

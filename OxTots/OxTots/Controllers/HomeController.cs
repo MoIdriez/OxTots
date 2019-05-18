@@ -13,6 +13,7 @@ namespace OxTots.Controllers
             var dfPage = Db.Pages.GetPage(DefaultLanguageID);
 
             var categories = Db.Categories.ToList();
+            var resources = Db.Resources.ToList();
             var model = new HomeViewModel
             {
                 SearchPlaceHolder = page.HomeSearch ?? dfPage.HomeSearch,
@@ -27,7 +28,7 @@ namespace OxTots.Controllers
                     Icon = c.Icon,
                     Title = (c.GetDetail(UserLanguageID) ?? c.GetDetail(DefaultLanguageID)).Title
                 }).ToList(),
-                Markers = categories.GetMarkerViewModels(UserLanguageID, DefaultLanguageID)
+                Markers = resources.GetMarkerViewModels(UserLanguageID, DefaultLanguageID)
             };
 
             SetOg(new OgViewModel

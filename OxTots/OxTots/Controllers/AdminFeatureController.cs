@@ -7,18 +7,12 @@ namespace OxTots.Controllers
 {
     public partial class AdminController
     {
-        public ActionResult Feature(int id)
+        public ActionResult Feature()
         {
             if (!IsLoggedIn)
                 return RedirectToAction("Index");
-
-            var ct = Db.Categories.Single(c => c.ID == id);
             
-            var model = new AdminFeatureViewModel
-            {
-                CategoryID = id,
-                Features = ct.Features.ToList()
-            };
+            var model = new AdminFeatureViewModel { Features = Db.Features.ToList() };
             return View(model);
         }
 
@@ -28,17 +22,10 @@ namespace OxTots.Controllers
         {
             if (!IsLoggedIn)
                 return RedirectToAction("Index");
-
-            var ct = Db.Categories.Single(c => c.ID == model.CategoryID);
-
-            var f = new Feature
-            {
-                Name = model.Name,
-                Category = ct
-            };
+            var f = new Feature { Name = model.Name };
             Db.Features.Add(f);
             Db.SaveChanges();
-            return RedirectToAction("Feature", new {id = model.CategoryID });
+            return RedirectToAction("Feature");
         }
 
         [HttpPost]
@@ -54,7 +41,7 @@ namespace OxTots.Controllers
             };
             Db.Entry(Db.Features.First(ft => ft.ID == model.ID)).CurrentValues.SetValues(f);
             Db.SaveChanges();
-            return RedirectToAction("Feature", new { id = model.CategoryID });
+            return RedirectToAction("Feature");
         }
 
         public ActionResult FeatureRemove(int id)
@@ -63,10 +50,9 @@ namespace OxTots.Controllers
                 return RedirectToAction("Index");
 
             var f = Db.Features.Single(s => s.ID == id);
-            var cid = f.Category.ID;
             Db.Features.Remove(f);
             Db.SaveChanges();
-            return RedirectToAction("Feature", new { id = cid });
+            return RedirectToAction("Feature");
         }
 
         public ActionResult FeatureDetail(int id)

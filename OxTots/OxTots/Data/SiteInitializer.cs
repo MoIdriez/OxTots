@@ -19,26 +19,27 @@ namespace OxTots.Data
             context.Pages.Add(GetEnglishPage(languages));
             context.Pages.Add(GetArabicPage(languages));
 
-            var featureStrings = new List<string>
+            var features = new List<string>
             {
                 "Health visitor", "Breastfeeding support", "Stay and play", "Free", "Baby changing", "Refreshments provided", "Outdoors", "Buggy-friendly", "Learning", "Music", "Weekday", "Weekend"
-            };
+            }.Select(f => new Feature
+                {
+                    Name = f,
+                    FeatureDetails = new List<FeatureDetail>
+                    {
+                        new FeatureDetail { Title = f, Language = languages.First()}
+                    }
+                }
+            ).ToList();
+
+            context.Features.AddRange(features);
 
             var categories = new List<Category>
             {
                 new Category
                 {
                     Name = "Health and Breastfeeding Support",
-                    Icon = "fas fa-heartbeat",
-                    Features = featureStrings.Select(f =>
-                        new Feature
-                        {
-                            Name = f,
-                            FeatureDetails = new List<FeatureDetail>
-                            {
-                                new FeatureDetail { Title = f, Language = languages.First()}
-                            }
-                        }).ToList()
+                    Icon = "fas fa-heartbeat"
                 },
                 new Category { Name = "Playgroups", Icon = "fas fa-child" },
                 new Category { Name = "Activities", Icon = "fas fa-futbol" },
@@ -102,7 +103,7 @@ namespace OxTots.Data
                     Phone = "",
                     Email = "",
                     Website = "www.sofr.org.uk",
-                    Category = categories.First(),
+                    MainCategory = categories.First(),
                     Image = "/Images/temp/health.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> {
@@ -126,22 +127,22 @@ namespace OxTots.Data
                     {
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Health visitor"),
+                            Feature = features.Single(f => f.Name == "Health visitor"),
                             Enabled = true
                         },
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Breastfeeding support"),
+                            Feature = features.Single(f => f.Name == "Breastfeeding support"),
                             Enabled = true
                         },
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Stay and play"),
+                            Feature = features.Single(f => f.Name == "Stay and play"),
                             Enabled = true
                         },
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Free"),
+                            Feature = features.Single(f => f.Name == "Free"),
                             Enabled = true
                         }
                     }
@@ -154,7 +155,7 @@ namespace OxTots.Data
                     Phone = "01865 559742",
                     Email = "",
                     Website = "",
-                    Category = categories.First(),
+                    MainCategory = categories.First(),
                     Image = "/Images/temp/health2.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
@@ -170,17 +171,17 @@ namespace OxTots.Data
                     {
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Health visitor"),
+                            Feature = features.Single(f => f.Name == "Health visitor"),
                             Enabled = true
                         },
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Breastfeeding support"),
+                            Feature = features.Single(f => f.Name == "Breastfeeding support"),
                             Enabled = true
                         },
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Free"),
+                            Feature = features.Single(f => f.Name == "Free"),
                             Enabled = true
                         }
                     }
@@ -193,7 +194,7 @@ namespace OxTots.Data
                     Phone = "",
                     Email = "",
                     Website = "",
-                    Category = categories.First(),
+                    MainCategory = categories.First(),
                     Image = "/Images/temp/health2.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> {
@@ -219,12 +220,12 @@ namespace OxTots.Data
                     {
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Health visitor"),
+                            Feature = features.Single(f => f.Name == "Health visitor"),
                             Enabled = true
                         },
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Free"),
+                            Feature = features.Single(f => f.Name == "Free"),
                             Enabled = true
                         }
                     }
@@ -237,7 +238,7 @@ namespace OxTots.Data
                     Phone = "01865 248729",
                     Email = "",
                     Website = "",
-                    Category = categories.First(),
+                    MainCategory = categories.First(),
                     Image = "/Images/temp/breastfeeding.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
@@ -253,12 +254,12 @@ namespace OxTots.Data
                     {
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Breastfeeding support"),
+                            Feature = features.Single(f => f.Name == "Breastfeeding support"),
                             Enabled = true
                         },
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Free"),
+                            Feature = features.Single(f => f.Name == "Free"),
                             Enabled = true
                         }
                     }
@@ -271,7 +272,7 @@ namespace OxTots.Data
                     Phone = "01865 727721",
                     Email = "",
                     Website = "",
-                    Category = categories.First(),
+                    MainCategory = categories.First(),
                     Image = "/Images/temp/breastfeeding2.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
@@ -287,12 +288,12 @@ namespace OxTots.Data
                     {
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Breastfeeding support"),
+                            Feature = features.Single(f => f.Name == "Breastfeeding support"),
                             Enabled = true
                         },
                         new ResourceFeature
                         {
-                            Feature = categories.First().Features.Single(f => f.Name == "Free"),
+                            Feature = features.Single(f => f.Name == "Free"),
                             Enabled = true
                         }
                     }
@@ -305,7 +306,7 @@ namespace OxTots.Data
                     Phone = "",
                     Email = "",
                     Website = "http://www.fitandhealthymums.com/",
-                    Category = categories.First(),
+                    MainCategory = categories.First(),
                     Image = "/Images/temp/health3.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
@@ -394,28 +395,35 @@ namespace OxTots.Data
                 SearchError = "SearchError",
                 SearchResultsFound = "Results found",
                 SearchGoToResource = "Go to this resource",
+                SearchEmpty = "No search done",
 
                 CategoryResultsFound = "Resources available",
                 CategoryFilterDescription = "CategoryFilterDescription",
                 CategoryGoToResource = "Go to this resource",
 
                 SubmissionImage = "/Images/figure/site-main-figure1.jpg",
-                SubmissionTitle = "SubmissionTitle",
-                SubmissionFormPersonalInformationTitle = "SubmissionFormPersonalInformationTitle",
-                SubmissionFormResourceInformationTitle = "SubmissionFormResourceInformationTitle",
-                SubmissionFormResourceCategoryTitle = "SubmissionFormResourceCategoryTitle",
-                SubmissionFormResourceFeatureTitle = "SubmissionFormResourceFeatureTitle",
-                SubmissionFormExtraInformationText = "SubmissionFormExtraInformationText",
-                SubmissionFormSubmitButtonText = "SubmissionFormSubmitButtonText",
-                SubmissionFormNamePlaceholder = "SubmissionFormNamePlaceholder",
-                SubmissionFormEmailPlaceholder = "SubmissionFormEmailPlaceholder",
-                SubmissionFormResourceNamePlaceholder = "SubmissionFormResourceNamePlaceholder",
-                SubmissionFormResourceAddressPlaceholder = "SubmissionFormResourceAddressPlaceholder",
-                SubmissionFormResourceDescriptionPlaceholder = "SubmissionFormResourceDescriptionPlaceholder",
-                SubmissionFormResourcePhonePlaceholder = "SubmissionFormResourcePhonePlaceholder",
-                SubmissionFormResourceEmailPlaceholder = "SubmissionFormResourceEmailPlaceholder",
-                SubmissionFormResourceWebsitePlaceholder = "SubmissionFormResourceWebsitePlaceholder",
+                SubmissionTitle = "Submission Title",
+                SubmissionDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
+                SubmissionActionNew = "Enter a new resource",
+                SubmissionActionTranslate = "Translate an existing resource",
 
+                SubmissionLanguageTitle = "Please select the language associated with your submission",
+                
+                SubmissionFormPersonalTitle = "Please enter your contact information",
+                SubmissionFormPersonalPlaceholderName = "Please enter your name",
+                SubmissionFormPersonalPlaceholderEmail = "Please enter your email",
+
+                SubmissionFormResourceTitle = "Please enter the resource information",
+                SubmissionFormResourcePlaceholderName = "Enter name",
+                SubmissionFormResourcePlaceholderDescription = "Enter description",
+                SubmissionFormResourcePlaceholderEmail = "Enter email",
+                SubmissionFormResourcePlaceholderWebsite = "Enter website",
+                SubmissionFormResourcePlaceholderAddress = "Enter Address",
+
+                SubmissionAssociatedResourceTitle = "Selected associated resource",
+                SubmissionDescriptionGDPRNotice = "Do you agree with out Privacy Policy",
+                SubmissionFormSubmitButtonText = "SubmissionFormSubmitButtonText",
+                
                 ContactTitle = "ContactTitle",
                 ContactHeading = "ContactHeading",
                 ContactName = "ContactName",
@@ -450,7 +458,7 @@ namespace OxTots.Data
                 OgAboutUsImage = "https://wwww.oxtots.co.uk/Images/logo.png",
                 OgAboutUsDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
 
-                OgCategoryUrl = "https://wwww.oxtots.co.uk/Category/Index/",
+                OgCategoryUrl = "https://wwww.oxtots.co.uk/MainCategory/Index/",
                 OgCategoryTitle = "Check out ",
                 OgCategoryImage = "https://wwww.oxtots.co.uk/Images/logo.png",
                 OgCategoryDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",

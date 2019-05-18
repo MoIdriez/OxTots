@@ -44,6 +44,7 @@
         public string SearchError { get; set; }
         public string SearchResultsFound { get; set; }
         public string SearchGoToResource { get; set; }
+        public string SearchEmpty { get; set; }
 
         public string CategoryResultsFound { get; set; }
         public string CategoryFilterDescription { get; set; }
@@ -52,20 +53,21 @@
         public string SubmissionImage { get; set; }
         public string SubmissionTitle { get; set; }
         public string SubmissionDescription { get; set; }
-        public string SubmissionFormPersonalInformationTitle { get; set; }
-        public string SubmissionFormResourceInformationTitle { get; set; }
-        public string SubmissionFormResourceCategoryTitle { get; set; }
-        public string SubmissionFormResourceFeatureTitle { get; set; }
-        public string SubmissionFormExtraInformationText { get; set; }
+        public string SubmissionActionNew { get; set; }
+        public string SubmissionActionTranslate { get; set; }
+        public string SubmissionLanguageTitle { get; set; }
+        public string SubmissionFormPersonalTitle { get; set; }
+        public string SubmissionFormPersonalPlaceholderName { get; set; }
+        public string SubmissionFormPersonalPlaceholderEmail { get; set; }
+        public string SubmissionFormResourceTitle { get; set; }
+        public string SubmissionFormResourcePlaceholderName { get; set; }
+        public string SubmissionFormResourcePlaceholderDescription { get; set; }
+        public string SubmissionFormResourcePlaceholderEmail { get; set; }
+        public string SubmissionFormResourcePlaceholderWebsite { get; set; }
+        public string SubmissionFormResourcePlaceholderAddress { get; set; }
+        public string SubmissionAssociatedResourceTitle { get; set; }
+        public string SubmissionDescriptionGDPRNotice { get; set; }
         public string SubmissionFormSubmitButtonText { get; set; }
-        public string SubmissionFormNamePlaceholder { get; set; }
-        public string SubmissionFormEmailPlaceholder { get; set; }
-        public string SubmissionFormResourceNamePlaceholder { get; set; }
-        public string SubmissionFormResourceAddressPlaceholder { get; set; }
-        public string SubmissionFormResourceDescriptionPlaceholder { get; set; }
-        public string SubmissionFormResourcePhonePlaceholder { get; set; }
-        public string SubmissionFormResourceEmailPlaceholder { get; set; }
-        public string SubmissionFormResourceWebsitePlaceholder { get; set; }
 
         public string ContactTitle { get; set; }
         public string ContactHeading { get; set; }

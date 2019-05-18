@@ -8,7 +8,6 @@
 {
     @Html.AntiForgeryToken()
 
-    @Html.HiddenFor(m => m.CategoryID)
     @Html.TextBoxFor(m => m.Name, new { placeholder = "Title" })
     <button type="submit">Add</button>
 }
@@ -24,7 +23,6 @@
         }
     </select>
 
-    @Html.HiddenFor(m => m.CategoryID)
     @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
     <button type="submit">Edit</button>
 }

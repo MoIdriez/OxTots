@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using OxTots.Models;
 using OxTots.Utility;
 using OxTots.ViewModel;
 
@@ -10,21 +10,52 @@ namespace OxTots.Controllers
 {
     public class CategoryController : BaseController
     {
-        // GET: Category
+        // GET: MainCategory
         public ActionResult Index(int id)
         {
-            base.SetHeaderDark();
-            var page = Db.Pages.GetPage(UserLanguageID);
-            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
-            var category = Db.Categories.FirstOrDefault(c => c.ID == id);
-            if (category == null)
+            return View("Index", GetViewModel(id, new List<FeatureViewModel>()));
+            
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Filter(CategoryViewModel model)
+        {
+            // if no option is selected
+            if (model.Features.All(f => !f.IsSelected))
             {
-                // category doesn't exist send to error page
-                throw new NotImplementedException();
+                return View("Index", GetViewModel(model.ID, new List<FeatureViewModel>()));
             }
 
+            return View("Index", GetViewModel(model.ID, model.Features));
+        }
+
+        private CategoryViewModel GetViewModel(int categoryID, List<FeatureViewModel> features)
+        {
+            SetHeaderDark();
+            var page = Db.Pages.GetPage(UserLanguageID);
+            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
+
+            var category = Db.Categories.Single(c => c.ID == categoryID);
             var categoryDetail = category.GetDetail(UserLanguageID) ?? category.GetDetail(DefaultLanguageID);
-            var model = new CategoryViewModel
+
+            var resources = Db.Resources.Where(r => r.Categories.Any(c => c.ID == categoryID)).ToList();
+            if (features.Any())
+            {
+                var selectedFeatureIDs = features.Where(f => f.IsSelected).Select(f => f.ID).ToList();
+                resources = resources.Where(r => 
+                        r.ResourceFeatures.Any(rf => 
+                            selectedFeatureIDs.Contains(rf.Feature.ID) && rf.Enabled))
+                    .ToList();
+            }
+            else
+            {
+                features = Db.Features.ToList().ToViewModel(UserLanguageID, DefaultLanguageID);
+            }
+
+            SetCategoryOg(page, dfPage, category);
+
+            return new CategoryViewModel
             {
                 ID = category.ID,
                 Title = categoryDetail.Title,
@@ -32,53 +63,15 @@ namespace OxTots.Controllers
                 ResultsFound = page.CategoryResultsFound ?? dfPage.CategoryResultsFound,
                 FilterDescription = page.CategoryFilterDescription ?? dfPage.CategoryFilterDescription,
                 GoToResource = page.CategoryGoToResource ?? dfPage.CategoryGoToResource,
-                Features = category.Features.ToList().ToViewModel(UserLanguageID, DefaultLanguageID),
-                Resources = category.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID),
-                Markers = category.GetMarkerViewModels(UserLanguageID, DefaultLanguageID)
+                Features = features,
+                Resources = resources.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID),
+                Markers = resources.GetMarkerViewModels(UserLanguageID, DefaultLanguageID)
             };
-
-            SetOg(new OgViewModel
-            {
-                Url = (page.OgCategoryUrl ?? dfPage.OgCategoryUrl) + category.ID,
-                Title = page.OgCategoryTitle ?? dfPage.OgCategoryTitle,
-                Image = page.OgCategoryImage ?? dfPage.OgCategoryImage,
-                Description = page.OgCategoryDescription ?? dfPage.OgCategoryDescription
-            });
-            return View(model);
         }
-        
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Filter(CategoryViewModel model)
+
+
+        private void SetCategoryOg(Page page, Page dfPage, Category category)
         {
-            base.SetHeaderDark();
-
-            var page = Db.Pages.GetPage(UserLanguageID);
-            var dfPage = Db.Pages.GetPage(DefaultLanguageID);
-
-            // if no option is selected
-            if (model.Features.All(f => !f.IsSelected))
-            {
-                return RedirectToAction("Index", new { id= model.ID });
-            }
-
-            var category = Db.Categories.FirstOrDefault(c => c.ID == model.ID);
-            if (category == null)
-            {
-                // category doesn't exist send to error page
-                throw new NotImplementedException();
-            }
-
-            // selected feature ids
-            var selectedFeatures = model.Features.Where(f => f.IsSelected).Select(f => f.ID).ToList();
-
-            var resources = category.Resources
-                .Where(r => r.ResourceFeatures
-                    .Any(rf => rf.Enabled && selectedFeatures.Contains(rf.Feature.ID))).ToList();
-
-            model.Resources = resources.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID);
-            model.Markers = resources.GetMarkerViewModels(UserLanguageID, DefaultLanguageID);
-
             SetOg(new OgViewModel
             {
                 Url = (page.OgCategoryUrl ?? dfPage.OgCategoryUrl) + category.ID,
@@ -86,7 +79,6 @@ namespace OxTots.Controllers
                 Image = page.OgCategoryImage ?? dfPage.OgCategoryImage,
                 Description = page.OgCategoryDescription ?? dfPage.OgCategoryDescription
             });
-            return View("Index", model);
         }
     }
 }

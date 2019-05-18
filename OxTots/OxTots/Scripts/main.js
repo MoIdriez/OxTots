@@ -152,7 +152,7 @@
                 for (var i = 0; i < gmd.length; i++) {
                     marker = new google.maps.Marker({
                         position: new google.maps.LatLng(gmd[i].Lat, gmd[i].Long),
-                        animation: google.maps.Animation.BOUNCE,
+                        //animation: google.maps.Animation.BOUNCE,
                         icon: gmd[i].Icon,
                         map: map
                     });

@@ -1,5 +1,4 @@
 ﻿@using System.Web.Script.Serialization
-@using System.Web.UI.WebControls
 @{ ViewBag.Title = "Search Page"; }
 @model OxTots.ViewModel.CategoryViewModel
 <!-- Listing Area Start Here -->
@@ -83,7 +82,7 @@
                             <div class="row">
                                 @foreach (var result in Model.Resources)
                                 {
-                                    <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12" style="opacity: 1;">
+                                    <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12">
                                         <div class="product-box">
                                             <div class="item-img bg--gradient-50">
                                                 <img src="@result.Image" alt="Listing" class="img-fluid grid-view-img">

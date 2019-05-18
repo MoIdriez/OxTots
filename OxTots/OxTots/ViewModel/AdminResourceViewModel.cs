@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using OxTots.Models;
 
 namespace OxTots.ViewModel
@@ -19,10 +16,13 @@ namespace OxTots.ViewModel
         public string Image { get; set; }
         public string Icon { get; set; }
 
-        public int CategoryID { get; set; }
+        
+        
+        public List<Resource> Resources { get; set; }
+        public int MainCategoryID { get; set; }
+        public List<Category> Categories { get; set; }
         public int FeatureID { get; set; }
         public bool FeatureEnabled { get; set; }
-        public List<Resource> Resources { get; set; }
         public List<Feature> Features { get; set; }
     }
 }

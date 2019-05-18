@@ -1,9 +1,9 @@
 ﻿@model OxTots.ViewModel.AdminCategoryViewModel
-@{ ViewBag.Title = "Category"; Layout = null; }
+@{ ViewBag.Title = "MainCategory"; Layout = null; }
 
 <h2>Categories Page</h2>
 
-<h3>Add a new Category</h3>
+<h3>Add a new MainCategory</h3>
 @using (Html.BeginForm("CategoryAdd", "Admin"))
 {
     @Html.AntiForgeryToken()
@@ -34,7 +34,6 @@
         <th>Name</th>
         <th>Icon</th>
         <th>View Details</th>
-        <th>View Features</th>
         <th>View Resources</th>
         <th>Remove</th>
     </tr>
@@ -45,7 +44,6 @@
         <td>@item.Name</td>
         <td><i style="height: 35px;" class="@item.Icon"></i></td>
         <td><a href="@Url.Action("CategoryDetail", new {id = item.ID})">Details</a></td>
-        <td><a href="@Url.Action("Feature", new {id = item.ID})">Features</a></td>
         <td><a href="@Url.Action("Resource", new {id = item.ID})">Resources</a></td>
         <td><a href="@Url.Action("CategoryRemove", new {id = item.ID})">Remove this entry</a></td>
     </tr>

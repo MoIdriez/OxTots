@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using OxTots.Models;
 using OxTots.ViewModel;
@@ -10,18 +7,16 @@ namespace OxTots.Controllers
 {
     public partial class AdminController
     {
-        public ActionResult Resource(int id)
+        public ActionResult Resource()
         {
             if (!IsLoggedIn)
                 return RedirectToAction("Index");
 
-            var ct = Db.Categories.Single(c => c.ID == id);
-
             var model = new AdminResourceViewModel
             {
-                CategoryID = id,
-                Resources = ct.Resources.ToList(),
-                Features = ct.Features.ToList()
+                Resources = Db.Resources.ToList(),
+                Categories = Db.Categories.ToList(),
+                Features = Db.Features.ToList(),
             };
             return View(model);
         }
@@ -33,8 +28,6 @@ namespace OxTots.Controllers
             if (!IsLoggedIn)
                 return RedirectToAction("Index");
 
-            var ct = Db.Categories.Single(c => c.ID == model.CategoryID);
-
             var r = new Resource
             {
                 Name = model.Name,
@@ -45,10 +38,10 @@ namespace OxTots.Controllers
                 Website = model.Website,
                 Image = model.Image,
                 Icon = model.Icon,
-                Category = ct
+                MainCategory = Db.Categories.Single(c => model.MainCategoryID == c.ID)
             };
 
-            r.ResourceFeatures = ct.Features.Select(f => new ResourceFeature
+            r.ResourceFeatures = Db.Features.Select(f => new ResourceFeature
             {
                 Resource = r,
                 Feature = f
@@ -57,7 +50,7 @@ namespace OxTots.Controllers
 
             Db.Resources.Add(r);
             Db.SaveChanges();
-            return RedirectToAction("Resource", new { id = model.CategoryID });
+            return RedirectToAction("Resource");
         }
 
         [HttpPost]
@@ -76,11 +69,12 @@ namespace OxTots.Controllers
                 Email = model.Email,
                 Website = model.Website,
                 Image = model.Image,
-                Icon = model.Icon
+                Icon = model.Icon,
+                MainCategory = Db.Categories.Single(c => model.MainCategoryID == c.ID)
             };
             Db.Entry(Db.Resources.First(ft => ft.ID == model.ID)).CurrentValues.SetValues(r);
             Db.SaveChanges();
-            return RedirectToAction("Resource", new { id = model.CategoryID });
+            return RedirectToAction("Resource");
         }
 
         public ActionResult ResourceRemove(int id)
@@ -89,10 +83,29 @@ namespace OxTots.Controllers
                 return RedirectToAction("Index");
 
             var r = Db.Resources.Single(s => s.ID == id);
-            var cid = r.Category.ID;
             Db.Resources.Remove(r);
             Db.SaveChanges();
-            return RedirectToAction("Resource", new { id = cid });
+            return RedirectToAction("Resource");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ResourceAssociateCategory(AdminResourceViewModel model)
+        {
+            if (!IsLoggedIn)
+                return RedirectToAction("Index");
+
+            var r = Db.Resources.Single(s => s.ID == model.ID);
+            var category = Db.Categories.Single(c => c.ID == model.MainCategoryID);
+            if (model.FeatureEnabled)
+            {
+                r.Categories.Add(category);
+            }
+            else
+            {
+                r.Categories.Remove(category);
+            }
+            return RedirectToAction("Resource");
         }
 
         [HttpPost]
@@ -105,7 +118,7 @@ namespace OxTots.Controllers
             var r = Db.ResourceFeatures.Single(rf => rf.Resource.ID == model.ID && rf.Feature.ID == model.FeatureID);
             r.Enabled = model.FeatureEnabled;
             Db.SaveChanges();
-            return RedirectToAction("Resource", new { id = model.CategoryID });
+            return RedirectToAction("Resource");
         }
 
         public ActionResult ResourceDetail(int id)

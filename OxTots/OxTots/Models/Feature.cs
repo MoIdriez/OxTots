@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace OxTots.Models
 {
@@ -13,7 +10,6 @@ namespace OxTots.Models
         }
         public int ID { get; set; }
         public string Name { get; set; }
-        public virtual Category Category { get; set; }
         public virtual ICollection<FeatureDetail> FeatureDetails { get; set; }
     }
 }

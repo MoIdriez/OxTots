@@ -45,9 +45,12 @@ namespace OxTots.Controllers
             var page = Db.Pages.GetPage(UserLanguageID);
             var dfPage = Db.Pages.GetPage(DefaultLanguageID);
 
-            var categories = Db.Categories.ToList();
-            var markers = categories.GetMarkerViewModels(UserLanguageID,DefaultLanguageID, q);
-            var results = categories.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID, q);
+            var resources = Db.Resources.ToList().SearchResources(UserLanguageID, DefaultLanguageID, q);
+
+
+            var markers = resources.GetMarkerViewModels(UserLanguageID,DefaultLanguageID);
+            var results = resources.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID);
+
             return new SearchViewModel
             {
                 Title = page.SearchTitle ?? dfPage.SearchTitle,

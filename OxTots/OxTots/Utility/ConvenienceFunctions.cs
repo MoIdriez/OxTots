@@ -28,57 +28,9 @@ namespace OxTots.Utility
             return pages.FirstOrDefault(p => p.Language.ID == languageID);
         }
 
-        public static List<MarkerViewModel> GetMarkerViewModels(this List<Category> categories, int languageID, int dfLanguageID, string q = "")
-        {
-            var resources = SearchResources(categories, languageID, dfLanguageID, q);
-            return resources.Select(r =>
-            {
-                var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
-                return new MarkerViewModel
-                {
-                    ID = r.ID,
-                    Title = rd.Title,
-                    Description = rd.Description,
-                    Long = r.GPSLong,
-                    Lat = r.GPSLat,
-                    Icon = r.Icon
-                };
-            }).ToList();
-        }
-
         public static List<MarkerViewModel> GetMarkerViewModels(this List<Resource> resources, int languageID, int dfLanguageID)
         {
-            return resources.Select(r =>
-            {
-                var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
-                return new MarkerViewModel
-                {
-                    ID = r.ID,
-                    Title = rd.Title,
-                    Description = rd.Description,
-                    Long = r.GPSLong,
-                    Lat = r.GPSLat,
-                    Icon = r.Icon
-                };
-            }).ToList();
-        }
-
-        public static List<MarkerViewModel> GetMarkerViewModels(this Category category, int languageID, int dfLanguageID)
-        {
-            var resources = category.Resources;
-            return resources.Select(r =>
-            {
-                var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
-                return new MarkerViewModel
-                {
-                    ID = r.ID,
-                    Title = rd.Title,
-                    Description = rd.Description,
-                    Long = r.GPSLong,
-                    Lat = r.GPSLat,
-                    Icon = r.Icon
-                };
-            }).ToList();
+            return resources.Select(r => r.GetMarkerViewModel(languageID, dfLanguageID)).ToList();
         }
 
         public static MarkerViewModel GetMarkerViewModel(this Resource resource, int languageID, int dfLanguageID)
@@ -95,9 +47,9 @@ namespace OxTots.Utility
                 };
         }
 
-        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this List<Category> categories, int languageID, int dfLanguageID, string q = "")
+        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this List<Resource> resources, int languageID, int dfLanguageID, string q = "")
         {
-            var resources = SearchResources(categories, languageID, dfLanguageID, q);
+            var frs = SearchResources(resources, languageID, dfLanguageID, q);
             return resources.Select(r =>
             {
                 var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
@@ -107,7 +59,7 @@ namespace OxTots.Utility
                     Title = rd.Title,
                     Description = rd.Description,
                     Image = r.Image,
-                    Icon = r.Category.Icon
+                    Icon = r.MainCategory.Icon
                 };
             }).ToList();
         }
@@ -123,39 +75,22 @@ namespace OxTots.Utility
                     Title = rd.Title,
                     Description = rd.Description,
                     Image = r.Image,
-                    Icon = r.Category.Icon
+                    Icon = r.MainCategory.Icon
                 };
             }).ToList();
         }
 
-        public static List<ResourceFilterViewModel> GetResourceFilterViewModel(this Category category, int languageID, int dfLanguageID)
-        {
-            return category.Resources.Select(r =>
-            {
-                var rd = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
-                return new ResourceFilterViewModel
-                {
-                    ID = r.ID,
-                    Title = rd.Title,
-                    Description = rd.Description,
-                    Image = r.Image,
-                    Icon = r.Category.Icon
-                };
-            }).ToList();
-        }
-
-        private static IEnumerable<Resource> SearchResources(List<Category> categories, int languageID, int dfLanguageID, string q)
+        public static List<Resource> SearchResources(this List<Resource> resources, int languageID, int dfLanguageID, string q)
         {
             q = q.Trim();
-            var resources = categories.SelectMany(c => c.Resources).ToList().Where(r =>
+            return resources.Where(r =>
             {
                 var resourceDetail = r.GetDetail(languageID) ?? r.GetDetail(dfLanguageID);
                 return resourceDetail.Title.ToUpper().Contains(q.ToUpper()) 
                        || resourceDetail.Description.ToUpper().Contains(q.ToUpper())
                        || resourceDetail.Address.ToUpper().Contains(q.ToUpper())
                     ;
-            });
-            return resources;
+            }).ToList();
         }
 
         public static List<FeatureViewModel> ToViewModel(this List<Feature> features, int languageID, int dfLanguageID)

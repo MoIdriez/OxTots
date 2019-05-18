@@ -8,8 +8,13 @@
 @using (Html.BeginForm("ResourceAdd", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-
-    @Html.HiddenFor(m => m.CategoryID)
+    <p>Main Category</p>
+    <select name="MainCategoryID" class="form-control">
+        @foreach (var c in Model.Categories)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
     @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
     @Html.TextBoxFor(m => m.GPSLong, new { placeholder = "GPSLong" })
     @Html.TextBoxFor(m => m.GPSLat, new { placeholder = "GPSLat" })
@@ -31,8 +36,13 @@
             <option value="@c.ID">@c.Name</option>
         }
     </select>
-
-    @Html.HiddenFor(m => m.CategoryID)
+    <p>Main Category</p>
+    <select name="MainCategoryID" class="form-control">
+        @foreach (var c in Model.Categories)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
     @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
     @Html.TextBoxFor(m => m.GPSLong, new { placeholder = "GPSLong" })
     @Html.TextBoxFor(m => m.GPSLat, new { placeholder = "GPSLat" })
@@ -44,11 +54,31 @@
     <button type="submit">Edit</button>
 }
 
+<h3>Associate Categories</h3>
+@using (Html.BeginForm("ResourceAssociateCategory", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <select name="ID" class="form-control">
+        @foreach (var c in Model.Resources)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+    <select name="MainCategoryID" class="form-control">
+        @foreach (var c in Model.Categories)
+        {
+            <option value="@c.ID">@c.Name</option>
+        }
+    </select>
+    @Html.LabelFor(m => m.FeatureEnabled, "Enable Association")
+    @Html.CheckBoxFor(m => m.FeatureEnabled)
+    <button type="submit">Edit</button>
+}
+
 <h3>Set Feature for Resource</h3>
 @using (Html.BeginForm("ResourceFeature", "Admin", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(m => m.CategoryID)
     <select name="ID" class="form-control">
         @foreach (var c in Model.Resources)
         {
@@ -85,19 +115,19 @@
 
     @foreach (var item in Model.Resources)
     {
-    <tr>
-        <td>@item.Name</td>
-        <td>@item.GPSLong</td>
-        <td>@item.GPSLat</td>
-        <td>@item.Phone</td>
-        <td>@item.Email</td>
-        <td>@item.Website</td>
-        <td>@item.Image</td>
-        <td>@item.Icon</td>
-        <td>@(String.Join(",", item.ResourceFeatures.Where(f => f.Enabled).Select(f => f.Feature.Name)))</td>
-        <td><a href="@Url.Action("ResourceDetail", new {id = item.ID})">View the details</a></td>
-        <td><a href="@Url.Action("ResourceRemove", new {id = item.ID})">Remove this entry</a></td>
-    </tr>
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.GPSLong</td>
+            <td>@item.GPSLat</td>
+            <td>@item.Phone</td>
+            <td>@item.Email</td>
+            <td>@item.Website</td>
+            <td>@item.Image</td>
+            <td>@item.Icon</td>
+            <td>@(String.Join(",", item.ResourceFeatures.Where(f => f.Enabled).Select(f => f.Feature.Name)))</td>
+            <td><a href="@Url.Action("ResourceDetail", new {id = item.ID})">View the details</a></td>
+            <td><a href="@Url.Action("ResourceRemove", new {id = item.ID})">Remove this entry</a></td>
+        </tr>
     }
 
 </table>

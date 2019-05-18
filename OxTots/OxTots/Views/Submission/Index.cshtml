@@ -10,60 +10,84 @@
         <div class="contact-box">
             <h2 class="item-heading">@Model.Title</h2>
             <p>@Model.Description</p>
-            @using (Html.BeginForm("Submit", "Submission", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new
-            {
-                @class = "widget-filter contact-form-box col-12",
-                id = "form"
-            }))
-            {
-                @Html.AntiForgeryToken()
-                <div class="row">
-                    <div class="col-12">@Model.PersonalInformationTitle</div>
-                    <div class="col-6 form-group">
-                        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = Model.NamePlaceholder })
+
+            <div class="row">
+                <div class="col-6 sub-selected" id="sub-new"><h3 class="item-heading">@Model.ActionNew</h3></div>
+                <div class="col-6 sub-unselected" id="sub-translate"><h3 class="item-heading">@Model.ActionTranslate</h3></div>
+            </div>
+            <div class="row sub-form">
+                @using (Html.BeginForm("Submit", "Submission", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new
+                {
+                    @class = "widget-filter contact-form-box col-12",
+                    id = "form"
+                }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.SelectedType)
+                    <div class="row">
+                        <div class="col-12">@Model.LanguageTitle</div>
+                        <div class="col-12 form-group">
+                            <select name="SelectedLanguageID" class="form-control">
+                                @foreach (var l in Model.Languages)
+                                {
+                                    <option value="@l.ID">@l.Name</option>
+                                }
+                            </select>
+                        </div>
                     </div>
-                    <div class="col-6 form-group">
-                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = Model.EmailPlaceholder })
+                    <div id="sub-resource" class="row hidden">
+                        <div class="col-12">@Model.AssociatedResourceTitle</div>
+                        <div class="col-12 form-group">
+                            <select name="SelectedResourceID" class="form-control">
+                                @foreach (var r in Model.Resources)
+                                {
+                                    <option value="@r.ID">@r.Name</option>
+                                }
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">@Model.ResourceInformationTitle</div>
-                    <div class="col-6 form-group">
-                        @Html.TextBoxFor(m => m.ResourceName, new { @class = "form-control", placeholder = Model.ResourceNamePlaceholder })
+                    <div class="row">
+                        <div class="col-12">@Model.PersonalTitle</div>
+                        <div class="col-6 form-group">
+                            @Html.TextBoxFor(m => m.PersonalName, new { @class = "form-control", placeholder = Model.PersonalNamePlaceholder })
+                        </div>
+                        <div class="col-6 form-group">
+                            @Html.TextBoxFor(m => m.PersonalEmail, new { @class = "form-control", placeholder = Model.PersonalEmailPlaceholder })
+                        </div>
                     </div>
-                    <div class="col-6 form-group">
-                        @Html.TextBoxFor(m => m.ResourceAddress, new { @class = "form-control", placeholder = Model.ResourceAddressPlaceholder })
+                    <div class="row">
+                        <div class="col-12">@Model.ResourceTitle</div>
+                        <div class="col-6 form-group">
+                            @Html.TextBoxFor(m => m.ResourceName, new { @class = "form-control", placeholder = Model.ResourceNamePlaceholder })
+                        </div>
+                        <div class="col-6 form-group">
+                            @Html.TextBoxFor(m => m.ResourceEmail, new { @class = "form-control", placeholder = Model.ResourceEmailPlaceholder })
+                        </div>
+                        <div class="col-6 form-group">
+                            @Html.TextBoxFor(m => m.ResourceWebsite, new { @class = "form-control", placeholder = Model.ResourceWebsitePlaceholder })
+                        </div>
+                        <div class="col-6 form-group">
+                            @Html.TextBoxFor(m => m.ResourceAddress, new { @class = "form-control", placeholder = Model.ResourceAddressPlaceholder })
+                        </div>
+                        <div class="col-12 form-group">
+                            @Html.TextAreaFor(m => m.ResourceDescription, new { @class = "form-control", placeholder = Model.ResourceDescriptionPlaceholder })
+                        </div>
                     </div>
-                    <div class="col-12 form-group">
-                        @Html.TextAreaFor(m => m.ResourceDescription, new { @class = "form-control", placeholder = Model.ResourceDescriptionPlaceholder })
+                    <div class="row">
+                        <div class="col-12 form-group">
+                            <div class="checkbox-filter">
+                                <input id="gdpr-checkbox" name="checkbox" class="hidden" type="checkbox" />
+                                <label for="gdpr-checkbox" class="float-left">@Model.GDPRText</label>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12">@Model.ResourceCategoryTitle</div>
-                    <div class="col-12 form-group">
-                        <select name="SelectedCategoryID" class="form-control">
-                            @foreach (var c in Model.Categories)
-                            {
-                                <option value="@c.Value">@c.Text</option>
-                            }
-                        </select>
+                    <div class="row">
+                        <div class="col-12 form-group mb-0 mt-3">
+                            <button id="submit-form-button" type="submit" class="item-btn disabled" disabled>@Model.SubmitButtonText</button>
+                        </div>
                     </div>
-                    <div class="col-6 form-group">
-                        @Html.TextBoxFor(m => m.ResourcePhone, new { @class = "form-control", placeholder = Model.ResourcePhonePlaceholder })
-                    </div>
-                    <div class="col-6 form-group">
-                        @Html.TextBoxFor(m => m.ResourceEmail, new { @class = "form-control", placeholder = Model.ResourceEmailPlaceholder })
-                    </div>
-                    <div class="col-12 form-group">
-                        @Html.TextAreaFor(m => m.ResourceWebsite, new { @class = "form-control", placeholder = Model.ResourceWebsitePlaceholder })
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 form-group mb-0 mt-3">
-                        <button type="submit" class="item-btn disabled">@Model.SubmitButtonText</button>
-                    </div>
-                </div>
-            }
+                }
+            </div>
         </div>
     </div>
 </section>

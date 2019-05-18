@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace OxTots.Models
+﻿namespace OxTots.Models
 {
     public class FeatureDetail
     {

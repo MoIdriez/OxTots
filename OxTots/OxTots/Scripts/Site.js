@@ -1,14 +1,33 @@
 ﻿$(function () {
-    $('#gdpr-checkbox').change(function() {
+    $('#gdpr-checkbox').change(function () {
         if ($("#submit-form-button").is("[disabled]")) {
             $("#submit-form-button").removeAttr("disabled");
         } else {
             $("#submit-form-button").attr("disabled", true);
         }
     });
-//    $('input[type="checkbox"]').on('change',function(){
-//        $('#form').submit();
-//    });
+
+    $("#sub-new").on('click', function () {
+        $("#sub-new").addClass("sub-selected");
+        $("#sub-new").removeClass("sub-unselected");
+
+        $("#sub-translate").removeClass("sub-selected");
+        $("#sub-translate").addClass("sub-unselected");
+
+        $("#sub-resource").addClass("hidden");
+        $("#SelectedType").val("New");
+    });
+
+    $("#sub-translate").on('click', function () {
+        $("#sub-translate").addClass("sub-selected");
+        $("#sub-translate").removeClass("sub-unselected");
+        
+        $("#sub-new").removeClass("sub-selected");
+        $("#sub-new").addClass("sub-unselected");
+
+        $("#sub-resource").removeClass("hidden");
+        $("#SelectedType").val("Translation");
+    });
 });
 
 function language() {
