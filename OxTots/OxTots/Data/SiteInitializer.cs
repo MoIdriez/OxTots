@@ -104,7 +104,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "www.sofr.org.uk",
                     MainCategory = categories.First(),
-                    Image = "/Images/temp/health.jpg",
+                    Image = "/Images/listing/listing-1-1.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> {
                         new ResourceDetail {
@@ -156,7 +156,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "",
                     MainCategory = categories.First(),
-                    Image = "/Images/temp/health2.jpg",
+                    Image = "/Images/listing/listing-1-1.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
                     {
@@ -195,7 +195,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "",
                     MainCategory = categories.First(),
-                    Image = "/Images/temp/health2.jpg",
+                    Image = "/Images/listing/listing-1-1.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> {
                         new ResourceDetail {
@@ -239,7 +239,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "",
                     MainCategory = categories.First(),
-                    Image = "/Images/temp/breastfeeding.jpg",
+                    Image = "/Images/listing/listing-1-1.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
                     {
@@ -273,7 +273,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "",
                     MainCategory = categories.First(),
-                    Image = "/Images/temp/breastfeeding2.jpg",
+                    Image = "/Images/listing/listing-1-1.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
                     {
@@ -307,7 +307,7 @@ namespace OxTots.Data
                     Email = "",
                     Website = "http://www.fitandhealthymums.com/",
                     MainCategory = categories.First(),
-                    Image = "/Images/temp/health3.jpg",
+                    Image = "/Images/listing/listing-1-1.jpg",
                     Icon = "/Images/map-marker.png",
                     ResourceDetails = new List<ResourceDetail> { new ResourceDetail
                     {
@@ -381,7 +381,7 @@ namespace OxTots.Data
                 LayoutFooterLink2 = "Cookie Policy",
                 LayoutFooterLink2Content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ultricies et tortor a mattis. Mauris congue consequat luctus. Cras pellentesque consectetur nunc nec aliquam. Aenean vitae tortor enim. Ut in tellus vitae leo aliquam accumsan eget vitae libero. Nam pretium posuere urna, vitae maximus purus facilisis a.",
 
-                HomeImage = "/Images/temp/mum1.jpg",
+                HomeImage = "/Images/figure/site-main-figure1.jpg",
                 HomeSearch = "What are you looking for?",
                 HomeSearchError = "Search text required",
                 HomeTitle = "HomeTitle",

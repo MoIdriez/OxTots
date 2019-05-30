@@ -2,9 +2,8 @@
     padding: 35.7rem 0 2rem;
 }
 
-.HomeGoogleMap {
-    height: 500px;
-}
+.HomeGoogleMap { height: 500px; }
+.MapGoogleMap { height: 700px; }
 
 .SearchGoogleMap {
     border: none;
@@ -52,7 +51,7 @@
 }
 
 .main-banner-box-layout1 ul.item-ctg li {
-    max-width: 150px;
+    width: 150px;
 }
 
 .checkbox-filter {
@@ -129,4 +128,9 @@
 
 .sub-form .form-control { border: 1px solid #dadada !important; }
 
+.min-row {
+    min-height: 760px;
+}
 
+.space-next { margin-left: 10px; }
+.remove-padding { padding: 0px !important; }

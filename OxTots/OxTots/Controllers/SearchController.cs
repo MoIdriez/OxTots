@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+using OxTots.Models;
 using OxTots.Utility;
 using OxTots.ViewModel;
 
@@ -45,7 +47,9 @@ namespace OxTots.Controllers
             var page = Db.Pages.GetPage(UserLanguageID);
             var dfPage = Db.Pages.GetPage(DefaultLanguageID);
 
-            var resources = Db.Resources.ToList().SearchResources(UserLanguageID, DefaultLanguageID, q);
+            var resources = q.Trim() == string.Empty 
+                            ? new List<Resource>()
+                            : Db.Resources.ToList().SearchResources(UserLanguageID, DefaultLanguageID, q);
 
 
             var markers = resources.GetMarkerViewModels(UserLanguageID,DefaultLanguageID);
@@ -59,6 +63,7 @@ namespace OxTots.Controllers
                 SearchError = page.SearchError ?? dfPage.SearchDescription,
                 ResultsFound = page.SearchResultsFound ?? dfPage.SearchDescription,
                 GoToResource = page.SearchGoToResource ?? dfPage.SearchGoToResource,
+                SearchEmpty = page.SearchEmpty ?? dfPage.SearchEmpty,
                 Markers = markers,
                 Results = results
             };

@@ -211,6 +211,7 @@
     <Content Include="Content\slick-theme.css" />
     <Content Include="Content\slick.css" />
     <Content Include="Content\style.css" />
+    <Content Include="favicon.ico" />
     <Content Include="Images\flags\abkhazia.png" />
     <Content Include="Images\flags\afghanistan.png" />
     <Content Include="Images\flags\aland-islands.png" />
@@ -475,16 +476,6 @@
     <Content Include="Images\flags\zambia.png" />
     <Content Include="Images\flags\zimbabwe.png" />
     <Content Include="Images\preloader.gif" />
-    <Content Include="Images\temp\breastfeeding.jpg" />
-    <Content Include="Images\temp\breastfeeding2.jpg" />
-    <Content Include="Images\temp\health.jpg" />
-    <Content Include="Images\temp\health2.jpg" />
-    <Content Include="Images\temp\health3.jpg" />
-    <Content Include="Images\temp\kids.jpg" />
-    <Content Include="Images\temp\kids2.jpg" />
-    <Content Include="Images\temp\kids3.jpeg" />
-    <Content Include="Images\temp\mum1.jpg" />
-    <Content Include="Images\temp\pregnancy.jpg" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
     <Content Include="webfonts\fa-solid-900.svg" />
@@ -643,7 +634,9 @@
     <Content Include="webfonts\fa-solid-900.eot" />
     <Content Include="webfonts\fa-solid-900.ttf" />
     <Content Include="webfonts\fa-solid-900.woff" />
-    <Content Include="webfonts\fa-solid-900.woff2" />
+    <Content Include="webfonts\fa-solid-900.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="fonts\Flaticon.eot" />
     <Content Include="fonts\Flaticon.ttf" />
     <Content Include="fonts\Flaticon.woff" />
@@ -682,7 +675,9 @@
     <Content Include="Scripts\validator.min.js" />
     <Content Include="Scripts\waypoints.min.js" />
     <Content Include="Scripts\wNumb.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

@@ -45,7 +45,7 @@ namespace OxTots.Controllers
             if (IsLoggedIn)
                 return RedirectToAction("Main");
 
-            if (model.Username == "mo" && model.Password == "123")
+            if (model.Username == "OxTots" && model.Password == "Ox4Tots2018")
             {
                 IsLoggedIn = true;
                 return RedirectToAction("Main");

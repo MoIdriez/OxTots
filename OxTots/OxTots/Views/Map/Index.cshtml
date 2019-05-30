@@ -4,7 +4,7 @@
 
 
 <!-- Feature Area Start Here -->
-<section class="feature-wrap-layout1 padding-top-9p6 padding-bottom-7 bg--light">
+<section class="feature-wrap-layout1 padding-top-14p1 bg--light">
     <div class="container">
         <div class="section-heading heading-dark heading-center">
             <h2 class="item-title">@Model.Title</h2>
@@ -15,7 +15,7 @@
     <div class="container-fluid">
         @{ var js = new JavaScriptSerializer();}
         <div id="googleMapData" type="hidden" value="@js.Serialize(Model.Markers)"></div>
-        <div id="googleMap" class="HomeGoogleMap col-12"></div>
+        <div id="googleMap" class="MapGoogleMap col-12"></div>
     </div>
 </section>
 <!-- Feature Area End Here -->

@@ -35,9 +35,9 @@
                                         <div class="row">
                                             @for (var i = 0; i < Model.Features.Count; i++)
                                             {
-                                                <div class="checkbox-filter col-lg-3 col-6">
-                                                    @Html.CheckBoxFor(m => m.Features[i].IsSelected, new {@class = "hidden"})
-                                                    @Html.LabelFor(m => m.Features[i].IsSelected, Model.Features[i].Name, new { @class = "float-left"})
+                                                <div class="checkbox-filter col-lg-4 col-6">
+                                                    @Html.CheckBoxFor(m => m.Features[i].IsSelected, new { @class = "hidden" })
+                                                    @Html.LabelFor(m => m.Features[i].IsSelected, Model.Features[i].Name, new { @class = "float-left" })
                                                 </div>
 
                                                 @Html.HiddenFor(m => m.Features[i].ID)
@@ -45,8 +45,19 @@
                                             }
                                         </div>
                                         <div class="row">
-                                            <div class="col-2"><a href="#" onclick="$('#form').submit()"><i class="fas fa-filter"></i></a></div>
-                                            <div class="offset-8 col-2"><a href="@Url.Action("Index")"><i class="fas fa-redo"></i></a></div>
+
+                                            <div class="filter-button col-12">
+                                                <div class="row">
+                                                    <div class="col-lg-4 col-6">
+                                                        <button class="remove-padding item-btn btn-ghost text-capitalize" type="submit" value="Filter">Filter</button>
+                                                    </div>
+                                                    <div class="offset-lg-4 col-lg-4 col-6">
+                                                        <a class="remove-padding item-btn btn-ghost text-capitalize" href="@Url.Action("Index", new {id = Model.ID})">Refresh</a>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
                                         </div>
                                     }
 
@@ -64,13 +75,13 @@
                                     <div class="layout-switcher">
                                         <ul>
                                             <li class="active">
-                                                <a class="product-view-trigger" href="#" data-type="listing-box-grid">
-                                                    <i class="fa fa-th-large"></i>
+                                                <a class="product-view-trigger" href="#" data-type="listing-box-list">
+                                                    <i class="fa fa-list"></i>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#" data-type="listing-box-list" class="product-view-trigger">
-                                                    <i class="fa fa-list"></i>
+                                                <a class="product-view-trigger" href="#" data-type="listing-box-grid">
+                                                    <i class="fa fa-th-large"></i>
                                                 </a>
                                             </li>
                                         </ul>
@@ -78,7 +89,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="listing-view" class="listing-box-grid">
+                        <div id="listing-view" class="listing-box-list">
                             <div class="row">
                                 @foreach (var result in Model.Resources)
                                 {
@@ -92,7 +103,7 @@
                                                 <h3 class="item-title"><a href="@Url.Action("Index", "Resource", new { id = result.ID})">@result.Title</a></h3>
                                                 <p class="item-paragraph">@result.Description</p>
                                                 <ul class="meta-item">
-                                                    <li class="ctg-name"><a href="@Url.Action("Index", "Resource", new { id = result.ID})">@Model.GoToResource<i class="flaticon-next"></i></a></li>
+                                                    <li class="ctg-name"><a href="@Url.Action("Index", "Resource", new { id = result.ID})">@Model.GoToResource<i class="space-next flaticon-next"></i></a></li>
                                                 </ul>
                                             </div>
                                         </div>

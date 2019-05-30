@@ -39,7 +39,7 @@ namespace OxTots.Controllers
             var category = Db.Categories.Single(c => c.ID == categoryID);
             var categoryDetail = category.GetDetail(UserLanguageID) ?? category.GetDetail(DefaultLanguageID);
 
-            var resources = Db.Resources.Where(r => r.Categories.Any(c => c.ID == categoryID)).ToList();
+            var resources = Db.Resources.Where(r => r.MainCategory.ID == categoryID || r.Categories.Any(c => c.ID == categoryID)).ToList();
             if (features.Any())
             {
                 var selectedFeatureIDs = features.Where(f => f.IsSelected).Select(f => f.ID).ToList();

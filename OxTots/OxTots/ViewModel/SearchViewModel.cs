@@ -8,6 +8,7 @@ namespace OxTots.ViewModel
         public string Description { get; set; }
         public string SearchError { get; set; }
         public string GoToResource { get; set; }
+        public string SearchEmpty { get; set; }
         public string ResultsFound { get; set; }
         public string SearchPlaceHolder { get; set; }
         public List<MarkerViewModel> Markers { get; set; }
