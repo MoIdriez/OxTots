@@ -49,6 +49,8 @@
         public string CategoryResultsFound { get; set; }
         public string CategoryFilterDescription { get; set; }
         public string CategoryGoToResource { get; set; }
+        public string CategoryFilter { get; set; }
+        public string CategoryRefresh { get; set; }
 
         public string SubmissionImage { get; set; }
         public string SubmissionTitle { get; set; }

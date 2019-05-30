@@ -69,8 +69,8 @@
                         <div class="row">
                             @if (!Model.Results.Any())
                             {
-                                <p>@Model.SearchEmpty</p>
-                            }
+                                <div class="col-12 heading-center">@Model.SearchEmpty</div>
+                            } 
                             @foreach (var result in Model.Results)
                             {
                                 <div class="col-xl-6 col-lg-4 col-md-6 col-sm-12 col-12" style="opacity: 1;">

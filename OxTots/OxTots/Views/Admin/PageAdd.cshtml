@@ -16,6 +16,9 @@
     <h3>Cookies</h3>
     @Html.TextBoxFor(m => m.Page.LayoutCookieTitle, new { placeholder = "LayoutCookieTitle" })
     @Html.TextBoxFor(m => m.Page.LayoutCookieDescription, new { placeholder = "LayoutCookieDescription" })
+    @Html.TextBoxFor(m => m.Page.LayoutGDPRTitle, new { placeholder = "LayoutGDPRTitle" })
+    @Html.TextBoxFor(m => m.Page.LayoutGDPRMessage, new { placeholder = "LayoutGDPRMessage" })
+    @Html.TextBoxFor(m => m.Page.LayoutGDPRButton, new { placeholder = "LayoutGDPRButton" })
 
     <h3>Layout</h3>
     @Html.TextBoxFor(m => m.Page.LayoutMainLogo, new { placeholder = "LayoutMainLogo" })
@@ -60,25 +63,28 @@
     @Html.TextBoxFor(m => m.Page.CategoryResultsFound, new { placeholder = "CategoryResultsFound" })
     @Html.TextBoxFor(m => m.Page.CategoryFilterDescription, new { placeholder = "CategoryFilterDescription" })
     @Html.TextBoxFor(m => m.Page.CategoryGoToResource, new { placeholder = "CategoryGoToResource" })
+    @Html.TextBoxFor(m => m.Page.CategoryFilter, new { placeholder = "CategoryFilter" })
+    @Html.TextBoxFor(m => m.Page.CategoryRefresh, new { placeholder = "CategoryRefresh" })
 
     <h3>Submission</h3>
     @Html.TextBoxFor(m => m.Page.SubmissionImage, new { placeholder = "SubmissionImage" })
     @Html.TextBoxFor(m => m.Page.SubmissionTitle, new { placeholder = "SubmissionTitle" })<br />
     @Html.TextBoxFor(m => m.Page.SubmissionDescription, new { placeholder = "SubmissionDescription" })
-    @Html.TextBoxFor(m => m.Page.SubmissionFormPersonalInformationTitle, new { placeholder = "SubmissionFormPersonalInformationTitle" })<br />
-    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceInformationTitle, new { placeholder = "SubmissionFormResourceInformationTitle" })
-    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceCategoryTitle, new { placeholder = "SubmissionFormResourceCategoryTitle" })<br />
-    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceFeatureTitle, new { placeholder = "SubmissionFormResourceFeatureTitle" })
-    @Html.TextBoxFor(m => m.Page.SubmissionFormExtraInformationText, new { placeholder = "SubmissionFormExtraInformationText" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionActionNew, new { placeholder = "SubmissionActionNew" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionActionTranslate, new { placeholder = "SubmissionActionTranslate" })
+    @Html.TextBoxFor(m => m.Page.SubmissionLanguageTitle, new { placeholder = "SubmissionLanguageTitle" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormPersonalTitle, new { placeholder = "SubmissionFormPersonalTitle" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormPersonalPlaceholderName, new { placeholder = "SubmissionFormPersonalPlaceholderName" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormPersonalPlaceholderEmail, new { placeholder = "SubmissionFormPersonalPlaceholderEmail" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceTitle, new { placeholder = "SubmissionFormResourceTitle" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourcePlaceholderName, new { placeholder = "SubmissionFormResourcePlaceholderName" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourcePlaceholderDescription, new { placeholder = "SubmissionFormResourcePlaceholderDescription" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourcePlaceholderEmail, new { placeholder = "SubmissionFormResourcePlaceholderEmail" })
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourcePlaceholderWebsite, new { placeholder = "SubmissionFormResourcePlaceholderWebsite" })<br />
+    @Html.TextBoxFor(m => m.Page.SubmissionFormResourcePlaceholderAddress, new { placeholder = "SubmissionFormResourcePlaceholderAddress" })
+    @Html.TextBoxFor(m => m.Page.SubmissionAssociatedResourceTitle, new { placeholder = "SubmissionAssociatedResourceTitle" })
+    @Html.TextBoxFor(m => m.Page.SubmissionDescriptionGDPRNotice, new { placeholder = "SubmissionDescriptionGDPRNotice" })
     @Html.TextBoxFor(m => m.Page.SubmissionFormSubmitButtonText, new { placeholder = "SubmissionFormSubmitButtonText" })
-    @Html.TextBoxFor(m => m.Page.SubmissionFormNamePlaceholder, new { placeholder = "SubmissionFormNamePlaceholder" })<br />
-    @Html.TextBoxFor(m => m.Page.SubmissionFormEmailPlaceholder, new { placeholder = "SubmissionFormEmailPlaceholder" })
-    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceNamePlaceholder, new { placeholder = "SubmissionFormResourceNamePlaceholder" })<br />
-    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceAddressPlaceholder, new { placeholder = "SubmissionFormResourceAddressPlaceholder" })
-    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceDescriptionPlaceholder, new { placeholder = "SubmissionFormResourceDescriptionPlaceholder" })<br />
-    @Html.TextBoxFor(m => m.Page.SubmissionFormResourcePhonePlaceholder, new { placeholder = "SubmissionFormResourcePhonePlaceholder" })
-    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceEmailPlaceholder, new { placeholder = "SubmissionFormResourceEmailPlaceholder" })
-    @Html.TextBoxFor(m => m.Page.SubmissionFormResourceWebsitePlaceholder, new { placeholder = "SubmissionFormResourceWebsitePlaceholder" })
 
     <h3>Contact</h3>
     @Html.TextBoxFor(m => m.Page.ContactTitle, new { placeholder = "ContactTitle" })

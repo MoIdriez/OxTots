@@ -400,6 +400,8 @@ namespace OxTots.Data
                 CategoryResultsFound = "Resources available",
                 CategoryFilterDescription = "CategoryFilterDescription",
                 CategoryGoToResource = "Go to this resource",
+                CategoryRefresh = "Refresh",
+                CategoryFilter = "Filter",
 
                 SubmissionImage = "/Images/figure/site-main-figure1.jpg",
                 SubmissionTitle = "Submission Title",

@@ -65,7 +65,10 @@ namespace OxTots.Controllers
                 GoToResource = page.CategoryGoToResource ?? dfPage.CategoryGoToResource,
                 Features = features,
                 Resources = resources.GetResourceFilterViewModel(UserLanguageID, DefaultLanguageID),
-                Markers = resources.GetMarkerViewModels(UserLanguageID, DefaultLanguageID)
+                Markers = resources.GetMarkerViewModels(UserLanguageID, DefaultLanguageID),
+                Filter = page.CategoryFilter ?? dfPage.CategoryFilter,
+                Refresh = page.CategoryRefresh ?? dfPage.CategoryRefresh
+
             };
         }
 

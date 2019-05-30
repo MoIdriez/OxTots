@@ -1,15 +1,25 @@
 ﻿@{ ViewBag.Title = "Admin"; Layout = null; }
-<h2>Select the operation you wish to perform</h2>
+<h1>Select the operation you wish to perform</h1>
 
+<h2>Global operations</h2>
+<a href="@Url.Action("Language")">Language Settings</a> <br />
+<a href="@Url.Action("Page")">Page Settings</a> <br />
+<a href="@Url.Action("Feature")">Feature Settings</a> <br />
+
+<h2>Page specific operations</h2>
+<a href="@Url.Action("Category")">View Categories</a> <br />
+<a href="@Url.Action("Resource")">View Resources</a> <br />
+
+<h2>Contact specific operations</h2>
 <a href="@Url.Action("Submission")">View Submissions</a> <br />
 <a href="@Url.Action("Contact")">View Contacts</a> <br />
 
-<a href="@Url.Action("Language")">View Languages</a> <br />
 
-<a href="@Url.Action("Page")">View Pages</a> <br />
 
-<a href="@Url.Action("Feature")">View Features</a> <br />
-<a href="@Url.Action("Resource")">View Resources</a> <br />
 
-<a href="@Url.Action("Category")">View Categories</a> <br />
+
+
+
+
+
 

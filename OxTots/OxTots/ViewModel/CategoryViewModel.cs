@@ -13,5 +13,7 @@ namespace OxTots.ViewModel
         public List<MarkerViewModel> Markers { get; set; }
         public List<FeatureViewModel> Features { get; set; }
         public List<ResourceFilterViewModel> Resources { get; set; }
+        public string Filter { get; set; }
+        public string Refresh { get; set; }
     }
 }
