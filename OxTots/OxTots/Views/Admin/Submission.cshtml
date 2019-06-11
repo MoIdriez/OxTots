@@ -5,14 +5,14 @@
 
 <table class="table">
     <tr>
-        <th>Name</th>
+        <th>Type</th>
         <th>Language</th>
-        <th>MainCategory</th>
-        <th>Email</th>
+        <th>Resource</th>
+        <th>Personal Name</th>
+        <th>Personal Email</th>
         <th>Resource Name</th>
         <th>Resource Address</th>
         <th>Resource Description</th>
-        <th>Resource Phone</th>
         <th>Resource Email</th>
         <th>Resource Website</th>
         <th></th>
@@ -20,14 +20,14 @@
 
     @foreach (var item in Model.Submissions) {
         <tr>
-            <td>@item.Name</td>
+            <td>@item.Type</td>
             <td>@item.Language.Name</td>
-            <td>@item.Category.Name</td>
-            <td>@item.Email</td>
+            <td>@item.Resource.Name</td>
+            <td>@item.PersonalName</td>
+            <td>@item.PersonalEmail</td>
             <td>@item.ResourceName</td>
             <td>@item.ResourceAddress</td>
             <td>@item.ResourceDescription</td>
-            <td>@item.ResourcePhone</td>
             <td>@item.ResourceEmail</td>
             <td>@item.ResourceWebsite</td>
             <td>

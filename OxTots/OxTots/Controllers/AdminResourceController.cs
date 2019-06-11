@@ -41,7 +41,7 @@ namespace OxTots.Controllers
                 MainCategory = Db.Categories.Single(c => model.MainCategoryID == c.ID)
             };
 
-            r.ResourceFeatures = Db.Features.Select(f => new ResourceFeature
+            r.ResourceFeatures = Db.Features.ToList().Select(f => new ResourceFeature
             {
                 Resource = r,
                 Feature = f
@@ -83,6 +83,8 @@ namespace OxTots.Controllers
                 return RedirectToAction("Index");
 
             var r = Db.Resources.Single(s => s.ID == id);
+            Db.ResourceFeatures.RemoveRange(Db.ResourceFeatures.Where(rf => rf.Resource.ID == id).ToList());
+            Db.ResourceDetails.RemoveRange(Db.ResourceDetails.Where(rd => rd.Resource.ID == id).ToList());
             Db.Resources.Remove(r);
             Db.SaveChanges();
             return RedirectToAction("Resource");
