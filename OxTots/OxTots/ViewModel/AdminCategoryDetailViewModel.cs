@@ -11,7 +11,6 @@ namespace OxTots.ViewModel
         public int ID { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public string ShortDescription { get; set; }
 
         public int LanguageID { get; set; }
         public int CategoryID { get; set; }

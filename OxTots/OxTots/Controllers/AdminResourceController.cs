@@ -14,7 +14,7 @@ namespace OxTots.Controllers
 
             var model = new AdminResourceViewModel
             {
-                Resources = Db.Resources.ToList(),
+                Resources = Db.Resources.OrderBy(r => r.Name).ToList(),
                 Categories = Db.Categories.ToList(),
                 Features = Db.Features.ToList(),
             };

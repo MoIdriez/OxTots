@@ -53,7 +53,6 @@ namespace OxTots.Data
                 {
                     Title = "Health and Breastfeeding Support",
                     Description = "Health and Breastfeeding Support Description",
-                    ShortDescription = "Health and Breastfeeding Support Short Description",
                     Language = languages.First(),
                     Category = categories.First()
                 },
@@ -61,7 +60,6 @@ namespace OxTots.Data
                 {
                     Title = "دعم الصحة والرضاعة الطبيعية",
                     Description = "وصف دعم الصحة والرضاعة الطبيعية",
-                    ShortDescription = "وصف دعم الصحة والرضاعة الطبيعية",
                     Language = languages.Last(),
                     Category = categories.First()
                 },
@@ -69,7 +67,6 @@ namespace OxTots.Data
                 {
                     Title = "Playgroups Support",
                     Description = "Playgroups Description",
-                    ShortDescription = "Playgroups Description",
                     Language = languages.First(),
                     Category = categories.First(c => c.Name == "Playgroups")
                 },
@@ -77,7 +74,6 @@ namespace OxTots.Data
                 {
                     Title = "Activities Support",
                     Description = "Activities Description",
-                    ShortDescription = "Activities Description",
                     Language = languages.First(),
                     Category = categories.First(c => c.Name == "Activities")
                 },
@@ -85,7 +81,6 @@ namespace OxTots.Data
                 {
                     Title = "For parents Support",
                     Description = "For parents Description",
-                    ShortDescription = "For parents Description",
                     Language = languages.First(),
                     Category = categories.First(c => c.Name == "For parents")
                 }

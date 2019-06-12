@@ -33,6 +33,7 @@ namespace OxTots.Controllers
                 ContactTitle = page.ResourceContactTitle ?? dfPage.ResourceContactTitle,
                 Phone = resource.Phone,
                 Email = resource.Email,
+                Website = resource.Website,
                 Address = resourceDetail.Address,
                 OpeningHours = resourceDetail.OpeningHours,
                 GPSLat = resource.GPSLat,

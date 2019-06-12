@@ -87,10 +87,10 @@
         color: #fff;
     }
 
-    .checkbox-filter input[type="checkbox"]:checked ~ label::after {
+    /*.checkbox-filter input[type="checkbox"]:checked ~ label::after {
         font-family: 'FontAwesome';
         content: "\f00c";
-    }
+    }*/
 
     .checkbox-filter input[type="checkbox"]:checked ~ label::before {
         background-color: #ff4a52;

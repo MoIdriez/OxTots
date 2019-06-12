@@ -18,11 +18,10 @@
     @Html.HiddenFor(m => m.CategoryID)
     @Html.TextBoxFor(m => m.Title, new { placeholder = "Title" })
     @Html.TextBoxFor(m => m.Description, new { placeholder = "Description" })
-    @Html.TextBoxFor(m => m.ShortDescription, new { placeholder = "ShortDescription" })
     <button type="submit">Add</button>
 }
 
-<h3>Edit Language</h3>
+<h3>Edit Category Details</h3>
 @using (Html.BeginForm("CategoryDetailEdit", "Admin"))
 {
     @Html.AntiForgeryToken()
@@ -42,7 +41,6 @@
     @Html.HiddenFor(m => m.CategoryID)
     @Html.TextBoxFor(m => m.Title, new { placeholder = "Title" })
     @Html.TextBoxFor(m => m.Description, new { placeholder = "Description" })
-    @Html.TextBoxFor(m => m.ShortDescription, new { placeholder = "ShortDescription" })
 
     <button type="submit">Edit</button>
 }
@@ -62,12 +60,12 @@
         <td>@item.Title</td>
         <td><img style="height: 35px;" src="/Images/flags/@item.Language.Icon" /></td>
         <td>@item.Description</td>
-        <td>@item.ShortDescription</td>
         <td><a href="@Url.Action("CategoryDetailRemove", new {id = item.ID})">Remove this entry</a></td>
     </tr>
     }
 
 </table>
-
+<a href="@Url.Action("Category")">back to the category page</a> <br/>
 <a href="@Url.Action("Main")">back to the main page</a>
+
 

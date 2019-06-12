@@ -1,6 +1,6 @@
 ﻿@using System.Web.Script.Serialization
 @model OxTots.ViewModel.ResourceViewModel
-
+@{ ViewBag.Title = "Resource"; }
 <section class="full-width-container inner-page-top-margin bg--accent">
     <div class="container-fluid">
         <div class="min-row row no-gutters">
@@ -29,11 +29,21 @@
                     <div class="widget widget-information widget-box-padding">
                         <h3 class="widget-title">@Model.ContactTitle</h3>
                         <ul class="block-list">
-                            <li class="block-list-item"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/?q=@Model.GPSLat,@Model.GPSLong" target="_blank">@Model.Address</a></li>
-                            <li class="block-list-item"><i class="fas fa-phone"></i><a href="tel:@Model.Phone">@Model.Phone</a></li>
-                            <li class="block-list-item"><i class="far fa-clock"></i>@Model.OpeningHours</li>
-                            <li class="block-list-item"><i class="fas fa-globe"></i>@Model.Website</li>
-                            <li class="block-list-item"><i class="fas fa-envelope"></i>@Model.Email</li>
+                            @if (!String.IsNullOrEmpty(Model.Address))
+                            {
+                                <li class="block-list-item"><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/?q=@Model.GPSLat,@Model.GPSLong" target="_blank">@Model.Address</a></li>}
+                            @if (!String.IsNullOrEmpty(Model.OpeningHours))
+                            {
+                                <li class="block-list-item"><i class="far fa-clock"></i>@Model.OpeningHours</li>}
+                            @if (!String.IsNullOrEmpty(Model.Website))
+                            {
+                                <li class="block-list-item"><i class="fas fa-globe"></i><a href="@Model.Website" target="_blank">@Model.Website</a></li>}
+                            @if (!String.IsNullOrEmpty(Model.Email))
+                            {
+                                <li class="block-list-item"><i class="fas fa-envelope"></i><a href="mailto:@Model.Email" target="_top">@Model.Email</a></li>}
+                            @if (!String.IsNullOrEmpty(Model.Phone))
+                            {
+                                <li class="block-list-item"><i class="fas fa-phone"></i><a href="tel:@Model.Phone">@Model.Phone</a></li>}
                         </ul>
                     </div>
                 </div>

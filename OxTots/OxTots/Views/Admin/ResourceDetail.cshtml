@@ -35,17 +35,17 @@
 
     @foreach (var item in Model.ResourceDetails)
     {
-    <tr>
-        <td>@item.Title</td>
-        <td><img style="height: 35px;" src="/Images/flags/@item.Language.Icon" /></td>
-        <td>@item.Description</td>
-        <td>@item.ShortDescription</td>
-        <td>@item.Address</td>
-        <td>@item.OpeningHours</td>
-        <td><a href="@Url.Action("ResourceDetailRemove", new {id = item.ID})">Remove this entry</a></td>
-    </tr>
+        <tr>
+            <td>@item.Title</td>
+            <td><img style="height: 35px;" src="/Images/flags/@item.Language.Icon" /></td>
+            <td>@item.Description</td>
+            <td>@item.ShortDescription</td>
+            <td>@item.Address</td>
+            <td>@item.OpeningHours</td>
+            <td><a href="@Url.Action("ResourceDetailRemove", new {id = item.ID})">Remove this entry</a></td>
+        </tr>
     }
 
 </table>
-
+<a href="@Url.Action("Resource")">back to the resource page</a> <br />
 <a href="@Url.Action("Main")">back to the main page</a>

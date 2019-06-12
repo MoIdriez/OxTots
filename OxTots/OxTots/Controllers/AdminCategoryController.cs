@@ -94,7 +94,6 @@ namespace OxTots.Controllers
             {
                 Title = model.Title,
                 Description = model.Description,
-                ShortDescription = model.ShortDescription,
                 Language = Db.Languages.Single(l => l.ID == model.LanguageID),
                 Category = Db.Categories.Single(c => c.ID == model.CategoryID)
             };
@@ -113,8 +112,7 @@ namespace OxTots.Controllers
             {
                 ID = model.ID,
                 Title = model.Title,
-                Description = model.Description,
-                ShortDescription = model.ShortDescription
+                Description = model.Description
                 
             };
             var categoryDetail = Db.CategoryDetails.First(ct => ct.ID == model.ID);
