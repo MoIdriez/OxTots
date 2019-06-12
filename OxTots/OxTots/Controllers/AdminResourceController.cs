@@ -107,6 +107,8 @@ namespace OxTots.Controllers
             {
                 r.Categories.Remove(category);
             }
+
+            Db.SaveChanges();
             return RedirectToAction("Resource");
         }
 

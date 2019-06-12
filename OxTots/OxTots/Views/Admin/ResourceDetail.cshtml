@@ -22,7 +22,7 @@
     <button type="submit">Add</button>
 }
 
-<table class="table">
+<table class="table" border="1">
     <tr>
         <th>Title</th>
         <th>Language</th>
@@ -40,8 +40,8 @@
         <td><img style="height: 35px;" src="/Images/flags/@item.Language.Icon" /></td>
         <td>@item.Description</td>
         <td>@item.ShortDescription</td>
-        <td>@item.OpeningHours</td>
         <td>@item.Address</td>
+        <td>@item.OpeningHours</td>
         <td><a href="@Url.Action("ResourceDetailRemove", new {id = item.ID})">Remove this entry</a></td>
     </tr>
     }

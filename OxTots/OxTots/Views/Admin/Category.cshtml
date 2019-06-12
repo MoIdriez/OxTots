@@ -1,4 +1,5 @@
-﻿@model OxTots.ViewModel.AdminCategoryViewModel
+﻿@using Newtonsoft.Json
+@model OxTots.ViewModel.AdminCategoryViewModel
 @{ ViewBag.Title = "MainCategory"; Layout = null; }
 
 <h2>Categories Page</h2>
@@ -13,23 +14,23 @@
     <button type="submit">Add</button>
 }
 
-<h3>Edit Language</h3>
+<h3>Edit Category</h3>
 @using (Html.BeginForm("CategoryEdit", "Admin"))
 {
     @Html.AntiForgeryToken()
-    <select name="ID" class="form-control">
+    <select data-edit='ID' name="ID" class="form-control">
         @foreach (var c in Model.Categories)
         {
             <option value="@c.ID">@c.Name</option>
         }
     </select>
-    @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
-    @Html.TextBoxFor(m => m.Icon, new { placeholder = "Icon" })
+    @Html.TextBoxFor(m => m.Name, new { placeholder = "Name", data_edit = "Name" })
+    @Html.TextBoxFor(m => m.Icon, new { placeholder = "Icon", data_edit = "Icon" })
 
     <button type="submit">Edit</button>
 }
 
-<table class="table">
+<table class="table" border="1">
     <tr>
         <th>Name</th>
         <th>Icon</th>
@@ -39,15 +40,40 @@
 
     @foreach (var item in Model.Categories)
     {
-    <tr>
-        <td>@item.Name</td>
-        <td><i style="height: 35px;" class="@item.Icon"></i></td>
-        <td><a href="@Url.Action("CategoryDetail", new {id = item.ID})">Details</a></td>
-        <td><a href="@Url.Action("CategoryRemove", new {id = item.ID})">Remove this entry</a></td>
-    </tr>
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Icon</td>
+            <td><a href="@Url.Action("CategoryDetail", new {id = item.ID})">Details</a></td>
+            <td><a href="@Url.Action("CategoryRemove", new {id = item.ID})">Remove this entry</a></td>
+        </tr>
     }
 
 </table>
 
 <a href="@Url.Action("Main")">back to the main page</a>
 
+
+@Html.Hidden("Categories", JsonConvert.SerializeObject(Model.Categories.Select(r => new
+{
+    ID = r.ID,
+    Name = r.Name,
+    Icon = r.Icon
+}).ToList()))
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+    $("[data-edit='ID']").on("change",
+        function() {
+            updateEditValues();
+        });
+
+    function updateEditValues() {
+        var id = $("[data-edit='ID']").val();
+        var data = JSON.parse($("#Categories").val());
+
+        var resource = data.find(r => r.ID == id);
+        $("[data-edit='Name']").val(resource.Name);
+        $("[data-edit='Icon']").val(resource.Icon);
+    }
+
+    updateEditValues();
+</script>
