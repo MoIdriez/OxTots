@@ -1,16 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using OxTots.Models;
 using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    /// <summary>
+    /// partial admin page - category page information
+    /// </summary>
     public partial class AdminController
     {
-        // GET: AdminCategory
+        /// <summary>
+        /// Displays the admin category page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Category()
         {
             if (!IsLoggedIn)
@@ -23,6 +26,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Method is called to add a new category
+        /// </summary>
+        /// <param name="model">viewmodel with category name and icon</param>
+        /// <returns>back to category method</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CategoryAdd(AdminCategoryViewModel model)
@@ -40,6 +48,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Category");
         }
 
+        /// <summary>
+        /// Method to edit the selected category by ID
+        /// </summary>
+        /// <param name="model">viewmodel with category name, icon, id</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CategoryEdit(AdminCategoryViewModel model)
@@ -57,6 +70,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Category");
         }
 
+        /// <summary>
+        /// Remove category
+        /// </summary>
+        /// <param name="id">category id</param>
+        /// <returns></returns>
         public ActionResult CategoryRemove(int id)
         {
             if (!IsLoggedIn)
@@ -68,6 +86,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Category");
         }
 
+        /// <summary>
+        /// Displays a category's detail page
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult CategoryDetail(int id)
         {
             if (!IsLoggedIn)
@@ -83,6 +106,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Adds a new category detail
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CategoryDetailAdd(AdminCategoryDetailViewModel model)
@@ -102,6 +130,11 @@ namespace OxTots.Controllers
             return RedirectToAction("CategoryDetail", new {id = model.CategoryID});
         }
 
+        /// <summary>
+        /// Edits a new category
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult CategoryDetailEdit(AdminCategoryDetailViewModel model)
@@ -122,6 +155,11 @@ namespace OxTots.Controllers
             return RedirectToAction("CategoryDetail", new { id = model.CategoryID });
         }
 
+        /// <summary>
+        /// Remove a category detail
+        /// </summary>
+        /// <param name="id">id of the category detail to be removed</param>
+        /// <returns></returns>
         public ActionResult CategoryDetailRemove(int id)
         {
             if (!IsLoggedIn)

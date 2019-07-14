@@ -6,9 +6,15 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    /// <summary>
+    /// Submission Controller
+    /// </summary>
     public class SubmissionController : BaseController
     {
-        // GET: Submission
+        /// <summary>
+        /// Displays the submission page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             var page = Db.Pages.GetPage(UserLanguageID);
@@ -54,6 +60,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Stores the submission form to the database
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Submit(SubmissionViewModel model)

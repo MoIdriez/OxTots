@@ -5,9 +5,15 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    /// <summary>
+    /// Contact controller
+    /// </summary>
     public class ContactController : BaseController
     {
-        // GET: Contact
+        /// <summary>
+        /// Displays the contact page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             var page = Db.Pages.GetPage(UserLanguageID);
@@ -33,6 +39,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Method to submit the contact form
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Submit(ContactViewModel model)

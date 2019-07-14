@@ -5,8 +5,15 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    /// <summary>
+    /// Home controller
+    /// </summary>
     public class HomeController : BaseController
     {
+        /// <summary>
+        /// Displays a home controller
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             var page = Db.Pages.GetPage(UserLanguageID);

@@ -8,15 +8,23 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    /// <summary>
+    /// Category controller
+    /// </summary>
     public class CategoryController : BaseController
     {
-        // GET: MainCategory
+        // Displays a category by id
         public ActionResult Index(int id)
         {
             return View("Index", GetViewModel(id, new List<FeatureViewModel>()));
             
         }
 
+        /// <summary>
+        /// Filter the category's resource by selected features
+        /// </summary>
+        /// <param name="model">category controller with the selected features</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Filter(CategoryViewModel model)
@@ -30,6 +38,12 @@ namespace OxTots.Controllers
             return View("Index", GetViewModel(model.ID, model.Features));
         }
 
+        /// <summary>
+        /// Generates the viewmodel by the category ID and the selected features
+        /// </summary>
+        /// <param name="categoryID"></param>
+        /// <param name="features"></param>
+        /// <returns></returns>
         private CategoryViewModel GetViewModel(int categoryID, List<FeatureViewModel> features)
         {
             SetHeaderDark();
@@ -72,7 +86,12 @@ namespace OxTots.Controllers
             };
         }
 
-
+        /// <summary>
+        /// Sets the sharing options for the this page
+        /// </summary>
+        /// <param name="page">page with selected language</param>
+        /// <param name="dfPage">page with default language</param>
+        /// <param name="category">category selected</param>
         private void SetCategoryOg(Page page, Page dfPage, Category category)
         {
             SetOg(new OgViewModel

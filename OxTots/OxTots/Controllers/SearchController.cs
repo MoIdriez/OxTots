@@ -7,9 +7,15 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    /// <summary>
+    /// Search controller
+    /// </summary>
     public class SearchController : BaseController
     {
-        // GET: Search
+        /// <summary>
+        /// Displays the search page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             SetHeaderDark();
@@ -26,6 +32,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Method to search for specific resources
+        /// </summary>
+        /// <param name="q">search parameter</param>
+        /// <returns></returns>
         public ActionResult Query(string q)
         {
             SetHeaderDark();
@@ -42,6 +53,11 @@ namespace OxTots.Controllers
             return View("Index", model);
         }
 
+        /// <summary>
+        /// Method that searches the resources for the query
+        /// </summary>
+        /// <param name="q"></param>
+        /// <returns></returns>
         public SearchViewModel Search(string q)
         {
             var page = Db.Pages.GetPage(UserLanguageID);

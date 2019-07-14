@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using OxTots.Utility;
 using OxTots.ViewModel;
 
@@ -10,11 +6,19 @@ namespace OxTots.Controllers
 {
     public class AboutUsController : BaseController
     {
-        // GET: AboutUs
+        /// <summary>
+        /// Displays the about page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
+            // current language page information
             var page = Db.Pages.GetPage(UserLanguageID);
+            
+            // default language page information
             var dfPage = Db.Pages.GetPage(DefaultLanguageID);
+
+            // page information model
             var model = new AboutUsViewModel
             {
                 Image = page.AboutUsImage ?? dfPage.AboutUsImage,
@@ -23,6 +27,7 @@ namespace OxTots.Controllers
                 Description2 = page.AboutUsDescription2 ?? dfPage.AboutUsDescription2
             };
 
+            // page sharing information model
             SetOg(new OgViewModel
             {
                 Url = page.OgAboutUsUrl ?? dfPage.OgAboutUsUrl,

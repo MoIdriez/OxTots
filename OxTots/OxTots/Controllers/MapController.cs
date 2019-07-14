@@ -8,9 +8,15 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    /// <summary>
+    /// Map controller
+    /// </summary>
     public class MapController : BaseController
     {
-        // GET: Map
+        /// <summary>
+        /// Displays the map controller
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             this.SetHeaderDark();

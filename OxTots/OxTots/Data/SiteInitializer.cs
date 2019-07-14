@@ -4,6 +4,9 @@ using OxTots.Models;
 
 namespace OxTots.Data
 {
+    /// <summary>
+    /// Sets a default database
+    /// </summary>
     public class SiteInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<SiteContext>
     {
         protected override void Seed(SiteContext context)

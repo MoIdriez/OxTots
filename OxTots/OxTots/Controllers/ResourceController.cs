@@ -8,9 +8,16 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    /// <summary>
+    /// Resource controller
+    /// </summary>
     public class ResourceController : BaseController
     {
-        // GET: Resource
+        /// <summary>
+        /// Displays the resource by id
+        /// </summary>
+        /// <param name="id">id of resource to be displayed</param>
+        /// <returns></returns>
         public ActionResult Index(int id)
         {
             base.SetHeaderDark();
@@ -18,13 +25,10 @@ namespace OxTots.Controllers
             var page = Db.Pages.GetPage(UserLanguageID);
             var dfPage = Db.Pages.GetPage(DefaultLanguageID);
 
+            // get the resource
             var resource = Db.Resources.FirstOrDefault(c => c.ID == id);
-            if (resource == null)
-            {
-                // category doesn't exist send to error page
-                throw new NotImplementedException();
-            }
 
+            // get the correct resource detail
             var resourceDetail = resource.GetDetail(UserLanguageID) ?? resource.GetDetail(DefaultLanguageID);
             var model = new ResourceViewModel
             {
@@ -41,7 +45,6 @@ namespace OxTots.Controllers
                 Features = resource.ResourceFeatures.ToList().ToViewModel(UserLanguageID, DefaultLanguageID),
                 Markers = new List<MarkerViewModel> { resource.GetMarkerViewModel(UserLanguageID, DefaultLanguageID) }
             };
-
             SetOg(new OgViewModel
             {
                 Url = (page.OgResourceUrl ?? dfPage.OgResourceUrl) + resource.ID,

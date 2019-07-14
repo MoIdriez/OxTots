@@ -6,6 +6,9 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace OxTots.Data
 {
+    /// <summary>
+    /// Defines the database
+    /// </summary>
     public class SiteContext : DbContext
     {
         public SiteContext() : base("SiteContextDB")

@@ -7,8 +7,12 @@ using OxTots.ViewModel;
 
 namespace OxTots.Utility
 {
+    /// <summary>
+    /// Sets all the information that is used in the layout view
+    /// </summary>
     public class LayoutAttribute : ActionFilterAttribute
     {
+        // gets current language
         public const string LanguageCookie = "CookieLanguage";
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -71,6 +75,9 @@ namespace OxTots.Utility
         }
     }
 
+    /// <summary>
+    /// Convenience class for the language cookie. gets overriden when someone changes language
+    /// </summary>
     public static class LanguageCookie
     {
         public static void SetLanguage(HttpResponseBase response, int languageID)

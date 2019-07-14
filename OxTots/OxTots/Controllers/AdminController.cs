@@ -8,9 +8,15 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    /// <summary>
+    /// partial admin page - main page information
+    /// </summary>
     public partial class AdminController : Controller
     {
+        // context of the database
         protected SiteContext Db = new SiteContext();
+
+        // wrapper for Login session
         private bool IsLoggedIn
         {
             get
@@ -24,7 +30,11 @@ namespace OxTots.Controllers
             }
             set => Session["IsLoggedIn"] = value;
         }
-        
+
+        /// <summary>
+        /// admin index page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             if (IsLoggedIn)
@@ -32,12 +42,21 @@ namespace OxTots.Controllers
             return View(new AdminLoginViewModel());
         }
         
+        /// <summary>
+        /// Logout method sets cookie to false
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Logout()
         {
             IsLoggedIn = false;
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Method to check the login details given
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(AdminLoginViewModel model)
@@ -55,6 +74,10 @@ namespace OxTots.Controllers
             return View("Index", model);
         }
 
+        /// <summary>
+        /// Main method that displays all the admin page subsections
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Main()
         {
             if (!IsLoggedIn)
@@ -62,6 +85,10 @@ namespace OxTots.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Submission admin page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Submission()
         {
             if (!IsLoggedIn)
@@ -74,6 +101,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Remove a submission by id
+        /// </summary>
+        /// <param name="id">id of submission to be removed</param>
+        /// <returns></returns>
         public ActionResult SubmissionRemove(int id)
         {
             if (!IsLoggedIn)
@@ -85,6 +117,10 @@ namespace OxTots.Controllers
             return RedirectToAction("Submission");
         }
 
+        /// <summary>
+        /// Contact admin page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Contact()
         {
             if (!IsLoggedIn)
@@ -97,6 +133,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Remove a contact by id
+        /// </summary>
+        /// <param name="id">id of contact to be removed</param>
+        /// <returns></returns>
         public ActionResult ContactRemove(int id)
         {
             if (!IsLoggedIn)
@@ -108,6 +149,10 @@ namespace OxTots.Controllers
             return RedirectToAction("Contact");
         }
 
+        /// <summary>
+        /// Language admin page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Language()
         {
             if (!IsLoggedIn)
@@ -121,6 +166,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Remove a language by id
+        /// </summary>
+        /// <param name="id">id of language to be removed</param>
+        /// <returns></returns>
         public ActionResult LanguageRemove(int id)
         {
             if (!IsLoggedIn)
@@ -132,6 +182,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Language");
         }
 
+        /// <summary>
+        /// Add a new language
+        /// </summary>
+        /// <param name="model">model with the new language's name, icon and direction</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LanguageAdd(AdminLanguageViewModel model)
@@ -150,6 +205,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Language");
         }
 
+        /// <summary>
+        /// Edit an existing language
+        /// </summary>
+        /// <param name="model">model with the edit information</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LanguageEdit(AdminLanguageViewModel model)

@@ -7,6 +7,10 @@ namespace OxTots.Controllers
 {
     public partial class AdminController
     {
+        /// <summary>
+        /// partial admin page - general page information
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Page()
         {
             if (!IsLoggedIn)
@@ -19,6 +23,10 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Page to add a new translation for the general pages
+        /// </summary>
+        /// <returns></returns>
         public ActionResult PageAdd()
         {
             if (!IsLoggedIn)
@@ -32,6 +40,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// add a new page translation
+        /// </summary>
+        /// <param name="model">model with new page translation</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult PageAdd(AdminPageAddModel model)
@@ -45,6 +58,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Page");
         }
 
+        /// <summary>
+        /// Edit existing page translation - form page
+        /// </summary>
+        /// <param name="id">page id that is edited</param>
+        /// <returns></returns>
         public ActionResult PageEdit(int id)
         {
             if (!IsLoggedIn)
@@ -59,6 +77,11 @@ namespace OxTots.Controllers
             return View("PageAdd", model);
         }
 
+        /// <summary>
+        /// Edit existing page translation
+        /// </summary>
+        /// <param name="model">model with edit page translation</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult PageEdit(AdminPageAddModel model)
@@ -72,6 +95,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Page");
         }
 
+        /// <summary>
+        /// Remove existing page
+        /// </summary>
+        /// <param name="id">page id to be removed</param>
+        /// <returns></returns>
         public ActionResult PageRemove(int id)
         {
             if (!IsLoggedIn)

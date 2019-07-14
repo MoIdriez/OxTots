@@ -4,6 +4,9 @@ using System.Web.Mvc;
 
 namespace OxTots.Utility
 {
+    /// <summary>
+    /// Method to handles the cookie consent it's a tag on the base controller therefor all non-admin controllers
+    /// </summary>
     public class CookieConsentAttribute : ActionFilterAttribute
     {
         public const string ConsentCookieName = "CookieConsent";
@@ -34,6 +37,9 @@ namespace OxTots.Utility
             base.OnActionExecuting(filterContext);
         }
     }
+    /// <summary>
+    /// Convenience class to set the cookie consent
+    /// </summary>
     public static class CookieConsent
     {
         public static void SetConsent(HttpResponseBase response)

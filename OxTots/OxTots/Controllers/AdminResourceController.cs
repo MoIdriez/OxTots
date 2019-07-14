@@ -5,8 +5,15 @@ using OxTots.ViewModel;
 
 namespace OxTots.Controllers
 {
+    /// <summary>
+    /// partial admin page - resource page information
+    /// </summary>
     public partial class AdminController
     {
+        /// <summary>
+        /// Displays the admin resource page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Resource()
         {
             if (!IsLoggedIn)
@@ -21,6 +28,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Method that adds a new resource
+        /// </summary>
+        /// <param name="model">model of new resource with it's information</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ResourceAdd(AdminResourceViewModel model)
@@ -28,6 +40,7 @@ namespace OxTots.Controllers
             if (!IsLoggedIn)
                 return RedirectToAction("Index");
 
+            // the new resource
             var r = new Resource
             {
                 Name = model.Name,
@@ -41,6 +54,7 @@ namespace OxTots.Controllers
                 MainCategory = Db.Categories.Single(c => model.MainCategoryID == c.ID)
             };
 
+            // associating it with a feature
             r.ResourceFeatures = Db.Features.ToList().Select(f => new ResourceFeature
             {
                 Resource = r,
@@ -53,6 +67,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Resource");
         }
 
+        /// <summary>
+        /// Edit a resource
+        /// </summary>
+        /// <param name="model">model with the resource's information</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ResourceEdit(AdminResourceViewModel model)
@@ -77,12 +96,18 @@ namespace OxTots.Controllers
             return RedirectToAction("Resource");
         }
 
+        /// <summary>
+        /// Method to remove existing resource
+        /// </summary>
+        /// <param name="id">id of resrouce being removed</param>
+        /// <returns></returns>
         public ActionResult ResourceRemove(int id)
         {
             if (!IsLoggedIn)
                 return RedirectToAction("Index");
 
             var r = Db.Resources.Single(s => s.ID == id);
+            // remove resource's features and details as well
             Db.ResourceFeatures.RemoveRange(Db.ResourceFeatures.Where(rf => rf.Resource.ID == id).ToList());
             Db.ResourceDetails.RemoveRange(Db.ResourceDetails.Where(rd => rd.Resource.ID == id).ToList());
             Db.Resources.Remove(r);
@@ -90,6 +115,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Resource");
         }
 
+        /// <summary>
+        /// Add or edit resource to category association
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ResourceAssociateCategory(AdminResourceViewModel model)
@@ -112,6 +142,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Resource");
         }
 
+        /// <summary>
+        /// Displays a resource's associated features
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ResourceFeature(AdminResourceViewModel model)
@@ -125,6 +160,11 @@ namespace OxTots.Controllers
             return RedirectToAction("Resource");
         }
 
+        /// <summary>
+        /// Displays a resource's details
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult ResourceDetail(int id)
         {
             if (!IsLoggedIn)
@@ -141,6 +181,11 @@ namespace OxTots.Controllers
             return View(model);
         }
 
+        /// <summary>
+        /// Add a new resource detail
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult ResourceDetailAdd(AdminResourceDetailViewModel model)
@@ -163,6 +208,11 @@ namespace OxTots.Controllers
             return RedirectToAction("ResourceDetail", new { id = model.ResourceID });
         }
 
+        /// <summary>
+        /// Remove a resource's detail
+        /// </summary>
+        /// <param name="id">id of resource detail to be removed</param>
+        /// <returns></returns>
         public ActionResult ResourceDetailRemove(int id)
         {
             if (!IsLoggedIn)
