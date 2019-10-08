@@ -1,0 +1,111 @@
+\hypertarget{class_ox_tots_1_1_controllers_1_1_base_controller}{}\section{Ox\+Tots.\+Controllers.\+Base\+Controller Class Reference}
+\label{class_ox_tots_1_1_controllers_1_1_base_controller}\index{OxTots.Controllers.BaseController@{OxTots.Controllers.BaseController}}
+
+
+Non admin base controller  
+
+
+Inheritance diagram for Ox\+Tots.\+Controllers.\+Base\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.000000cm]{class_ox_tots_1_1_controllers_1_1_base_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_base_controller_a7e272bc100035579372cc08898caf847}{Change\+Language}} (int language\+ID)
+\begin{DoxyCompactList}\small\item\em method to change the language by the language id \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_base_controller_a043816d5d163e0cd1f2e4f56b515cc0a}{Accept\+G\+D\+PR}} ()
+\begin{DoxyCompactList}\small\item\em Method to active when user agrees on G\+D\+PR \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_base_controller_ac4aff41c73d7990af15191f0d3cfc56d}{Set\+Header\+Dark}} ()
+\begin{DoxyCompactList}\small\item\em Sets the header to be dark colour instead of the default transparent \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_base_controller_a31641ef37a646ae083784a225dc9736a}{Set\+Og}} (Og\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Sets the sharing information for that page \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_base_controller_a8e7a155672c62ff211838f9886cb0fe9}\label{class_ox_tots_1_1_controllers_1_1_base_controller_a8e7a155672c62ff211838f9886cb0fe9}} 
+Site\+Context {\bfseries Db} = new Site\+Context()
+\item 
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_base_controller_a88bb01f1fc9b0447ce3f905e581a000b}\label{class_ox_tots_1_1_controllers_1_1_base_controller_a88bb01f1fc9b0447ce3f905e581a000b}} 
+int {\bfseries Default\+Language\+ID} =$>$ Db.\+Languages.\+First().ID
+\end{DoxyCompactItemize}
+\subsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_base_controller_a2643b2da7a7a2853b87731f44f649d46}\label{class_ox_tots_1_1_controllers_1_1_base_controller_a2643b2da7a7a2853b87731f44f649d46}} 
+int {\bfseries User\+Language\+ID}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Non admin base controller 
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_base_controller_a043816d5d163e0cd1f2e4f56b515cc0a}\label{class_ox_tots_1_1_controllers_1_1_base_controller_a043816d5d163e0cd1f2e4f56b515cc0a}} 
+\index{OxTots.Controllers.BaseController@{OxTots.Controllers.BaseController}!AcceptGDPR@{AcceptGDPR}}
+\index{AcceptGDPR@{AcceptGDPR}!OxTots.Controllers.BaseController@{OxTots.Controllers.BaseController}}
+\subsubsection{\texorpdfstring{AcceptGDPR()}{AcceptGDPR()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Base\+Controller.\+Accept\+G\+D\+PR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to active when user agrees on G\+D\+PR 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_base_controller_a7e272bc100035579372cc08898caf847}\label{class_ox_tots_1_1_controllers_1_1_base_controller_a7e272bc100035579372cc08898caf847}} 
+\index{OxTots.Controllers.BaseController@{OxTots.Controllers.BaseController}!ChangeLanguage@{ChangeLanguage}}
+\index{ChangeLanguage@{ChangeLanguage}!OxTots.Controllers.BaseController@{OxTots.Controllers.BaseController}}
+\subsubsection{\texorpdfstring{ChangeLanguage()}{ChangeLanguage()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Base\+Controller.\+Change\+Language (\begin{DoxyParamCaption}\item[{int}]{language\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+method to change the language by the language id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em language\+ID} & id of selected language\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_base_controller_ac4aff41c73d7990af15191f0d3cfc56d}\label{class_ox_tots_1_1_controllers_1_1_base_controller_ac4aff41c73d7990af15191f0d3cfc56d}} 
+\index{OxTots.Controllers.BaseController@{OxTots.Controllers.BaseController}!SetHeaderDark@{SetHeaderDark}}
+\index{SetHeaderDark@{SetHeaderDark}!OxTots.Controllers.BaseController@{OxTots.Controllers.BaseController}}
+\subsubsection{\texorpdfstring{SetHeaderDark()}{SetHeaderDark()}}
+{\footnotesize\ttfamily void Ox\+Tots.\+Controllers.\+Base\+Controller.\+Set\+Header\+Dark (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the header to be dark colour instead of the default transparent 
+
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_base_controller_a31641ef37a646ae083784a225dc9736a}\label{class_ox_tots_1_1_controllers_1_1_base_controller_a31641ef37a646ae083784a225dc9736a}} 
+\index{OxTots.Controllers.BaseController@{OxTots.Controllers.BaseController}!SetOg@{SetOg}}
+\index{SetOg@{SetOg}!OxTots.Controllers.BaseController@{OxTots.Controllers.BaseController}}
+\subsubsection{\texorpdfstring{SetOg()}{SetOg()}}
+{\footnotesize\ttfamily void Ox\+Tots.\+Controllers.\+Base\+Controller.\+Set\+Og (\begin{DoxyParamCaption}\item[{Og\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Sets the sharing information for that page 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Ox\+Tots/\+Ox\+Tots/\+Controllers/Base\+Controller.\+cs\end{DoxyCompactItemize}

@@ -1,0 +1,826 @@
+\hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller}{}\section{Ox\+Tots.\+Controllers.\+Admin\+Controller Class Reference}
+\label{class_ox_tots_1_1_controllers_1_1_admin_controller}\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+
+
+partial admin page -\/ category page information  
+
+
+Inheritance diagram for Ox\+Tots.\+Controllers.\+Admin\+Controller\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ox_tots_1_1_controllers_1_1_admin_controller}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_ac38aae229fe5869fe0d6ac580c858514}{Category}} ()
+\begin{DoxyCompactList}\small\item\em Displays the admin category page \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a8391a76834fbfc7dcf925155044e5052}{Category\+Add}} (Admin\+Category\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Method is called to add a new category \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a1065f8741cd20be9825bdb06f5aa075e}{Category\+Edit}} (Admin\+Category\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Method to edit the selected category by ID \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a5a5526ec01691eded66fa9aee851639c}{Category\+Remove}} (int id)
+\begin{DoxyCompactList}\small\item\em Remove category \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a6eba9f7bd9b3e167cf0f9fbc1eff1a23}{Category\+Detail}} (int id)
+\begin{DoxyCompactList}\small\item\em Displays a category\textquotesingle{}s detail page \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a2991fd1b26f3f2b5f655be11195fecef}{Category\+Detail\+Add}} (Admin\+Category\+Detail\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Adds a new category detail \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_aa0ecd42e85b6defa974871c6b10c2e2a}{Category\+Detail\+Edit}} (Admin\+Category\+Detail\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Edits a new category \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a996e0fd06c3b3a4689c8d34e17be8b3e}{Category\+Detail\+Remove}} (int id)
+\begin{DoxyCompactList}\small\item\em Remove a category detail \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a54c0e90ba396562dcafac0839bdb4b61}{Index}} ()
+\begin{DoxyCompactList}\small\item\em admin index page \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_abfbe3370ec891ee42b4a842a1b294797}{Logout}} ()
+\begin{DoxyCompactList}\small\item\em Logout method sets cookie to false \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a7684ac84cb566b754ced7a3fbf2cfe45}{Login}} (Admin\+Login\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Method to check the login details given \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a477e22f8c8c613cdb4d9fd5627268f25}{Main}} ()
+\begin{DoxyCompactList}\small\item\em Main method that displays all the admin page subsections \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_ab325e78a1c8c85393b5e4fd81d33307d}{Submission}} ()
+\begin{DoxyCompactList}\small\item\em Submission admin page \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a9d7879d9489418324413328fe639eb73}{Submission\+Remove}} (int id)
+\begin{DoxyCompactList}\small\item\em Remove a submission by id \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a5a8967807e7285c22bc579b6ede0414c}{Contact}} ()
+\begin{DoxyCompactList}\small\item\em Contact admin page \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_ad74cf7ee9d9408aaaf2ea22f1e843b75}{Contact\+Remove}} (int id)
+\begin{DoxyCompactList}\small\item\em Remove a contact by id \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_aca6680a839cb3258b6c48608085b9346}{Language}} ()
+\begin{DoxyCompactList}\small\item\em Language admin page \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a5b1c1aad12cca1e288ab2a90c85340d3}{Language\+Remove}} (int id)
+\begin{DoxyCompactList}\small\item\em Remove a language by id \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a42ef443e84ddb7761c994fea092b8565}{Language\+Add}} (Admin\+Language\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Add a new language \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_af0ec3d77f9da1d2496ef9f9a194ebb4e}{Language\+Edit}} (Admin\+Language\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Edit an existing language \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_ad24e4fde877f19b3bea0ec8bc25c7b43}{Feature}} ()
+\begin{DoxyCompactList}\small\item\em partial admin page -\/ feature page information \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a74ad302e5680cccb55042bcaef8ae30b}{Feature\+Add}} (Admin\+Feature\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Add a new feature \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a2d1cd45eee7bb3effb5533c83cefb4cd}{Feature\+Edit}} (Admin\+Feature\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Edit an existing feature \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a8b9ff7a6f6670bebc3c057faccdd982d}{Feature\+Remove}} (int id)
+\begin{DoxyCompactList}\small\item\em Method to remove feature \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a8aed7563cb97277b6cea0248808d9c13}{Feature\+Detail}} (int id)
+\begin{DoxyCompactList}\small\item\em Show the feature\textquotesingle{}s details \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_aacbafa114edfc14dd62f5213d311c3af}{Feature\+Detail\+Add}} (Admin\+Feature\+Detail\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em add a new feature detail \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_adb1348c5710499cfe0ff85d72c00c8b2}{Feature\+Detail\+Remove}} (int id)
+\begin{DoxyCompactList}\small\item\em Remove a feature\textquotesingle{}s details \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_ae0bdff5f4ace8447c16e89cfd50c7f80}{Page}} ()
+\begin{DoxyCompactList}\small\item\em partial admin page -\/ general page information \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a7235fdd29f1eef059766d124082bf26b}{Page\+Add}} ()
+\begin{DoxyCompactList}\small\item\em Page to add a new translation for the general pages \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a1a17d285ff2f06ee28c6a27481a92223}{Page\+Add}} (Admin\+Page\+Add\+Model model)
+\begin{DoxyCompactList}\small\item\em add a new page translation \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_ab994090c83d0323dbcbac77d15818361}{Page\+Edit}} (int id)
+\begin{DoxyCompactList}\small\item\em Edit existing page translation -\/ form page \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_ab6290bc1c576a764a0928f61b5b2e801}{Page\+Edit}} (Admin\+Page\+Add\+Model model)
+\begin{DoxyCompactList}\small\item\em Edit existing page translation \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a42a5cf1ccab7cc18cdd5b1ccdd5b3287}{Page\+Remove}} (int id)
+\begin{DoxyCompactList}\small\item\em Remove existing page \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_ac9882a823484bb9c8b4aa5d69d9acb3c}{Resource}} ()
+\begin{DoxyCompactList}\small\item\em Displays the admin resource page \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a8077cc90ebef79e6d89a7ea0c4d4685a}{Resource\+Add}} (Admin\+Resource\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Method that adds a new resource \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a987f062c86e60140596a7941670d3995}{Resource\+Edit}} (Admin\+Resource\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Edit a resource \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a4af2a0f2d61212e1170629cff6b6600c}{Resource\+Remove}} (int id)
+\begin{DoxyCompactList}\small\item\em Method to remove existing resource \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a0ff5ac2ffad66d36d8116d95354e3276}{Resource\+Associate\+Category}} (Admin\+Resource\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Add or edit resource to category association \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a4cdef49790ac2650df4ba4d4a8421852}{Resource\+Feature}} (Admin\+Resource\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Displays a resource\textquotesingle{}s associated features \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a279bcb46454167cff4955aaf42927033}{Resource\+Detail}} (int id)
+\begin{DoxyCompactList}\small\item\em Displays a resource\textquotesingle{}s details \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a9a86a506025cb853c3b7987c9e03ac03}{Resource\+Detail\+Add}} (Admin\+Resource\+Detail\+View\+Model model)
+\begin{DoxyCompactList}\small\item\em Add a new resource detail \end{DoxyCompactList}\item 
+Action\+Result \mbox{\hyperlink{class_ox_tots_1_1_controllers_1_1_admin_controller_a09639546af12d3452cd91d5cdc0b1d69}{Resource\+Detail\+Remove}} (int id)
+\begin{DoxyCompactList}\small\item\em Remove a resource\textquotesingle{}s detail \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_abc8722a4e0ed8a2f9cc1b43673169524}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_abc8722a4e0ed8a2f9cc1b43673169524}} 
+Site\+Context {\bfseries Db} = new Site\+Context()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+partial admin page -\/ category page information 
+
+partial admin page -\/ resource page information
+
+partial admin page -\/ main page information
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_ac38aae229fe5869fe0d6ac580c858514}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_ac38aae229fe5869fe0d6ac580c858514}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Category@{Category}}
+\index{Category@{Category}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Category()}{Category()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Category (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the admin category page 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a8391a76834fbfc7dcf925155044e5052}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a8391a76834fbfc7dcf925155044e5052}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!CategoryAdd@{CategoryAdd}}
+\index{CategoryAdd@{CategoryAdd}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{CategoryAdd()}{CategoryAdd()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Category\+Add (\begin{DoxyParamCaption}\item[{Admin\+Category\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method is called to add a new category 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & viewmodel with category name and icon\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+back to category method
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a6eba9f7bd9b3e167cf0f9fbc1eff1a23}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a6eba9f7bd9b3e167cf0f9fbc1eff1a23}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!CategoryDetail@{CategoryDetail}}
+\index{CategoryDetail@{CategoryDetail}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{CategoryDetail()}{CategoryDetail()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Category\+Detail (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays a category\textquotesingle{}s detail page 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a2991fd1b26f3f2b5f655be11195fecef}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a2991fd1b26f3f2b5f655be11195fecef}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!CategoryDetailAdd@{CategoryDetailAdd}}
+\index{CategoryDetailAdd@{CategoryDetailAdd}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{CategoryDetailAdd()}{CategoryDetailAdd()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Category\+Detail\+Add (\begin{DoxyParamCaption}\item[{Admin\+Category\+Detail\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a new category detail 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_aa0ecd42e85b6defa974871c6b10c2e2a}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_aa0ecd42e85b6defa974871c6b10c2e2a}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!CategoryDetailEdit@{CategoryDetailEdit}}
+\index{CategoryDetailEdit@{CategoryDetailEdit}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{CategoryDetailEdit()}{CategoryDetailEdit()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Category\+Detail\+Edit (\begin{DoxyParamCaption}\item[{Admin\+Category\+Detail\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Edits a new category 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a996e0fd06c3b3a4689c8d34e17be8b3e}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a996e0fd06c3b3a4689c8d34e17be8b3e}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!CategoryDetailRemove@{CategoryDetailRemove}}
+\index{CategoryDetailRemove@{CategoryDetailRemove}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{CategoryDetailRemove()}{CategoryDetailRemove()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Category\+Detail\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a category detail 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of the category detail to be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a1065f8741cd20be9825bdb06f5aa075e}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a1065f8741cd20be9825bdb06f5aa075e}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!CategoryEdit@{CategoryEdit}}
+\index{CategoryEdit@{CategoryEdit}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{CategoryEdit()}{CategoryEdit()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Category\+Edit (\begin{DoxyParamCaption}\item[{Admin\+Category\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to edit the selected category by ID 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & viewmodel with category name, icon, id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a5a5526ec01691eded66fa9aee851639c}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a5a5526ec01691eded66fa9aee851639c}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!CategoryRemove@{CategoryRemove}}
+\index{CategoryRemove@{CategoryRemove}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{CategoryRemove()}{CategoryRemove()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Category\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove category 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & category id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a5a8967807e7285c22bc579b6ede0414c}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a5a8967807e7285c22bc579b6ede0414c}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Contact@{Contact}}
+\index{Contact@{Contact}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Contact()}{Contact()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Contact (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Contact admin page 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_ad74cf7ee9d9408aaaf2ea22f1e843b75}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_ad74cf7ee9d9408aaaf2ea22f1e843b75}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!ContactRemove@{ContactRemove}}
+\index{ContactRemove@{ContactRemove}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{ContactRemove()}{ContactRemove()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Contact\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a contact by id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of contact to be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_ad24e4fde877f19b3bea0ec8bc25c7b43}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_ad24e4fde877f19b3bea0ec8bc25c7b43}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Feature@{Feature}}
+\index{Feature@{Feature}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Feature()}{Feature()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Feature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+partial admin page -\/ feature page information 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a74ad302e5680cccb55042bcaef8ae30b}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a74ad302e5680cccb55042bcaef8ae30b}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!FeatureAdd@{FeatureAdd}}
+\index{FeatureAdd@{FeatureAdd}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{FeatureAdd()}{FeatureAdd()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Feature\+Add (\begin{DoxyParamCaption}\item[{Admin\+Feature\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new feature 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & model with new features name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a8aed7563cb97277b6cea0248808d9c13}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a8aed7563cb97277b6cea0248808d9c13}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!FeatureDetail@{FeatureDetail}}
+\index{FeatureDetail@{FeatureDetail}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{FeatureDetail()}{FeatureDetail()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Feature\+Detail (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Show the feature\textquotesingle{}s details 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of feature\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_aacbafa114edfc14dd62f5213d311c3af}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_aacbafa114edfc14dd62f5213d311c3af}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!FeatureDetailAdd@{FeatureDetailAdd}}
+\index{FeatureDetailAdd@{FeatureDetailAdd}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{FeatureDetailAdd()}{FeatureDetailAdd()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Feature\+Detail\+Add (\begin{DoxyParamCaption}\item[{Admin\+Feature\+Detail\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add a new feature detail 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & model of new feature with title, language id and feature id\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_adb1348c5710499cfe0ff85d72c00c8b2}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_adb1348c5710499cfe0ff85d72c00c8b2}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!FeatureDetailRemove@{FeatureDetailRemove}}
+\index{FeatureDetailRemove@{FeatureDetailRemove}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{FeatureDetailRemove()}{FeatureDetailRemove()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Feature\+Detail\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a feature\textquotesingle{}s details 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of the feature detail to be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a2d1cd45eee7bb3effb5533c83cefb4cd}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a2d1cd45eee7bb3effb5533c83cefb4cd}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!FeatureEdit@{FeatureEdit}}
+\index{FeatureEdit@{FeatureEdit}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{FeatureEdit()}{FeatureEdit()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Feature\+Edit (\begin{DoxyParamCaption}\item[{Admin\+Feature\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Edit an existing feature 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & model with the feature id and name\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a8b9ff7a6f6670bebc3c057faccdd982d}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a8b9ff7a6f6670bebc3c057faccdd982d}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!FeatureRemove@{FeatureRemove}}
+\index{FeatureRemove@{FeatureRemove}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{FeatureRemove()}{FeatureRemove()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Feature\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to remove feature 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of feature to be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a54c0e90ba396562dcafac0839bdb4b61}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a54c0e90ba396562dcafac0839bdb4b61}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Index@{Index}}
+\index{Index@{Index}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Index()}{Index()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+admin index page 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_aca6680a839cb3258b6c48608085b9346}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_aca6680a839cb3258b6c48608085b9346}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Language@{Language}}
+\index{Language@{Language}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Language()}{Language()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Language (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Language admin page 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a42ef443e84ddb7761c994fea092b8565}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a42ef443e84ddb7761c994fea092b8565}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!LanguageAdd@{LanguageAdd}}
+\index{LanguageAdd@{LanguageAdd}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{LanguageAdd()}{LanguageAdd()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Language\+Add (\begin{DoxyParamCaption}\item[{Admin\+Language\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new language 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & model with the new language\textquotesingle{}s name, icon and direction\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_af0ec3d77f9da1d2496ef9f9a194ebb4e}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_af0ec3d77f9da1d2496ef9f9a194ebb4e}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!LanguageEdit@{LanguageEdit}}
+\index{LanguageEdit@{LanguageEdit}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{LanguageEdit()}{LanguageEdit()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Language\+Edit (\begin{DoxyParamCaption}\item[{Admin\+Language\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Edit an existing language 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & model with the edit information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a5b1c1aad12cca1e288ab2a90c85340d3}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a5b1c1aad12cca1e288ab2a90c85340d3}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!LanguageRemove@{LanguageRemove}}
+\index{LanguageRemove@{LanguageRemove}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{LanguageRemove()}{LanguageRemove()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Language\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a language by id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of language to be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a7684ac84cb566b754ced7a3fbf2cfe45}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a7684ac84cb566b754ced7a3fbf2cfe45}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Login@{Login}}
+\index{Login@{Login}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Login()}{Login()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Login (\begin{DoxyParamCaption}\item[{Admin\+Login\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to check the login details given 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_abfbe3370ec891ee42b4a842a1b294797}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_abfbe3370ec891ee42b4a842a1b294797}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Logout@{Logout}}
+\index{Logout@{Logout}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Logout()}{Logout()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Logout (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Logout method sets cookie to false 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a477e22f8c8c613cdb4d9fd5627268f25}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a477e22f8c8c613cdb4d9fd5627268f25}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Main@{Main}}
+\index{Main@{Main}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Main()}{Main()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Main method that displays all the admin page subsections 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_ae0bdff5f4ace8447c16e89cfd50c7f80}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_ae0bdff5f4ace8447c16e89cfd50c7f80}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Page@{Page}}
+\index{Page@{Page}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Page()}{Page()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Page (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+partial admin page -\/ general page information 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a7235fdd29f1eef059766d124082bf26b}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a7235fdd29f1eef059766d124082bf26b}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!PageAdd@{PageAdd}}
+\index{PageAdd@{PageAdd}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{PageAdd()}{PageAdd()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Page\+Add (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Page to add a new translation for the general pages 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a1a17d285ff2f06ee28c6a27481a92223}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a1a17d285ff2f06ee28c6a27481a92223}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!PageAdd@{PageAdd}}
+\index{PageAdd@{PageAdd}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{PageAdd()}{PageAdd()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Page\+Add (\begin{DoxyParamCaption}\item[{Admin\+Page\+Add\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add a new page translation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & model with new page translation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_ab994090c83d0323dbcbac77d15818361}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_ab994090c83d0323dbcbac77d15818361}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!PageEdit@{PageEdit}}
+\index{PageEdit@{PageEdit}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{PageEdit()}{PageEdit()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Page\+Edit (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Edit existing page translation -\/ form page 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & page id that is edited\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_ab6290bc1c576a764a0928f61b5b2e801}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_ab6290bc1c576a764a0928f61b5b2e801}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!PageEdit@{PageEdit}}
+\index{PageEdit@{PageEdit}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{PageEdit()}{PageEdit()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Page\+Edit (\begin{DoxyParamCaption}\item[{Admin\+Page\+Add\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Edit existing page translation 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & model with edit page translation\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a42a5cf1ccab7cc18cdd5b1ccdd5b3287}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a42a5cf1ccab7cc18cdd5b1ccdd5b3287}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!PageRemove@{PageRemove}}
+\index{PageRemove@{PageRemove}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{PageRemove()}{PageRemove()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Page\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove existing page 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & page id to be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_ac9882a823484bb9c8b4aa5d69d9acb3c}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_ac9882a823484bb9c8b4aa5d69d9acb3c}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Resource@{Resource}}
+\index{Resource@{Resource}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Resource()}{Resource()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays the admin resource page 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a8077cc90ebef79e6d89a7ea0c4d4685a}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a8077cc90ebef79e6d89a7ea0c4d4685a}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!ResourceAdd@{ResourceAdd}}
+\index{ResourceAdd@{ResourceAdd}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{ResourceAdd()}{ResourceAdd()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Resource\+Add (\begin{DoxyParamCaption}\item[{Admin\+Resource\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method that adds a new resource 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & model of new resource with it\textquotesingle{}s information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a0ff5ac2ffad66d36d8116d95354e3276}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a0ff5ac2ffad66d36d8116d95354e3276}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!ResourceAssociateCategory@{ResourceAssociateCategory}}
+\index{ResourceAssociateCategory@{ResourceAssociateCategory}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{ResourceAssociateCategory()}{ResourceAssociateCategory()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Resource\+Associate\+Category (\begin{DoxyParamCaption}\item[{Admin\+Resource\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add or edit resource to category association 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a279bcb46454167cff4955aaf42927033}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a279bcb46454167cff4955aaf42927033}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!ResourceDetail@{ResourceDetail}}
+\index{ResourceDetail@{ResourceDetail}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{ResourceDetail()}{ResourceDetail()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Resource\+Detail (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays a resource\textquotesingle{}s details 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a9a86a506025cb853c3b7987c9e03ac03}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a9a86a506025cb853c3b7987c9e03ac03}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!ResourceDetailAdd@{ResourceDetailAdd}}
+\index{ResourceDetailAdd@{ResourceDetailAdd}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{ResourceDetailAdd()}{ResourceDetailAdd()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Resource\+Detail\+Add (\begin{DoxyParamCaption}\item[{Admin\+Resource\+Detail\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add a new resource detail 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a09639546af12d3452cd91d5cdc0b1d69}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a09639546af12d3452cd91d5cdc0b1d69}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!ResourceDetailRemove@{ResourceDetailRemove}}
+\index{ResourceDetailRemove@{ResourceDetailRemove}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{ResourceDetailRemove()}{ResourceDetailRemove()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Resource\+Detail\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a resource\textquotesingle{}s detail 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of resource detail to be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a987f062c86e60140596a7941670d3995}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a987f062c86e60140596a7941670d3995}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!ResourceEdit@{ResourceEdit}}
+\index{ResourceEdit@{ResourceEdit}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{ResourceEdit()}{ResourceEdit()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Resource\+Edit (\begin{DoxyParamCaption}\item[{Admin\+Resource\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Edit a resource 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & model with the resource\textquotesingle{}s information\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a4cdef49790ac2650df4ba4d4a8421852}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a4cdef49790ac2650df4ba4d4a8421852}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!ResourceFeature@{ResourceFeature}}
+\index{ResourceFeature@{ResourceFeature}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{ResourceFeature()}{ResourceFeature()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Resource\+Feature (\begin{DoxyParamCaption}\item[{Admin\+Resource\+View\+Model}]{model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Displays a resource\textquotesingle{}s associated features 
+
+
+\begin{DoxyParams}{Parameters}
+{\em model} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a4af2a0f2d61212e1170629cff6b6600c}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a4af2a0f2d61212e1170629cff6b6600c}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!ResourceRemove@{ResourceRemove}}
+\index{ResourceRemove@{ResourceRemove}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{ResourceRemove()}{ResourceRemove()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Resource\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Method to remove existing resource 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of resrouce being removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_ab325e78a1c8c85393b5e4fd81d33307d}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_ab325e78a1c8c85393b5e4fd81d33307d}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!Submission@{Submission}}
+\index{Submission@{Submission}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{Submission()}{Submission()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Submission (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Submission admin page 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ox_tots_1_1_controllers_1_1_admin_controller_a9d7879d9489418324413328fe639eb73}\label{class_ox_tots_1_1_controllers_1_1_admin_controller_a9d7879d9489418324413328fe639eb73}} 
+\index{OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}!SubmissionRemove@{SubmissionRemove}}
+\index{SubmissionRemove@{SubmissionRemove}!OxTots.Controllers.AdminController@{OxTots.Controllers.AdminController}}
+\subsubsection{\texorpdfstring{SubmissionRemove()}{SubmissionRemove()}}
+{\footnotesize\ttfamily Action\+Result Ox\+Tots.\+Controllers.\+Admin\+Controller.\+Submission\+Remove (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Remove a submission by id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & id of submission to be removed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Ox\+Tots/\+Ox\+Tots/\+Controllers/Admin\+Category\+Controller.\+cs\item 
+Ox\+Tots/\+Ox\+Tots/\+Controllers/Admin\+Controller.\+cs\item 
+Ox\+Tots/\+Ox\+Tots/\+Controllers/Admin\+Feature\+Controller.\+cs\item 
+Ox\+Tots/\+Ox\+Tots/\+Controllers/Admin\+Page\+Controller.\+cs\item 
+Ox\+Tots/\+Ox\+Tots/\+Controllers/Admin\+Resource\+Controller.\+cs\end{DoxyCompactItemize}
